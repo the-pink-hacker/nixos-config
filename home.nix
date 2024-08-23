@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
     home = {
@@ -22,8 +22,8 @@
        userName = "Pink Garrett";
        userEmail = "pink@thepinkhacker.com";
        signing = {
-       	signByDefault = true;
-   	key = "15BD92A4C6319F2A1847E84B4BB613B0CF20EE3D";
+       	  signByDefault = true;
+   	  key = "15BD92A4C6319F2A1847E84B4BB613B0CF20EE3D";
        };
        extraConfig = {
            init.defaultBranch = "main";
@@ -62,6 +62,8 @@
 
    programs.neovim = {
        enable = true;
+       # Unstable to get inlay hints
+       package = unstable.neovim-unwrapped;
        defaultEditor = true;
        viAlias = true;
        vimAlias = true;
@@ -71,7 +73,6 @@
    	autocmd BufWritePre * lua vim.lsp.buf.format()
        '';
        extraLuaConfig = ''
-           --[[
        	vim.api.nvim_create_autocmd("LspAttach", {
                group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                callback = function(args)
@@ -81,7 +82,6 @@
                    end
                end
            })
-   	--]]
 
            -- Telescope
    	local builtin = require("telescope.builtin")
