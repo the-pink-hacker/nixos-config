@@ -147,6 +147,7 @@
 	blender
         hunspell
         hunspellDicts.en_US
+        ffmpeg
     ];
 
     xdg.portal = {
