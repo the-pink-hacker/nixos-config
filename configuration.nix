@@ -127,6 +127,9 @@
 	    upnpy
 	    hjson
 	    pillow
+            requests
+            tkinter
+            jsonschema
 	]))
 	glfw
 	openal
