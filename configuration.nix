@@ -84,12 +84,13 @@
         jack.enable = true;
     };
     
-    # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.pink = {
         isNormalUser = true;
         description = "Pink Garrett";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [];
+        packages = with pkgs; [
+            libreoffice-qt
+        ];
     };
 
     # Allow unfree packages
@@ -144,6 +145,8 @@
 	mono
 	gnumake
 	blender
+        hunspell
+        hunspellDicts.en_US
     ];
 
     xdg.portal = {
