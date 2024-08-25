@@ -90,6 +90,25 @@
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [
             libreoffice-qt
+	    vscode
+	    vlc
+	    spotify
+	    discord
+	    neofetch
+	    tokodon
+	    kdeconnect
+	    blockbench
+	    atlauncher
+	    glfw
+	    openal
+	    obsidian
+	    gimp
+	    thunderbird
+	    gnome.ghex
+	    wine
+	    winetricks
+	    blender
+            xorg.xeyes
         ];
     };
 
@@ -111,18 +130,9 @@
 	tree-sitter
         gh
         neovim
-	vscode
 	gnupg1
-	spotify
-	discord
 	pinentry-qt
-	neofetch
-	tokodon
 	wl-clipboard-rs
-	kdeconnect
-	blockbench
-	#vlc
-	atlauncher
 	(python3.withPackages (python-pkgs: with python-pkgs; [
 	    upnpy
 	    hjson
@@ -131,23 +141,14 @@
             tkinter
             jsonschema
 	]))
-	glfw
-	openal
 	rustup
 	sccache
 	clang
 	cmake
 	tree
-	obsidian
-	gimp
 	firewalld
-	thunderbird
-	gnome.ghex
-	wine
-	winetricks
 	mono
 	gnumake
-	blender
         hunspell
         hunspellDicts.en_US
         ffmpeg
