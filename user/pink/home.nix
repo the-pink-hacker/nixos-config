@@ -19,7 +19,7 @@
 
      programs.neovim = {
          enable = true;
-         # Unstable to get inlay hints
+         # UNSTABLE: Inlay hints
          package = unstable.neovim-unwrapped;
          defaultEditor = true;
          viAlias = true;
@@ -103,7 +103,17 @@
     
     services.espanso = {
         enable = true;
-        package = pkgs.espanso-wayland;
+        # UNSTABLE: Fix crash on startup
+        package = unstable.espanso-wayland;
+        configs = {
+            default = {
+                keyboard_layout = {
+                    layout = "us";
+                    rules = "evdev";
+                    model = "pc105";
+                };
+            };
+        };
         matches = {
             default = import ../../config/espanso/default.nix;
         };

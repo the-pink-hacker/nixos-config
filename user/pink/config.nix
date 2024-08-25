@@ -65,7 +65,11 @@
     users.users.pink = {
         isNormalUser = true;
         description = "Pink Garrett";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [
+            "networkmanager"
+            "wheel"
+            "input"
+        ];
         packages = with pkgs; [
             libreoffice-qt
 	    vscode
