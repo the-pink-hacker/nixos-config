@@ -154,7 +154,7 @@
         packages = with pkgs; [
             powerline-fonts
             noto-fonts
-            noto-fonts-emoji
+            noto-fonts-color-emoji
             noto-fonts-cjk
         ];
 
@@ -163,7 +163,7 @@
                 serif = [ "Noto Serif" ];
                 sansSerif = [ "Noto Sans" ];
                 monospace = [ "Meslo LG L DZ for Powerline" ];
-                emoji = [ "Noto Emoji" ];
+                emoji = [ "Noto Color Emoji" ];
             };
 	};
     };
