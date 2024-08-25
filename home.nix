@@ -70,7 +70,7 @@
        extraConfig = ''
            set shiftwidth=4 smarttab expandtab tabstop=8 softtabstop=0
            set clipboard+=unnamedplus
-   	autocmd BufWritePre * lua vim.lsp.buf.format()
+   	   autocmd BufWritePre * lua vim.lsp.buf.format()
        '';
        extraLuaConfig = ''
        	vim.api.nvim_create_autocmd("LspAttach", {
@@ -78,7 +78,7 @@
                callback = function(args)
                    local client = vim.lsp.get_client_by_id(args.data.client_id)
                    if client.server_capabilities.inlayHintProvider then
-                       vim.lsp.inlay_hint.enable(args.buf, true)
+                       vim.lsp.inlay_hint.enable()
                    end
                end
            })
@@ -91,6 +91,7 @@
    	vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
            -- Rust tools
+        --[[
    	local rt = require("rust-tools")
 
    	rt.setup({
@@ -103,6 +104,7 @@
    	        end,
    	    },
    	})
+        ]]--
 
    	-- LSP Diagnostics Options Setup 
            local sign = function(opts)
@@ -228,10 +230,10 @@
        withNodeJs = true;
 
        plugins = with pkgs.vimPlugins; [
-       	rust-tools-nvim
-   	#rustaceanvim
-           nvim-treesitter
-           nvim-treesitter-parsers.rust
+       	#rust-tools-nvim
+   	rustaceanvim
+        nvim-treesitter
+        nvim-treesitter-parsers.rust
    	nvim-treesitter-parsers.json
    	nvim-treesitter-parsers.toml
    	nvim-treesitter-parsers.python
