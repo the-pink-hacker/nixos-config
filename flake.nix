@@ -20,16 +20,17 @@
             inherit system;
             specialArgs = { inherit unstable; };
 	    modules = [
-	    	./configuration.nix
-		./nvidia.nix
-		./hardware-configuration.nix
+	    	./user/pink/config.nix
+		./hardware/nvidia.nix
+		./machine/pink-nixos-desktop/hardware-generated.nix
+		./machine/pink-nixos-desktop/hardware.nix
 		home-manager.nixosModules.home-manager
 		{
 		    home-manager = {
 		        useGlobalPkgs = true;
 			useUserPackages = true;
                         extraSpecialArgs = { inherit unstable; };
-			users.pink = import ./home.nix;
+			users.pink = import ./user/pink/home.nix;
 		    };
 		}
 	    ];

@@ -1,34 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
-    fileSystems."/mnt/Documents0" = {
-        device = "/dev/disk/by-uuid/78e98f36-e6fb-465c-86f7-26524ebcad5b";
-        fsType = "ext4";
-        options = [
-	    "user"
-	    "users"
-	    "nofail"
-	];
-    };
-
-    fileSystems."/mnt/Documents1" = {
-        device = "/dev/disk/by-uuid/661a481f-7f16-4f3a-8de6-f52d4de8c856";
-        fsType = "ext4";
-        options = [
-	    "user"
-	    "users"
-	    "nofail"
-	];
-    };
-    
     # Enable networking
     networking = {
         hostName = "pink-nixos-desktop";
@@ -83,6 +59,8 @@
         pulse.enable = true;
         jack.enable = true;
     };
+
+    nixpkgs.config.allowUnfree = true;
     
     users.users.pink = {
         isNormalUser = true;
@@ -112,16 +90,11 @@
         ];
     };
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
-
     programs.firefox = {
         enable = true;
         nativeMessagingHosts.packages = with pkgs; [ passff-host ];
     };
     
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
     environment.systemPackages = with pkgs; [
     	(pass.withExtensions (exts: with exts; [ pass-otp ]))
 	os-prober
