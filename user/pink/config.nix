@@ -75,7 +75,6 @@
 	    discord
 	    neofetch
 	    tokodon
-	    kdeconnect
 	    blockbench
 	    atlauncher
 	    glfw
@@ -90,6 +89,8 @@
             xorg.xeyes
         ];
     };
+
+    programs.kdeconnect.enable = true;
 
     programs.firefox = {
         enable = true;
