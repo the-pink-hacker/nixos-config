@@ -1,5 +1,5 @@
 { ... }:
 
 {
-    networking.hostName = "pink-nixos-desktop";
+    networking.hostName = "pink-nixos-laptop";
 }
