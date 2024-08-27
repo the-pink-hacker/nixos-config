@@ -6,10 +6,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Enable networking
-    networking = {
-        hostName = "pink-nixos-desktop";
-        networkmanager.enable = true;
-    };
+    networking.networkmanager.enable = true;
     
     # Set your time zone.
     time.timeZone = "America/Indiana/Indianapolis";

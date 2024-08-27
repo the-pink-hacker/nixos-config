@@ -35,5 +35,24 @@
 		}
 	    ];
 	};
+
+    	nixosConfigurations.pink-nixos-laptop = nixpkgs.lib.nixosSystem {
+            inherit system;
+            specialArgs = { inherit unstable; };
+	    modules = [
+	    	./user/pink/config.nix
+		./machine/pink-nixos-laptop/hardware-generated.nix
+		./machine/pink-nixos-laptop/hardware.nix
+		home-manager.nixosModules.home-manager
+		{
+		    home-manager = {
+		        useGlobalPkgs = true;
+			useUserPackages = true;
+                        extraSpecialArgs = { inherit unstable; };
+			users.pink = import ./user/pink/home.nix;
+		    };
+		}
+	    ];
+	};
     };
 }

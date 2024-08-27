@@ -20,4 +20,6 @@
 	    "nofail"
 	];
     };
+
+    networking.hostName = "pink-nixos-desktop";
 }
