@@ -41,6 +41,7 @@
             specialArgs = { inherit unstable; };
 	    modules = [
 	    	./user/pink/config.nix
+                ./hardware/fingerprint.nix
 		./machine/pink-nixos-laptop/hardware-generated.nix
 		./machine/pink-nixos-laptop/hardware.nix
 		home-manager.nixosModules.home-manager
