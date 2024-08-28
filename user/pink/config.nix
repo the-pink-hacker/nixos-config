@@ -83,8 +83,8 @@
 	    gimp
 	    thunderbird
 	    gnome.ghex
-	    wine
 	    winetricks
+            wineWowPackages.waylandFull
 	    blender
             xorg.xeyes
         ];
