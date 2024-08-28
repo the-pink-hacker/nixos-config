@@ -74,7 +74,6 @@
 	    vscode
 	    vlc
 	    spotify
-	    discord
 	    neofetch
 	    tokodon
 	    atlauncher

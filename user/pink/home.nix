@@ -3,6 +3,7 @@
 {
     imports = [
         ../../config/blockbench.nix
+        ../../config/discord.nix
         ../../config/espanso.nix
         ../../config/neovim.nix
         ../../config/zsh.nix
