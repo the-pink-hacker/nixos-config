@@ -3,6 +3,8 @@
 {
     home.packages = [ pkgs.blockbench ];
 
+    xdg.configFile."Blockbench/launch_settings.json".source = ./blockbench/launch_settings.json;
+
     xdg.desktopEntries = {
         blockbench = {
             name = "Blockbench";
