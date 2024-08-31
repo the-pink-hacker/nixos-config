@@ -16,6 +16,29 @@
         unstable = import nixpkgs-unstable { inherit system; };
     in
     {
+        devShells."${system}".rust-bevy = let
+            pkgs = import nixpkgs {
+                inherit system;
+            };
+        in pkgs.mkShell rec {
+            nativeBuildInputs = with pkgs; [
+                pkg-config
+                mold
+            ];
+            buildInputs = with pkgs; [
+                udev
+                alsa-lib
+                vulkan-loader
+                xorg.libX11
+                xorg.libXcursor
+                xorg.libXi
+                xorg.libXrandr
+                libxkbcommon
+                wayland
+            ];
+            LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+        };
+
     	nixosConfigurations.pink-nixos-desktop = nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = { inherit unstable; };
