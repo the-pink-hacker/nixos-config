@@ -36,6 +36,7 @@
                 libxkbcommon
                 wayland
             ];
+            shellHook = "exec zsh";
             LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
         };
 
