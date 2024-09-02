@@ -45,7 +45,7 @@
             specialArgs = { inherit unstable; };
 	    modules = [
 	    	./user/pink/config.nix
-		./hardware/nvidia.nix
+		./hardware/amd.nix
 		./machine/pink-nixos-desktop/hardware-generated.nix
 		./machine/pink-nixos-desktop/hardware.nix
 		home-manager.nixosModules.home-manager

@@ -9,14 +9,17 @@
         "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
 
-    hardware.graphics.driSupport32Bit = true; # For 32 bit applications
+    hardware.opengl = {
+        enable = true;
+        driSupport32Bit = true; # For 32 bit applications
+    };
 
     # AMDVLK
-    hardware.hardware.extraPackages = with pkgs; [
+    hardware.opengl.extraPackages = with pkgs; [
         amdvlk
     ];
     # For 32 bit applications 
-    hardware.hardware.extraPackages32 = with pkgs; [
+    hardware.opengl.extraPackages32 = with pkgs; [
         driversi686Linux.amdvlk
     ];
 }
