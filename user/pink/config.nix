@@ -91,6 +91,13 @@
             wineWowPackages.waylandFull
 	    blender
             xorg.xeyes
+            clinfo
+            virtualgl
+            vulkan-tools
+            wayland-utils
+            pciutils
+            aha
+            fwupd
         ];
     };
 

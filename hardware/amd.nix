@@ -1,25 +1,41 @@
 { pkgs, ... }:
 
 {
-    boot.initrd.kernelModules = [ "amdgpu" ];
-    services.xserver.videoDrivers = [ "amdgpu" ];
-
-    # HIP
-    systemd.tmpfiles.rules = [
-        "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
-
     hardware.opengl = {
         enable = true;
-        driSupport32Bit = true; # For 32 bit applications
+        driSupport = true;
+        driSupport32Bit = true;
     };
 
-    # AMDVLK
+    # HIP
+    systemd.tmpfiles.rules = 
+    let
+        rocmEnv = pkgs.symlinkJoin {
+            name = "rocm-combined";
+            paths = with pkgs.rocmPackages; [
+                rocblas
+                hipblas
+                clr
+            ];
+        };
+    in [
+        "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+    ];
+    
     hardware.opengl.extraPackages = with pkgs; [
+        # OpenCL
+        rocmPackages.clr.icd
+        # AMDVLK
         amdvlk
     ];
-    # For 32 bit applications 
+
     hardware.opengl.extraPackages32 = with pkgs; [
+        # AMDVLK
         driversi686Linux.amdvlk
     ];
+
+    # GUI Controller
+    environment.systemPackages = with pkgs; [ lact ];
+    systemd.packages = with pkgs; [ lact ];
+    systemd.services.lactd.wantedBy = [ "multi-user.target" ];
 }
