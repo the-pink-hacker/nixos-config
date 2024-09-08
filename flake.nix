@@ -8,9 +8,14 @@
 	    url = "github:nix-community/home-manager/release-24.05";
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
+        plasma-manager = {
+            url = "github:nix-community/plasma-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.home-manager.follows = "home-manager";
+        };
     };
     
-    outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
+    outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
     let
         system = "x86_64-linux";
         unstable = import nixpkgs-unstable { inherit system; };
@@ -53,7 +58,10 @@
 		    home-manager = {
 		        useGlobalPkgs = true;
 			useUserPackages = true;
-                        extraSpecialArgs = { inherit unstable; };
+                        sharedModules = [
+                            plasma-manager.homeManagerModules.plasma-manager
+                        ];
+                        extraSpecialArgs = { inherit unstable; inherit plasma-manager; };
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}

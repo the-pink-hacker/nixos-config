@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, plasma-manager, ... }:
 
 {
     imports = [
@@ -7,6 +7,7 @@
         ../../config/espanso.nix
         ../../config/neovim.nix
         ../../config/zsh.nix
+        ../../config/plasma.nix
     ];
 
     home = {
