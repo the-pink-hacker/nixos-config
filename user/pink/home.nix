@@ -1,13 +1,13 @@
-{ pkgs, plasma-manager, ... }:
+{ pkgs, ... }:
 
 {
     imports = [
-        ../../config/blockbench.nix
-        ../../config/discord.nix
-        ../../config/espanso.nix
-        ../../config/neovim.nix
-        ../../config/zsh.nix
-        ../../config/plasma.nix
+        ../../config/home/blockbench.nix
+        ../../config/home/discord.nix
+        ../../config/home/espanso.nix
+        ../../config/home/neovim.nix
+        ../../config/home/zsh.nix
+        ../../config/home/plasma.nix
     ];
 
     home = {

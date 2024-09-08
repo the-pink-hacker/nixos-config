@@ -51,6 +51,7 @@
 	    modules = [
 	    	./user/pink/config.nix
 		./hardware/amd.nix
+                ./hardware/bluetooth.nix
 		./machine/pink-nixos-desktop/hardware-generated.nix
 		./machine/pink-nixos-desktop/hardware.nix
 		home-manager.nixosModules.home-manager
@@ -61,7 +62,7 @@
                         sharedModules = [
                             plasma-manager.homeManagerModules.plasma-manager
                         ];
-                        extraSpecialArgs = { inherit unstable; inherit plasma-manager; };
+                        extraSpecialArgs = { inherit unstable; };
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}
@@ -74,6 +75,7 @@
 	    modules = [
 	    	./user/pink/config.nix
                 ./hardware/fingerprint.nix
+                ./hardware/bluetooth.nix
 		./machine/pink-nixos-laptop/hardware-generated.nix
 		./machine/pink-nixos-laptop/hardware.nix
 		home-manager.nixosModules.home-manager
@@ -81,6 +83,9 @@
 		    home-manager = {
 		        useGlobalPkgs = true;
 			useUserPackages = true;
+                        sharedModules = [
+                            plasma-manager.homeManagerModules.plasma-manager
+                        ];
                         extraSpecialArgs = { inherit unstable; };
 			users.pink = import ./user/pink/home.nix;
 		    };
