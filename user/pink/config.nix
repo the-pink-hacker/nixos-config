@@ -82,7 +82,7 @@
 	    obsidian
 	    gimp
 	    thunderbird
-	    gnome.ghex
+	    ghex
 	    winetricks
             wineWowPackages.waylandFull
 	    blender

@@ -3,10 +3,9 @@
 {
     boot.initrd.kernelModules = [ "amdgpu" ];
 
-    hardware.opengl = {
+    hardware.graphics = {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
     };
 
     # HIP
@@ -24,18 +23,19 @@
         "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
     
-    hardware.opengl.extraPackages = with pkgs; [
-        # OpenCL
-        rocmPackages.clr.icd
-        # AMDVLK
-        amdvlk
-        mesa
-    ];
-
-    hardware.opengl.extraPackages32 = with pkgs; [
-        # AMDVLK
-        driversi686Linux.amdvlk
-    ];
+    hardware.graphics = {
+        extraPackages = with pkgs; [
+            # OpenCL
+            rocmPackages.clr.icd
+            # AMDVLK
+            amdvlk
+            mesa
+        ];
+        extraPackages32 = with pkgs; [
+            # AMDVLK
+            driversi686Linux.amdvlk
+        ];
+    };
 
     # GUI Controller
     environment.systemPackages = with pkgs; [ lact ];

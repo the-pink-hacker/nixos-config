@@ -2,10 +2,9 @@
     description = "A simple NixOS flake.";
 
     inputs = {
-    	nixpkgs.url = "github:NixOs/nixpkgs/nixos-24.05";
-    	nixpkgs-unstable.url = "github:NixOs/nixpkgs/nixos-unstable";
+    	nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
 	home-manager = {
-	    url = "github:nix-community/home-manager/release-24.05";
+	    url = "github:nix-community/home-manager";
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
         plasma-manager = {
@@ -15,10 +14,9 @@
         };
     };
     
-    outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, home-manager, plasma-manager, ... }:
+    outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, ... }:
     let
         system = "x86_64-linux";
-        unstable = import nixpkgs-unstable { inherit system; };
     in
     {
         devShells."${system}".rust-bevy = let
@@ -47,7 +45,6 @@
 
     	nixosConfigurations.pink-nixos-desktop = nixpkgs.lib.nixosSystem {
             inherit system;
-            specialArgs = { inherit unstable; };
 	    modules = [
 	    	./user/pink/config.nix
 		./hardware/amd.nix
@@ -62,7 +59,6 @@
                         sharedModules = [
                             plasma-manager.homeManagerModules.plasma-manager
                         ];
-                        extraSpecialArgs = { inherit unstable; };
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}
@@ -71,7 +67,6 @@
 
     	nixosConfigurations.pink-nixos-laptop = nixpkgs.lib.nixosSystem {
             inherit system;
-            specialArgs = { inherit unstable; };
 	    modules = [
 	    	./user/pink/config.nix
                 ./hardware/fingerprint.nix
@@ -86,7 +81,6 @@
                         sharedModules = [
                             plasma-manager.homeManagerModules.plasma-manager
                         ];
-                        extraSpecialArgs = { inherit unstable; };
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}

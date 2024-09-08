@@ -1,10 +1,8 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 
 {
     programs.neovim = {
          enable = true;
-         # UNSTABLE: Inlay hints
-         package = unstable.neovim-unwrapped;
          defaultEditor = true;
          viAlias = true;
          vimAlias = true;
