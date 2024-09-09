@@ -7,18 +7,13 @@
 	    url = "github:nix-community/home-manager";
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
-        plasma-manager = {
-            url = "github:nix-community/plasma-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-            inputs.home-manager.follows = "home-manager";
-        };
         firefox-addons = {
             url = "gitlab:rycee/nur-expressions/?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
     
-    outputs = inputs@{  self, nixpkgs, home-manager, plasma-manager, ... }:
+    outputs = inputs@{  self, nixpkgs, home-manager, ... }:
     let
         system = "x86_64-linux";
         firefox-addons = inputs.firefox-addons.packages.${system};
@@ -64,9 +59,6 @@
                         extraSpecialArgs = {
                             inherit firefox-addons;
                         };
-                        sharedModules = [
-                            plasma-manager.homeManagerModules.plasma-manager
-                        ];
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}
@@ -89,9 +81,6 @@
                         extraSpecialArgs = {
                             inherit firefox-addons;
                         };
-                        sharedModules = [
-                            plasma-manager.homeManagerModules.plasma-manager
-                        ];
 			users.pink = import ./user/pink/home.nix;
 		    };
 		}
