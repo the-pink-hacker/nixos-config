@@ -33,6 +33,7 @@
                 # Screenshot a region
                 "$shiftMod, Print, exec, hyprshot -m region"
             ];
+            monitor = ", preferred, auto, 1.175";
         };
     };
 }
