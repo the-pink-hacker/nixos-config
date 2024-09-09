@@ -12,11 +12,16 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.home-manager.follows = "home-manager";
         };
+        firefox-addons = {
+            url = "gitlab:rycee/nur-expressions/?dir=pkgs/firefox-addons";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     
-    outputs = inputs@{ self, nixpkgs, home-manager, plasma-manager, ... }:
+    outputs = inputs@{  self, nixpkgs, home-manager, plasma-manager, ... }:
     let
         system = "x86_64-linux";
+        firefox-addons = inputs.firefox-addons.packages.${system};
     in
     {
         devShells."${system}".rust-bevy = let
@@ -56,6 +61,9 @@
 		    home-manager = {
 		        useGlobalPkgs = true;
 			useUserPackages = true;
+                        extraSpecialArgs = {
+                            inherit firefox-addons;
+                        };
                         sharedModules = [
                             plasma-manager.homeManagerModules.plasma-manager
                         ];
@@ -78,6 +86,9 @@
 		    home-manager = {
 		        useGlobalPkgs = true;
 			useUserPackages = true;
+                        extraSpecialArgs = {
+                            inherit firefox-addons;
+                        };
                         sharedModules = [
                             plasma-manager.homeManagerModules.plasma-manager
                         ];

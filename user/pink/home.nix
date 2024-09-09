@@ -6,8 +6,9 @@
         ../../config/home/discord.nix
         ../../config/home/espanso.nix
         ../../config/home/neovim.nix
-        ../../config/home/zsh.nix
+        ../../config/home/firefox.nix
         ../../config/home/plasma.nix
+        ../../config/home/zsh.nix
     ];
 
     home = {

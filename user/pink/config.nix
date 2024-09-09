@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs, ... }:
 
 {
     # Bootloader.
@@ -99,11 +99,6 @@
 
     programs.kdeconnect.enable = true;
 
-    programs.firefox = {
-        enable = true;
-        nativeMessagingHosts.packages = with pkgs; [ passff-host ];
-    };
-    
     environment.systemPackages = with pkgs; [
     	(pass.withExtensions (exts: with exts; [ pass-otp ]))
 	os-prober
