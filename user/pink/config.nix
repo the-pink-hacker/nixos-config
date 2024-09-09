@@ -5,6 +5,10 @@
         ../../config/hyprland.nix
     ];
 
+    environment.sessionVariables = {
+        SHELL = "${pkgs.zsh}/bin/zsh";
+    };
+
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;

@@ -4,7 +4,16 @@
     programs.hyprland.enable = true;
 
     environment.systemPackages = with pkgs; [
-        kitty
+        waybar
+        rofi-wayland
+        swww
+        gdk-pixbuf
+        jq
+        pango
+        cairo
+        mako
+        networkmanagerapplet
+        hyprshot
     ];
 
     services.displayManager.sddm = {
