@@ -108,6 +108,17 @@
                     };
                 };
             };
+            bookmarks = [
+                {
+                    name = "Main";
+                    tags = [
+                        "tumblr"
+                        "social media"
+                    ];
+                    keyword = "tumblr";
+                    url = "https://www.tumblr.com/";
+                }
+            ];
             settings = {
                 "dom.security.https_only_mode" = true;
                 "browser.download.panel.shown" = true;
