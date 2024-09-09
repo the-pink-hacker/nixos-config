@@ -3,6 +3,10 @@
 {
     programs.hyprland.enable = true;
 
+    environment.systemPackages = with pkgs; [
+        kitty
+    ];
+
     services.displayManager.sddm = {
     	enable = true;
 	wayland.enable = true;

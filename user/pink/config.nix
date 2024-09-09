@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ../../config/hyperland.nix
+        ../../config/hyprland.nix
     ];
 
     # Bootloader.
@@ -72,7 +72,6 @@
 	    vlc
 	    spotify
 	    neofetch
-	    tokodon
 	    atlauncher
 	    glfw
 	    openal
@@ -91,6 +90,9 @@
             pciutils
             aha
             fwupd
+	    tokodon
+            dolphin
+            elisa
         ];
     };
 

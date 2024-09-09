@@ -4,7 +4,7 @@
     programs.firefox = {
         enable = true;
         profiles.default = {
-            path = "ew5dky0f.default";
+            path = "default";
         };
         profiles.nixos = {
             id = 1;

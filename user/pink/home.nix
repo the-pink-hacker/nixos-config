@@ -5,7 +5,7 @@
         ../../config/home/blockbench.nix
         ../../config/home/discord.nix
         ../../config/home/espanso.nix
-        ../../config/home/hyperland.nix
+        ../../config/home/hyprland.nix
         ../../config/home/neovim.nix
         ../../config/home/firefox.nix
         ../../config/home/zsh.nix
