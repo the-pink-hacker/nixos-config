@@ -9,6 +9,7 @@ in
 {
     imports = [
         ./kitty.nix
+        ./waybar.nix
     ];
 
     # Hint Electron applications to use Wayland
@@ -71,7 +72,6 @@ in
             "exec-once" = [
                 ''exec swww-daemon & exec sww img "~/Pictures/background-1 v2.png"''
                 "exec nm-applet --indicator"
-                "exec waybar"
                 "exec mako"
             ];
             bind = [
