@@ -69,6 +69,7 @@
             "networkmanager"
             "wheel"
             "input"
+            "video"
         ];
         packages = with pkgs; [
             libreoffice-qt

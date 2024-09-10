@@ -1,13 +1,13 @@
 { ... }:
 
 {
-    programs.waybar = {
-        enable = true;
-        systemd.enable = true;
-        # Broken
-        # Throws json value error
-        #settings = {};
-    };
+    #programs.waybar = {
+    #    enable = true;
+    #    systemd.enable = true;
+    #    # Broken
+    #    # Throws json value error
+    #    #settings = {};
+    #};
 
     xdg.configFile."waybar/config".text = builtins.toJSON {
         position = "top";
@@ -26,7 +26,7 @@
             "cpu"
             "memory"
             "temperature"
-            "backlight"
+            #"backlight"
             "keyboard-state"
             "battery"
             "battery#bat2"
@@ -97,15 +97,14 @@
             # "thermal-zone" = 2;
             # "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";
             "critical-threshold" = 80;
-            # "format-critical" = "{temperatureC}°C {icon}";
             "format" = "{temperatureC}°C {icon}";
             "format-icons" = ["" "" ""];
         };
-        "backlight" = {
-            # "device" = "acpi_video1";
-            "format" = "{percent}% {icon}";
-            "format-icons" = ["" "" "" "" "" "" "" "" ""];
-        };
+        # Refused to work with backlight
+        #backlight = {
+        #    format = "{percent}% {icon}";
+        #    format-icons = ["" "" "" "" "" "" "" "" ""];
+        #};
         "battery" = {
             "states" = {
                 "good" = 95;

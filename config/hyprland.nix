@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
 {
-    programs.hyprland.enable = true;
+    programs = {
+        hyprland.enable = true;
+        waybar.enable = true;
+    };
 
     environment.systemPackages = with pkgs; [
-        waybar
         rofi-wayland
         swww
         gdk-pixbuf
@@ -21,6 +23,8 @@
         hyprcursor
         playerctl
     ];
+
+    hardware.brillo.enable = true;
 
     services = {
         gnome.gnome-keyring.enable = true;
