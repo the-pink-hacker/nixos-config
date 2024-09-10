@@ -19,6 +19,7 @@
         kdePackages.kwalletmanager
         sweet
         hyprcursor
+        playerctl
     ];
 
     services = {
