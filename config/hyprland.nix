@@ -16,13 +16,17 @@
         hyprshot
         candy-icons
         kdePackages.breeze-icons
+        kdePackages.kwalletmanager
         sweet
         hyprcursor
     ];
 
-    services.displayManager.sddm = {
-    	enable = true;
-	wayland.enable = true;
+    services = {
+        gnome.gnome-keyring.enable = true;
+        displayManager.sddm = {
+            enable = true;
+            wayland.enable = true;
+        };
     };
 
     xdg = {
@@ -32,7 +36,10 @@
         ];
     };
 
-    security.polkit.enable = true;
+    security = {
+        polkit.enable = true;
+        pam.services.kdewallet.kwallet.enable = true;
+    };
 
     programs.dconf.enable = true;
 }
