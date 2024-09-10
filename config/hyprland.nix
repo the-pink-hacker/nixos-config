@@ -15,6 +15,9 @@
         networkmanagerapplet
         hyprshot
         candy-icons
+        kdePackages.breeze-icons
+        sweet
+        hyprcursor
     ];
 
     services.displayManager.sddm = {

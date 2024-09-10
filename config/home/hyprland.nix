@@ -1,5 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+    theme = "Sweet";
+    iconTheme = "Sweet";
+    cursorTheme = "catppuccin-macchiato-dark-cursors";
+    cursorSize = 24;
+in
 {
     imports = [
         ./kitty.nix
@@ -9,15 +15,51 @@
     home.sessionVariables = {
         NIXOS_OZONE_WL = "1";
         XDG_PICTURES_DIR = "$HOME/Pictures";
+        HYPRCURSOR_THEME = cursorTheme;
+        HYPRCURSOR_SIZE = cursorSize;
     };
 
     qt = {
         enable = true;
-        platformTheme = "kde";
+        platformTheme.name = "kde";
         style = {
             package = pkgs.utterly-round-plasma-style;
             name = "Utterly Round";
         };
+    };
+
+    # Cursor setup
+    home.pointerCursor = {
+        name = cursorTheme;
+        package = pkgs.catppuccin-cursors.macchiatoDark;
+        gtk.enable = true;
+        size = cursorSize;
+    };
+    
+    # GTK Setup
+    gtk = {
+        enable = true;
+        theme.name = theme;
+        iconTheme.name = iconTheme;
+        cursorTheme = {
+            size = cursorSize;
+            name = cursorTheme;
+        };
+        gtk3 = {
+            bookmarks = [
+              "file:///tmp"
+            ];
+            extraConfig.gtk-application-prefer-dark-theme = true;
+        };
+    };
+    dconf.settings."org/gtk/settings/file-chooser" = {
+        sort-directories-first = true;
+    };
+    
+    # GTK4 Setup
+    dconf.settings."org/gnome/desktop/interface" = {
+        gtk-theme = lib.mkForce "Sweet";
+        color-scheme = "prefer-dark";
     };
 
     wayland.windowManager.hyprland = {
