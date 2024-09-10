@@ -14,6 +14,7 @@
         mako
         networkmanagerapplet
         hyprshot
+        candy-icons
     ];
 
     services.displayManager.sddm = {
@@ -21,9 +22,12 @@
 	wayland.enable = true;
     };
 
-    xdg.portal.extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-    ];
+    xdg = {
+        icons.enable = true;
+        portal.extraPortals = with pkgs; [
+            xdg-desktop-portal-hyprland
+        ];
+    };
 
     security.polkit.enable = true;
 

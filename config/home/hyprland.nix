@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
     imports = [
@@ -9,6 +9,15 @@
     home.sessionVariables = {
         NIXOS_OZONE_WL = "1";
         XDG_PICTURES_DIR = "$HOME/Pictures";
+    };
+
+    qt = {
+        enable = true;
+        platformTheme = "kde";
+        style = {
+            package = pkgs.utterly-round-plasma-style;
+            name = "Utterly Round";
+        };
     };
 
     wayland.windowManager.hyprland = {
