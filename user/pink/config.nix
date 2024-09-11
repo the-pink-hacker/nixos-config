@@ -60,8 +60,6 @@
         jack.enable = true;
     };
 
-    nixpkgs.config.allowUnfree = true;
-    
     users.users.pink = {
         isNormalUser = true;
         description = "Pink Garrett";

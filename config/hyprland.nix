@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, monitorBacklight, ... }:
 
 {
     programs = {
@@ -24,7 +24,7 @@
         playerctl
     ];
 
-    hardware.brillo.enable = true;
+    hardware.brillo.enable = monitorBacklight;
 
     services = {
         gnome.gnome-keyring.enable = true;

@@ -13,10 +13,12 @@
         };
     };
     
-    outputs = inputs@{  self, nixpkgs, home-manager, ... }:
+    outputs = inputs@{ self, nixpkgs, home-manager, ... }:
     let
         system = "x86_64-linux";
-        firefox-addons = inputs.firefox-addons.packages.${system};
+        mksystem = import ./lib/mksystem.nix {
+            inherit nixpkgs inputs;
+        };
     in
     {
         devShells."${system}".rust-bevy = let
@@ -43,48 +45,22 @@
             LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
         };
 
-    	nixosConfigurations.pink-nixos-desktop = nixpkgs.lib.nixosSystem {
-            inherit system;
-	    modules = [
-	    	./user/pink/config.nix
-		./hardware/amd.nix
-                ./hardware/bluetooth.nix
-		./machine/pink-nixos-desktop/hardware-generated.nix
-		./machine/pink-nixos-desktop/hardware.nix
-		home-manager.nixosModules.home-manager
-		{
-		    home-manager = {
-		        useGlobalPkgs = true;
-			useUserPackages = true;
-                        extraSpecialArgs = {
-                            inherit firefox-addons;
-                        };
-			users.pink = import ./user/pink/home.nix;
-		    };
-		}
-	    ];
-	};
-
-    	nixosConfigurations.pink-nixos-laptop = nixpkgs.lib.nixosSystem {
-            inherit system;
-	    modules = [
-	    	./user/pink/config.nix
-                ./hardware/fingerprint.nix
-                ./hardware/bluetooth.nix
-		./machine/pink-nixos-laptop/hardware-generated.nix
-		./machine/pink-nixos-laptop/hardware.nix
-		home-manager.nixosModules.home-manager
-		{
-		    home-manager = {
-		        useGlobalPkgs = true;
-			useUserPackages = true;
-                        extraSpecialArgs = {
-                            inherit firefox-addons;
-                        };
-			users.pink = import ./user/pink/home.nix;
-		    };
-		}
-	    ];
-	};
+        nixosConfigurations = {
+            pink-nixos-desktop = mksystem "pink-nixos-desktop" {
+                user = "pink";
+                system = "x86_64-linux";
+                bluetooth = true;
+                amdGraphics = true;
+            };
+            pink-nixos-laptop = mksystem "pink-nixos-laptop" {
+                user = "pink";
+                system = "x86_64-linux";
+                globalUIScale = 1.175;
+                bluetooth = true;
+                battery = true;
+                monitorBacklight = true;
+                fingerprint = true;
+            };
+        };
     };
 }

@@ -1,4 +1,4 @@
-{ pkgs, firefox-addons, ... }:
+{ pkgs, inputs, system, ... }:
 
 {
     programs.firefox = {
@@ -8,7 +8,7 @@
         };
         profiles.nixos = {
             id = 1;
-            extensions = with firefox-addons; [
+            extensions = with inputs.firefox-addons.packages.${system}; [
                 #tampermonkey
                 #enhancer-for-youtube
                 ublock-origin

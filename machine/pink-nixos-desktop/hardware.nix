@@ -19,6 +19,4 @@ in {
         fsType = "ext4";
         options = driveOptions;
     };
-
-    networking.hostName = "pink-nixos-desktop";
 }

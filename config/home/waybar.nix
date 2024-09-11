@@ -1,4 +1,4 @@
-{ ... }:
+{ battery, ... }:
 
 {
     programs.waybar = {
@@ -29,8 +29,8 @@
             "temperature"
             #"backlight"
             "keyboard-state"
-            "battery"
-            "battery#bat2"
+            (if battery then "battery" else {})
+            (if battery then "battery#bat2" else {})
         ];
         modules-right = [
             "tray"

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, globalUIScale, monitorBacklight, ... }:
 
 let
     theme = "Sweet";
@@ -86,8 +86,8 @@ in
             ];
             # Repeat
             binde = [
-                ", XF86MonBrightnessUp, exec, brillo -A 5"
-                ", XF86MonBrightnessDown, exec, brillo -U 5"
+                (if monitorBacklight then ", XF86MonBrightnessUp, exec, brillo -A 5" else {})
+                (if monitorBacklight then ", XF86MonBrightnessDown, exec, brillo -U 5" else {})
             ];
             # Repeat Locked
             bindel = [
@@ -101,7 +101,7 @@ in
                 ", XF86AudioPrev, exec, playerctl previous"
                 ", XF86AudioNext, exec, playerctl next"
             ];
-            monitor = ", preferred, auto, 1.175";
+            monitor = ", preferred, auto, ${toString globalUIScale}";
         };
     };
 }
