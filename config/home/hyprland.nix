@@ -14,6 +14,8 @@ in
         ./waybar.nix
     ];
 
+    xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
+
     # Hint Electron applications to use Wayland
     home.sessionVariables = {
         NIXOS_OZONE_WL = "1";
@@ -72,7 +74,7 @@ in
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
             "exec-once" = [
-                ''exec swww-daemon & exec sww img "~/Pictures/background-1 v2.png"''
+                ''exec swww-daemon & exec sww img "~/.wallpaper"''
                 "exec nm-applet --indicator"
                 "exec mako"
             ];

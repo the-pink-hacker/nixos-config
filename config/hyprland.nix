@@ -19,6 +19,19 @@
         candy-icons
         kdePackages.breeze-icons
         kdePackages.kwalletmanager
+        kdePackages.gwenview
+        kdePackages.kio-fuse
+        kdePackages.kio-extras
+        kdePackages.qtwayland
+        kdePackages.qtsvg
+        kdePackages.ffmpegthumbs
+        kdePackages.kdegraphics-thumbnailers
+        kdePackages.kdesdk-thumbnailers
+        kdePackages.kimageformats
+        kdePackages.qtimageformats
+        kdePackages.taglib
+        resvg
+        libheif
         sweet
         hyprcursor
         playerctl
