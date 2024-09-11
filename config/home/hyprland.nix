@@ -16,12 +16,14 @@ in
 
     xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
 
-    # Hint Electron applications to use Wayland
-    home.sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        XDG_PICTURES_DIR = "$HOME/Pictures";
-        HYPRCURSOR_THEME = cursorTheme;
-        HYPRCURSOR_SIZE = cursorSize;
+    home = {
+        file.".wallpaper".source = ../../assets/wallpaper.png;
+        sessionVariables = {
+            NIXOS_OZONE_WL = "1";
+            XDG_PICTURES_DIR = "$HOME/Pictures";
+            HYPRCURSOR_THEME = cursorTheme;
+            HYPRCURSOR_SIZE = cursorSize;
+        };
     };
 
     qt = {
@@ -74,7 +76,7 @@ in
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
             "exec-once" = [
-                ''exec swww-daemon & exec sww img "~/.wallpaper"''
+                ''exec swww-daemon & exec sww img "/"''
                 "exec nm-applet --indicator"
                 "exec mako"
             ];
