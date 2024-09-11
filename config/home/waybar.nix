@@ -1,4 +1,4 @@
-{ battery, ... }:
+{ battery, lib, ... }:
 
 {
     programs.waybar = {
@@ -29,8 +29,8 @@
             "temperature"
             #"backlight"
             "keyboard-state"
-            (if battery then "battery" else {})
-            (if battery then "battery#bat2" else {})
+            (lib.mkIf battery "battery")
+            (lib.mkIf battery "battery#bat2")
         ];
         modules-right = [
             "tray"
@@ -107,7 +107,7 @@
         #    format = "{percent}% {icon}";
         #    format-icons = ["" "" "" "" "" "" "" "" ""];
         #};
-        "battery" = {
+        "battery" = lib.mkIf battery {
             "states" = {
                 "good" = 95;
                 "warning" = 30;
@@ -122,7 +122,7 @@
             # "format-full" = "";
             "format-icons" = ["" "" "" "" ""];
         };
-        "battery#bat2" = {
+        "battery#bat2" = lib.mkIf battery {
             "bat" = "BAT2";
         };
         "power-profiles-daemon" = {

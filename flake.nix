@@ -55,7 +55,6 @@
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
                 system = "x86_64-linux";
-                globalUIScale = 1.175;
                 bluetooth = true;
                 battery = true;
                 monitorBacklight = true;

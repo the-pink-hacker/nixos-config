@@ -8,18 +8,19 @@ name:
     bluetooth ? false,
     amdGraphics ? false,
     nvidiaGraphics ? false,
-    globalUIScale ? 1.0,
     battery ? false,
     monitorBacklight ? false,
     fingerprint ? false
 }:
 
-nixpkgs.lib.nixosSystem rec {
+let
+    systemName = name;
+in nixpkgs.lib.nixosSystem rec {
     inherit system;
     modules = [
         { nixpkgs.config.allowUnfree = true; }
 
-        { networking.hostName = system; }
+        { networking.hostName = name; }
 
         (if amdGraphics then ../hardware/amd.nix else {})
         (if nvidiaGraphics then ../hardware/nvidia.nix else {})
@@ -36,7 +37,7 @@ nixpkgs.lib.nixosSystem rec {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                    inherit inputs system globalUIScale battery monitorBacklight;
+                    inherit inputs system battery monitorBacklight systemName;
                 };
                 users.${user} = import ../user/${user}/home.nix;
             };
@@ -44,10 +45,7 @@ nixpkgs.lib.nixosSystem rec {
 
         {
             config._module.args = {
-                inherit inputs;
-                inherit monitorBacklight;
-                inherit battery;
-                inherit system;
+                inherit inputs monitorBacklight battery system systemName;
             };
         }
     ];

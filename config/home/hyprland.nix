@@ -1,10 +1,12 @@
-{ pkgs, lib, globalUIScale, monitorBacklight, ... }:
+{ pkgs, lib, monitorBacklight, systemName, ... }:
 
 let
     theme = "Sweet";
     iconTheme = "Sweet";
     cursorTheme = "catppuccin-macchiato-dark-cursors";
     cursorSize = 24;
+    isLaptop = systemName == "pink-nixos-laptop";
+    isDesktop = systemName == "pink-nixos-desktop";
 in
 {
     imports = [
@@ -86,8 +88,8 @@ in
             ];
             # Repeat
             binde = [
-                (if monitorBacklight then ", XF86MonBrightnessUp, exec, brillo -A 5" else {})
-                (if monitorBacklight then ", XF86MonBrightnessDown, exec, brillo -U 5" else {})
+                (lib.mkIf monitorBacklight ", XF86MonBrightnessUp, exec, brillo -A 5")
+                (lib.mkIf monitorBacklight ", XF86MonBrightnessDown, exec, brillo -U 5")
             ];
             # Repeat Locked
             bindel = [
@@ -101,7 +103,14 @@ in
                 ", XF86AudioPrev, exec, playerctl previous"
                 ", XF86AudioNext, exec, playerctl next"
             ];
-            monitor = ", preferred, auto, ${toString globalUIScale}";
+            monitor = [
+                (lib.mkIf isLaptop "eDP-1, preferred, auto, 1.175")
+                (lib.mkIf isDesktop "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10")
+                (lib.mkIf isDesktop "DP-2, preferred, auto-left, 1")
+                (lib.mkIf isDesktop "HDMI-A-1, disabled")
+                (lib.mkIf isDesktop "HDMI-A-2, preferred, auto-right, 1")
+                ", preferred, auto, 1"
+            ];
         };
     };
 }
