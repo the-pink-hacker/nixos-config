@@ -20,6 +20,8 @@ in nixpkgs.lib.nixosSystem rec {
     modules = [
         { nixpkgs.config.allowUnfree = true; }
 
+        { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+
         { networking.hostName = name; }
 
         (if amdGraphics then ../hardware/amd.nix else {})

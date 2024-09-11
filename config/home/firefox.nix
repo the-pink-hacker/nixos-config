@@ -1,4 +1,4 @@
-{ pkgs, inputs, system, ... }:
+{ pkgs, system, ... }:
 
 {
     programs.firefox = {
@@ -8,9 +8,9 @@
         };
         profiles.nixos = {
             id = 1;
-            extensions = with inputs.firefox-addons.packages.${system}; [
-                #tampermonkey
-                #enhancer-for-youtube
+            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+                tampermonkey
+                enhancer-for-youtube
                 ublock-origin
                 duckduckgo-privacy-essentials
                 shinigami-eyes
