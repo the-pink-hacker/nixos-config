@@ -1,8 +1,20 @@
 { pkgs, ... }:
 
-{
+let
+    hosts = with pkgs; [
+        (passff-host.overrideAttrs (old: {
+            dontStrip = true;
+            patchPhase = ''
+                sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
+            '';
+        }))
+    ];
+in {
     programs.firefox = {
         enable = true;
+        package = pkgs.firefox.override {
+            nativeMessagingHosts = hosts;
+        };
         profiles.nixos = {
             extensions = with pkgs.nur.repos.rycee.firefox-addons; [
                 passff
@@ -186,6 +198,7 @@
                 "browser.tabs.inTitlebar" = 0;
                 # Theme
                 "extensions.activeThemeID" = "firefox-alpenglow@mozilla.org";
+                "extensions.autoDisableScopes" = 0;
             };
         };
         policies = {
@@ -261,6 +274,6 @@
                 };
             };
         };
-        nativeMessagingHosts = with pkgs; [ passff-host ];
+        nativeMessagingHosts = hosts;
     };
 }
