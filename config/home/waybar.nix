@@ -1,23 +1,24 @@
 { ... }:
 
 {
-    #programs.waybar = {
-    #    enable = true;
-    #    systemd.enable = true;
-    #    # Broken
-    #    # Throws json value error
-    #    #settings = {};
-    #};
+    programs.waybar = {
+        enable = true;
+        systemd.enable = true;
+        # Broken
+        # Throws json value error
+        #settings = {};
+    };
 
     xdg.configFile."waybar/config".text = builtins.toJSON {
         position = "top";
         height = 30;
         spacing = 4;
+        reload_style_on_change = true;
         modules-left = [
+            "clock"
             "custom/media"
         ];
-        modules-center = [];
-        modules-right = [
+        modules-center = [
             "mpd"
             "idle_inhibitor"
             "pulseaudio"
@@ -30,7 +31,8 @@
             "keyboard-state"
             "battery"
             "battery#bat2"
-            "clock"
+        ];
+        modules-right = [
             "tray"
             "custom/power"
         ];
@@ -143,24 +145,25 @@
             "format-disconnected" = "Disconnected ⚠";
             "format-alt" = "{ifname}: {ipaddr}/{cidr}";
         };
-        "pulseaudio" = {
-            "scroll-step" = 2; # % can be a float
-            "format" = "{volume}% {icon} {format_source}";
-            "format-bluetooth" = "{volume}% {icon} {format_source}";
-            "format-bluetooth-muted" = " {icon} {format_source}";
-            "format-muted" = " {format_source}";
-            "format-source" = "{volume}% ";
-            "format-source-muted" = "";
-            "format-icons" = {
-                "headphone" = "";
-                "hands-free" = "";
-                "headset" = "";
-                "phone" = "";
-                "portable" = "";
-                "car" = "";
-                "default" = ["" "" ""];
+        pulseaudio = {
+            scroll-step = 2; # % can be a float
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = " {icon} {format_source}";
+            format-muted = " {format_source}";
+            format-source = "{volume}% ";
+            format-source-muted = "";
+            format-icons = {
+                headphone = "";
+                hands-free = "";
+                headset = "";
+                phone = "";
+                portable = "";
+                car = "";
+                default = ["" "" ""];
             };
-            "on-click" = "pavucontrol";
+            on-click = "pavucontrol";
+            reverse-scrolling = true;
         };
         "custom/media" = {
             "format" = "{icon} {}";
