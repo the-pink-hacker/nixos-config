@@ -1,31 +1,21 @@
-{ pkgs, system, ... }:
+{ pkgs, ... }:
 
 {
     programs.firefox = {
         enable = true;
-        profiles.default = {
-            path = "default";
-        };
         profiles.nixos = {
-            id = 1;
             extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+                passff
                 tampermonkey
                 enhancer-for-youtube
                 ublock-origin
                 duckduckgo-privacy-essentials
                 shinigami-eyes
-                plasma-integration
                 clearurls
                 indie-wiki-buddy
-                #xkit
-                #nebulizer
-                #enhancer-for-nebula
                 dearrow
-                #webrtc-leak-shield
                 return-youtube-dislikes
                 blocktube
-                #fandom-enhanced
-                #chatreplay
                 darkreader
                 sponsorblock
             ];
@@ -110,26 +100,76 @@
             };
             bookmarks = [
                 {
-                    name = "Main";
-                    tags = [
-                        "tumblr"
-                        "social media"
+                    name = "Nix sites";
+                    toolbar = true;
+                    bookmarks = [
+                        {
+                            name = "Main";
+                            tags = [
+                                "tumblr"
+                                "social media"
+                                "blog"
+                                "entertainment"
+                            ];
+                            keyword = "tumblr";
+                            url = "https://www.tumblr.com";
+                        }
+                        {
+                            name = "Cohost";
+                            tags = [
+                                "cohost"
+                                "social media"
+                                "entertainment"
+                            ];
+                            keyword = "cohost";
+                            url = "https://cohost.org";
+                        }
+                        {
+                            name = "Subscriptions";
+                            tags = [
+                                "youtube"
+                                "media"
+                                "entertainment"
+                            ];
+                            keyword = "youtube";
+                            url = "https://www.youtube.com/feed/subscriptions";
+                        }
+                        {
+                            name = "Nebula";
+                            tags = [
+                                "nebula"
+                                "media"
+                                "entertainment"
+                            ];
+                            keyword = "nebula";
+                            url = "https://nebula.tv/library";
+                        }
+                        {
+                            name = "LTT";
+                            tags = [
+                                "ltt"
+                                "media"
+                                "floatplane"
+                                "media"
+                                "entertainment"
+                            ];
+                            keyword = "floatplane";
+                            url = "https://www.floatplane.com/channel/linustechtips/home";
+                        }
                     ];
-                    keyword = "tumblr";
-                    url = "https://www.tumblr.com/";
                 }
             ];
             settings = {
-                "dom.security.https_only_mode" = true;
                 "browser.download.panel.shown" = true;
-                "identity.fxaccounts.enabled" = false;
-                "signon.rememberSignons" = false;
                 "browser.aboutConfig.showWarning" = false;
+                # Bookmarks
+                "browser.bookmarks.restore_default_bookmarks" = false;
+                "browser.bookmarks.addedImportButton" = false;
+                "browser.toolbars.bookmarks.visibility" = "always";
                 # Enable HTTP/3
                 "network.http.http3.enabled" = true;
                 # Auto play block
                 "media.autoplay.default" = false;
-                "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
                 # Allow pasting
                 "devtools.selfxss.count" = 5;
                 # Disable ads and stuff
@@ -140,6 +180,85 @@
                 "privacy.fingerprintingProtection" = true;
                 "privacy.globalprivacycontrol.enabled" = true;
                 "identity.fxaccounts.telemetry.clientAssociationPing.enabled" = false;
+                "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+                "browser.newtabpage.activity-stream.feeds.topsites" = false;
+                # Window
+                "browser.tabs.inTitlebar" = 0;
+                # Theme
+                "extensions.activeThemeID" = "firefox-alpenglow@mozilla.org";
+            };
+        };
+        policies = {
+            AppAutoUpdate = false;
+            AutofillAddressEnabled = false;
+            AutofillCreditCardEnabled = false;
+            BackgroundAppUpdate = false;
+            DisableAccounts = true;
+            DisableAppUpdate = true;
+            DisableFirefoxAccounts = true;
+            DisableFirefoxStudies = true;
+            DisablePocket = true;
+            DisableSetDesktopBackground = true;
+            DisableTelemetry = true;
+            DisplayBookmarksToolbar = true;
+            DontCheckDefaultBrowser = true;
+            EnableTrackingProtection = {
+                Value = true;
+                Locked = true;
+                Cryptomining = true;
+                Fingerprinting = true;
+                EmailTracking = true;
+            };
+            EncryptedMediaExtensions = {
+                Enabled = true;
+                Locked = true;
+            };
+            FirefoxSuggest = {
+                WebSuggestions = false;
+                SponsoredSuggestions = false;
+                ImproveSuggest = false;
+                Locked = true;
+            };
+            HardwareAcceleration = true;
+            HttpsOnlyMode = "force_enabled";
+            OfferToSaveLogins = false;
+            PasswordManagerEnabled = false;
+            PictureInPicture = {
+                Enabled = false;
+                Locked = true;
+            };
+            ShowHomeButton = false;
+            ExtensionSettings = {
+                # X-Kit Rewritten
+                "{6e710c58-36cc-49d6-b772-bfc3030fa56e}" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/xkit-rewritten/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Nebulizer
+                "nebulizer@val.packett.cool" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/nebulizer/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Enhancer for Nebula
+                "nebula-enhancer@piber.at" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-nebula/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Webrtc Leak Shield
+                "@webrtc-leak-shield" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/webrtc-leak-shield/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Fandom Enhanced
+                "{62818d18-03a3-4ae9-bbe6-d7e7d8b03a0d}" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/fandom-enhance/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Chatreplay
+                "{25cddbee-458b-4e9f-984d-dbf35511f124}" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/chatreplay/latest.xpi";
+                    installation_mode = "force_installed";
+                };
             };
         };
         nativeMessagingHosts = with pkgs; [ passff-host ];
