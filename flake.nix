@@ -37,6 +37,7 @@
                 xorg.libXrandr
                 libxkbcommon
                 wayland
+                libexif
             ];
             shellHook = "exec zsh";
             LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
