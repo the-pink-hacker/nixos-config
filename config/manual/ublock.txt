@@ -1,0 +1,44 @@
+! 2023-07-28 https://www.youtube.com
+www.youtube.com###content > .ytd-rich-section-renderer.style-scope
+www.youtube.com###mouseover-overlay, #hover-overlays
+www.youtube.com##ytd-miniplayer, #video-preview
+
+! 2023-08-01 https://www.youtube.com
+www.youtube.com##ytd-rich-item-renderer:has(a[href$="start_radio=1"])
+
+! 2023-08-14 https://www.tumblr.com
+www.tumblr.com##.I6Lwl
+
+! 2023-08-15 https://www.youtube.com
+www.youtube.com##.paper-toast-open.yt-notification-action-renderer.style-scope.toast-button
+
+! 2023-08-24 https://www.tumblr.com
+! Buy Domains button
+tumblr.com##.IYrO9.g8SYn:has(a[href="/domains"])
+! Buy ad free button
+tumblr.com##.IYrO9.g8SYn:has(a[href="/settings/ad-free-browsing"])
+! More blogs section
+tumblr.com##.FZkjV:has(ul.PwJi6.f_zsT)
+! Radar
+www.tumblr.com##.FZkjV:has(div.Q55_h.KU8aS)
+
+! 2023-08-24 https://www.tumblr.com
+www.tumblr.com##div._f1es.rZlUD[data-id="timelineObject:title:64e6775f27a8f7.22410189"]
+
+! 2023-08-28 https://www.youtube.com
+www.youtube.com###big-yoodle
+
+! 2023-08-29 https://github.com
+github.com##.Box-sc-g0xbh4-0.react-code-size-details-in-header:has(.octicon-copilot)
+
+! 2023-10-28 https://www.youtube.com
+www.youtube.com##ytd-two-column-browse-results-renderer[page-subtype="home"] ytd-rich-item-renderer:has(ytd-thumbnail-overlay-resume-playback-renderer > #progress:matches-css(width: 100%))
+
+! 2023-10-30 https://www.youtube.com
+www.youtube.com##ytd-rich-item-renderer:has(ytd-thumbnail-overlay-resume-playback-renderer > #progress):style(filter: brightness(25%))
+www.youtube.com##ytd-compact-video-renderer:has(ytd-thumbnail-overlay-resume-playback-renderer > #progress):style(filter: brightness(25%))
+
+! 2023-11-11 https://drive.google.com
+drive.google.com##.oLzOxb
+
+youtube.com###movie_player.ytp-fullscreen:style(background-image: none !important)
