@@ -39,7 +39,7 @@ in nixpkgs.lib.nixosSystem rec {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                    inherit inputs system battery monitorBacklight systemName;
+                    inherit inputs system battery monitorBacklight systemName user;
                 };
                 users.${user} = import ../user/${user}/home.nix;
             };
@@ -47,7 +47,7 @@ in nixpkgs.lib.nixosSystem rec {
 
         {
             config._module.args = {
-                inherit inputs monitorBacklight battery system systemName;
+                inherit inputs monitorBacklight battery system systemName user;
             };
         }
     ];

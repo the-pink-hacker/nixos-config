@@ -35,6 +35,7 @@
         sweet
         hyprcursor
         playerctl
+        pavucontrol
     ];
 
     hardware.brillo.enable = monitorBacklight;
