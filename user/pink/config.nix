@@ -3,6 +3,7 @@
 {
     imports = [
         ../../config/hyprland.nix
+        ../../config/battery.nix
     ];
 
     environment.sessionVariables = {
