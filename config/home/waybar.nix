@@ -17,16 +17,19 @@
         modules-left = [
             "clock"
         ];
-        modules-center = [
-            "pulseaudio"
-            "network"
-            "power-profiles-daemon"
-            "cpu"
-            "memory"
-            "temperature"
-            "backlight"
-            "keyboard-state"
-            (if battery then "battery" else {})
+        modules-center = builtins.concatLists [
+            [
+                "pulseaudio"
+                "network"
+                "cpu"
+                "memory"
+                "temperature"
+                "keyboard-state"
+            ]
+            (if battery then [
+                "battery"
+                "power-profiles-daemon"
+            ] else [])
         ];
         modules-right = [
             "tray"
@@ -61,7 +64,7 @@
             "format" = "{temperatureC}°C {icon}";
             "format-icons" = ["" "" ""];
         };
-        "battery" = lib.mkIf battery {
+        "battery" = {
             "states" = {
                 "good" = 95;
                 "warning" = 30;
