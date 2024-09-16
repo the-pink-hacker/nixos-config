@@ -12,6 +12,7 @@ in
     imports = [
         ./kitty.nix
         ./waybar.nix
+        ./mako.nix
     ];
 
     xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
