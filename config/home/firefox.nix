@@ -139,7 +139,7 @@ in {
                         iconUpdateURL = "https://search.nixos.org/favicon.png";
                         inherit updateInterval;
                         description = "Search NixOS options by name or description.";
-                        definedAliases = [ "@nixospackages" ];
+                        definedAliases = [ "@nixosoptions" ];
                     };
                     "Modrinth Resouce Packs" = {
                         urls = [
