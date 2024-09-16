@@ -112,7 +112,7 @@ in
                 (lib.mkIf isDesktop "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10")
                 (lib.mkIf isDesktop "DP-2, preferred, auto-left, 1")
                 (lib.mkIf isDesktop "HDMI-A-1, disabled")
-                (lib.mkIf isDesktop "HDMI-A-2, preferred, auto-right, 1")
+                (lib.mkIf isDesktop "HDMI-A-2, preferred, auto-right, 1, vrr, 1")
                 ", preferred, auto, 1"
             ];
         };
