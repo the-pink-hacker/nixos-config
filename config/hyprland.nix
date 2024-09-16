@@ -57,7 +57,10 @@
 
     security = {
         polkit.enable = true;
-        pam.services.kdewallet.kwallet.enable = true;
+        pam.services = {
+            "default keyring".enableGnomeKeyring = true;
+            kdewallet.kwallet.enable = true;
+        };
     };
 
     programs.dconf.enable = true;
