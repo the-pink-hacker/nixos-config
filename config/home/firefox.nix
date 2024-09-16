@@ -141,6 +141,36 @@ in {
                         description = "Search NixOS options by name or description.";
                         definedAliases = [ "@nixospackages" ];
                     };
+                    "Modrinth Resouce Packs" = {
+                        urls = [
+                            {
+                                template = "https://modrinth.com/resourcepacks";
+                                type = "text/html";
+                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                            }
+                        ];
+                        iconUpdateURL = "https://modrinth.com/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search for resource packs on Modrinth, the open source modding platform.";
+                        definedAliases = [
+                            "@modrinthresourcepacks"
+                            "@resourcepacks"
+                            "@minecraftresourcepacks"
+                        ];
+                    };
+                    "Modrinth Mods" = {
+                        urls = [
+                            {
+                                template = "https://modrinth.com/mods";
+                                type = "text/html";
+                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                            }
+                        ];
+                        iconUpdateURL = "https://modrinth.com/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search for mods on Modrinth, the open source modding platform.";
+                        definedAliases = [ "@modrinthmods" "@minecraftmods" ];
+                    };
                 };
             };
             bookmarks = [
@@ -210,6 +240,26 @@ in {
                             ];
                             keyword = "floatplane";
                             url = "https://www.floatplane.com/channel/linustechtips/home";
+                        }
+                        {
+                            name = "Modrinth";
+                            tags = [
+                                "modrinth"
+                                "minecraft"
+                                "mods"
+                                "modding"
+                            ];
+                            keyword = "modrinth";
+                            url = "https://modrinth.com/dashboard";
+                        }
+                        {
+                            name = "Ko-fi";
+                            tags = [
+                                "ko-fi"
+                                "finance"
+                            ];
+                            keyword = "kofi";
+                            url = "https://ko-fi.com/Manage";
                         }
                     ];
                 }
