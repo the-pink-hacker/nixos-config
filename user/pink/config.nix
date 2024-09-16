@@ -97,6 +97,7 @@
 	    tokodon
             dolphin
             elisa
+            protonvpn-gui
         ];
     };
 
