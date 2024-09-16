@@ -105,8 +105,41 @@ in {
                             }
                         ];
                         iconUpdateURL = "https://www.youtube.com/favicon.ico";
+                        inherit updateInterval;
                         description = "Search for videos on YouTube";
                         definedAliases = [ "@youtube" "@yt" ];
+                    };
+                    "NixOS Packages" = {
+                        urls = [
+                            {
+                                template = "https://search.nixos.org/packages";
+                                type = "text/html";
+                                params = [
+                                    { name = "channel"; value = "unstable"; }
+                                    { name = "query"; value = "{searchTerms}"; }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://search.nixos.org/favicon.png";
+                        inherit updateInterval;
+                        description = "Search NixOS packages by name or description.";
+                        definedAliases = [ "@nixospackages" ];
+                    };
+                    "NixOS Options" = {
+                        urls = [
+                            {
+                                template = "https://search.nixos.org/options";
+                                type = "text/html";
+                                params = [
+                                    { name = "channel"; value = "unstable"; }
+                                    { name = "query"; value = "{searchTerms}"; }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://search.nixos.org/favicon.png";
+                        inherit updateInterval;
+                        description = "Search NixOS options by name or description.";
+                        definedAliases = [ "@nixospackages" ];
                     };
                 };
             };
@@ -115,6 +148,16 @@ in {
                     name = "Nix sites";
                     toolbar = true;
                     bookmarks = [
+                        {
+                            name = "Home Manager";
+                            tags = [
+                                "linux"
+                                "home manager"
+                                "nixos"
+                            ];
+                            keyword = "homemanager";
+                            url = "https://nix-community.github.io/home-manager/options.xhtml";
+                        }
                         {
                             name = "Main";
                             tags = [
