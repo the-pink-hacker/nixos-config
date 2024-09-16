@@ -4,6 +4,7 @@
     programs.waybar = {
         enable = true;
         systemd.enable = true;
+        style = ./waybar/style.css;
         # Broken
         # Throws json value error
         #settings = {};
@@ -11,7 +12,7 @@
 
     xdg.configFile."waybar/config".text = builtins.toJSON {
         position = "top";
-        height = 30;
+        height = 32;
         spacing = 4;
         reload_style_on_change = true;
         modules-left = [

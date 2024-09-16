@@ -162,6 +162,7 @@
             noto-fonts
             noto-fonts-color-emoji
             noto-fonts-cjk
+            font-awesome
         ];
 
 	fontconfig = {

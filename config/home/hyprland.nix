@@ -1,7 +1,7 @@
 { pkgs, lib, monitorBacklight, systemName, ... }:
 
 let
-    theme = "Sweet";
+    theme = "Sweet-Dark";
     iconTheme = "Sweet";
     cursorTheme = "catppuccin-macchiato-dark-cursors";
     cursorSize = 24;
@@ -66,7 +66,7 @@ in
     
     # GTK4 Setup
     dconf.settings."org/gnome/desktop/interface" = {
-        gtk-theme = lib.mkForce "Sweet";
+        gtk-theme = lib.mkForce theme;
         color-scheme = "prefer-dark";
     };
 
