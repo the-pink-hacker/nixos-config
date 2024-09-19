@@ -10,9 +10,17 @@
         SHELL = "${pkgs.zsh}/bin/zsh";
     };
 
-    # Bootloader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot = {
+        loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+        };
+        supportedFilesystems = [
+            "fat32"
+            "exfat"
+            "ntfs"
+        ];
+    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
