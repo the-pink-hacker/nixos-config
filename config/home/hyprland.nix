@@ -10,9 +10,10 @@ let
 in
 {
     imports = [
+        ./hyprlock.nix
         ./kitty.nix
-        ./waybar.nix
         ./mako.nix
+        ./waybar.nix
     ];
 
     xdg.configFile."kdeglobals".source = ./kde/kdeglobals;

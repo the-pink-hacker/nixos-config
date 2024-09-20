@@ -1,6 +1,10 @@
 { pkgs, monitorBacklight, ... }:
 
 {
+    imports = [
+        ./hyprlock.nix
+    ];
+
     programs = {
         hyprland.enable = true;
         kde-pim.enable = true;
@@ -61,10 +65,6 @@
 
     services = {
         gnome.gnome-keyring.enable = true;
-        displayManager.sddm = {
-            enable = true;
-            wayland.enable = true;
-        };
         gvfs.enable = true;
     };
 
