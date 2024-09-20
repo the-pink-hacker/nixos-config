@@ -106,6 +106,9 @@
             dolphin
             elisa
             protonvpn-gui
+            heroic
+            gamemode
+            mangohud
         ];
     };
 
