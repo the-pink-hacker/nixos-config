@@ -287,11 +287,17 @@ in {
                 "identity.fxaccounts.telemetry.clientAssociationPing.enabled" = false;
                 "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
                 "browser.newtabpage.activity-stream.feeds.topsites" = false;
+                "browser.ml.chat.enabled" = false;
                 # Window
                 "browser.tabs.inTitlebar" = 0;
                 # Theme
                 "extensions.activeThemeID" = "firefox-alpenglow@mozilla.org";
                 "extensions.autoDisableScopes" = 0;
+                # Rendering
+                "media.ffmpeg.vaapi.enabled" = true;
+                "dom.webgpu.enabled" = true; # Doesn't work yet
+                "gfx.webrender.all" = true;
+                "image.jxl.enabled" = true;
             };
         };
         policies = {
@@ -334,6 +340,7 @@ in {
                 Locked = true;
             };
             ShowHomeButton = false;
+            # about:support
             ExtensionSettings = {
                 # X-Kit Rewritten
                 "{6e710c58-36cc-49d6-b772-bfc3030fa56e}" = {
@@ -363,6 +370,11 @@ in {
                 # Chatreplay
                 "{25cddbee-458b-4e9f-984d-dbf35511f124}" = {
                     install_url = "https://addons.mozilla.org/firefox/downloads/latest/chatreplay/latest.xpi";
+                    installation_mode = "force_installed";
+                };
+                # Whenplane Widget
+                "{d7efb617-4782-4ca1-841e-f1fde210896b}" = {
+                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/whenplane-widget/latest.xpi";
                     installation_mode = "force_installed";
                 };
             };
