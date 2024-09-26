@@ -4,6 +4,7 @@
     imports = [
         ../../config/hyprland.nix
         ../../config/battery.nix
+        ../../config/vr.nix
     ];
 
     environment.sessionVariables = {
@@ -206,6 +207,9 @@
     };
 
     networking.nftables.enable = true;
+
+    # Use normal linux binaries
+    programs.nix-ld.enable = true;
     
     system.stateVersion = "24.05";
 }

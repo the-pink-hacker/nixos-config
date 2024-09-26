@@ -49,6 +49,7 @@
                 system = "x86_64-linux";
                 bluetooth = true;
                 amdGraphics = true;
+                vr = true;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
