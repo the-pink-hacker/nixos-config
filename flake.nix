@@ -16,44 +16,58 @@
         mksystem = import ./lib/mksystem.nix {
             inherit nixpkgs inputs;
         };
-    in
-    {
-        devShells."${system}".rust-bevy = let
-            pkgs = import nixpkgs {
-                inherit system;
-            };
-        in pkgs.mkShell rec {
-            nativeBuildInputs = with pkgs; [
-                pkg-config
-                mold
-            ];
-            buildInputs = with pkgs; [
-                udev
-                alsa-lib
-                vulkan-loader
-                xorg.libX11
-                xorg.libXcursor
-                xorg.libXi
-                xorg.libXrandr
-                libxkbcommon
-                wayland
-                libexif
-            ];
+        pkgs = import nixpkgs {
+            inherit system;
+        };
+    in {
+        devShells."${system}" = let 
             shellHook = "exec zsh";
-            LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+        in {
+            rust-bevy = pkgs.mkShell rec {
+                nativeBuildInputs = with pkgs; [
+                    pkg-config
+                    mold
+                ];
+                buildInputs = with pkgs; [
+                    udev
+                    alsa-lib
+                    vulkan-loader
+                    xorg.libX11
+                    xorg.libXcursor
+                    xorg.libXi
+                    xorg.libXrandr
+                    libxkbcommon
+                    wayland
+                    libexif
+                ];
+                inherit shellHook;
+                LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+            };
+            rust-pi = let
+                arm = import nixpkgs {
+                    crossSystem = pkgs.lib.systems.examples.raspberryPi;
+                    inherit system;
+                };
+            in pkgs.mkShell rec {
+                buildInputs = [
+                    arm.stdenv.cc
+                ];
+                inherit shellHook;
+                LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+            };
         };
 
         nixosConfigurations = {
             pink-nixos-desktop = mksystem "pink-nixos-desktop" {
                 user = "pink";
-                system = "x86_64-linux";
+                inherit system;
                 bluetooth = true;
                 amdGraphics = true;
                 vr = true;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
-                system = "x86_64-linux";
+                inherit system;
                 bluetooth = true;
                 battery = true;
                 monitorBacklight = true;
