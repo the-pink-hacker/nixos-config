@@ -19,7 +19,7 @@
             inherit options fsType;
         };
         "/run/media/pink/Documents2" = {
-            device = "/dev/disk/by-partuuid/203571a4-dd0b-4f2f-a83b-0a216984b9fc";
+            device = "/dev/disk/by-uuid/203571a4-dd0b-4f2f-a83b-0a216984b9fc";
             inherit options fsType;
         };
     };
