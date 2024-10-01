@@ -64,7 +64,7 @@
                 bluetooth = true;
                 amdGraphics = true;
                 vmware = true;
-                vr = true;
+                #vr = true;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
