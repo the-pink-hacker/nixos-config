@@ -11,6 +11,7 @@ name:
     battery ? false,
     monitorBacklight ? false,
     fingerprint ? false,
+    vmware ? false,
     vr ? false
 }:
 
@@ -40,7 +41,7 @@ in nixpkgs.lib.nixosSystem rec {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = {
-                    inherit inputs system battery monitorBacklight systemName user vr;
+                    inherit inputs system battery monitorBacklight systemName user vr vmware;
                 };
                 users.${user} = import ../user/${user}/home.nix;
             };
@@ -48,7 +49,7 @@ in nixpkgs.lib.nixosSystem rec {
 
         {
             config._module.args = {
-                inherit inputs monitorBacklight battery system systemName user vr;
+                inherit inputs monitorBacklight battery system systemName user vr vmware;
             };
         }
     ];

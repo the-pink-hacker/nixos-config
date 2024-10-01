@@ -5,11 +5,9 @@
         ../../config/hyprland.nix
         ../../config/battery.nix
         ../../config/vr.nix
+        ../../config/vmware.nix
+        ../../config/zsh.nix
     ];
-
-    environment.sessionVariables = {
-        SHELL = "${pkgs.zsh}/bin/zsh";
-    };
 
     boot = {
         loader = {

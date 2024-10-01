@@ -32,7 +32,7 @@ in
         platformTheme.name = "kde";
         style = {
             package = pkgs.utterly-round-plasma-style;
-            name = "Breeze";
+            name = "breeze";
         };
     };
 
@@ -80,6 +80,8 @@ in
                 ''exec swww-daemon & exec sww img "/"''
                 "exec nm-applet --indicator"
                 "exec mako"
+                "exec systemctl --user start plasma-polkit-agent"
+                "exec kdeconnectd"
             ];
             bind = [
                 "$mainMod, F, exec, firefox"
