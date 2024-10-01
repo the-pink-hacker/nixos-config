@@ -15,7 +15,15 @@ in
         ./mako.nix
     ];
 
-    xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
+    xdg = {
+        userDirs = {
+            enable = true;
+            createDirectories = true;
+            # Conflicts with hyprland without this.
+            pictures = "$HOME/Pictures";
+        };
+        configFile."kdeglobals".source = ./kde/kdeglobals;
+    };
 
     home = {
         file.".wallpaper".source = ../../assets/wallpaper.png;
