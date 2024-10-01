@@ -78,6 +78,7 @@
             "wheel"
             "input"
             "video"
+            "disk"
         ];
         packages = with pkgs; [
             libreoffice-qt

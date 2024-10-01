@@ -32,7 +32,7 @@ in
         platformTheme.name = "kde";
         style = {
             package = pkgs.utterly-round-plasma-style;
-            name = "Utterly Round";
+            name = "Breeze";
         };
     };
 
