@@ -84,13 +84,14 @@ in
         settings = {
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
-            "exec-once" = [
-                ''exec swww-daemon & exec sww img "/"''
+            exec-once = [
+                ''exec swww-daemon & exec swww img "$HOME/.wallpaper"''
                 "exec nm-applet --indicator"
                 "exec mako"
                 "exec systemctl --user start plasma-polkit-agent"
                 "exec kdeconnectd"
             ];
+            misc.disable_hyprland_logo = true;
             bind = [
                 "$mainMod, F, exec, firefox"
                 "$mainMod, S, exec, rofi -show drun -show-icons"
