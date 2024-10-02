@@ -19,17 +19,13 @@ in
         userDirs = {
             enable = true;
             createDirectories = true;
-            # Conflicts with hyprland without this.
-            pictures = "$HOME/Pictures";
         };
         configFile."kdeglobals".source = ./kde/kdeglobals;
     };
 
     home = {
-        file.".wallpaper".source = ../../assets/wallpaper.png;
         sessionVariables = {
             NIXOS_OZONE_WL = "1";
-            XDG_PICTURES_DIR = "$HOME/Pictures";
             HYPRCURSOR_THEME = cursorTheme;
             HYPRCURSOR_SIZE = cursorSize;
         };
@@ -85,11 +81,14 @@ in
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
             exec-once = [
-                ''exec swww-daemon & exec swww img "$HOME/.wallpaper"''
+                "swww-daemon & swww restore"
                 "exec nm-applet --indicator"
                 "exec mako"
                 "exec systemctl --user start plasma-polkit-agent"
                 "exec kdeconnectd"
+            ];
+            exec = [
+                "swww img ${../../assets/wallpaper.png}"
             ];
             misc.disable_hyprland_logo = true;
             bind = [

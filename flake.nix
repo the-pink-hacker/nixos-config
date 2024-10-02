@@ -8,6 +8,10 @@
 	    inputs.nixpkgs.follows = "nixpkgs";
 	};
         nur.url = "github:nix-community/nur";
+        swww = {
+            url = "github:LGFae/swww";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:

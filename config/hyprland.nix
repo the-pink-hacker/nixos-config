@@ -1,4 +1,4 @@
-{ pkgs, monitorBacklight, ... }:
+{ pkgs, monitorBacklight, inputs, ... }:
 
 {
     programs = {
@@ -16,7 +16,7 @@
 
     environment.systemPackages = with pkgs; [
         rofi-wayland
-        swww
+        inputs.swww.packages.${pkgs.system}.swww
         gdk-pixbuf
         jq
         pango
@@ -24,42 +24,11 @@
         networkmanagerapplet
         hyprshot
         candy-icons
-        #kdePackages.breeze-icons
-        #kdePackages.kwalletmanager
-        #kdePackages.gwenview
-        #kdePackages.qtwayland
-        #kdePackages.qtsvg
-        #kdePackages.ffmpegthumbs
-        #kdePackages.kdegraphics-thumbnailers
-        #kdePackages.kdesdk-thumbnailers
-        #kdePackages.kimageformats
-        #kdePackages.qtimageformats
-        #kdePackages.taglib
-        #kdePackages.kio
-        #kdePackages.kdf
-        #kdePackages.kio-admin
-        #kdePackages.qtwayland
-        #kdePackages.plasma-integration
-        #kdePackages.kservice
-        #kdePackages.kdf
-        #kdePackages.ark
-        #kdePackages.ksvg
-        #kdePackages.kgpg
-        #kdePackages.wayqt
-        #kdePackages.kmime
-        #kdePackages.svgpart
         kdePackages.ktorrent
         kdePackages.kdenlive
-        #kdePackages.dolphin-plugins
         kdePackages.filelight
-        #kdePackages.kio-gdrive
-        #kdePackages.kio-fuse
-        #kdePackages.kio-extras
         kdePackages.polkit-qt-1
         kdePackages.polkit-kde-agent-1
-        #shared-mime-info
-        #resvg
-        #libheif
         kdePackages.kirigami
         kdePackages.kirigami-addons
         kdePackages.kirigami-gallery
