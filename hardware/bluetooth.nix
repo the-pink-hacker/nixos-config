@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-    config.hardware.bluetooth = {
+    services.blueman.enable = true;
+
+    hardware.bluetooth = {
         enable = true;
         settings = {
             General = {
@@ -11,7 +13,7 @@
     };
 
     # Button controls
-    config.systemd.user.services.mpris-proxy = {
+    systemd.user.services.mpris-proxy = {
         description = "Mpris proxy";
         after = [ "network.target" "sound.target" ];
         wantedBy = [ "default.target" ];
