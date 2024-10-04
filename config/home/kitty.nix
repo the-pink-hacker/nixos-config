@@ -5,6 +5,8 @@
         kitty
     ];
 
+    wayland.windowManager.hyprland.settings."$terminal" = "kitty";
+
     programs.kitty = {
         enable = true;
         shellIntegration.enableZshIntegration = true;

@@ -6,6 +6,7 @@
         ../../config/battery.nix
         ../../config/vr.nix
         ../../config/vmware.nix
+        #../../config/urxvt.nix
         ../../config/zsh.nix
     ];
 

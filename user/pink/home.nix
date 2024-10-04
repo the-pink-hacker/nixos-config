@@ -8,6 +8,7 @@
         ../../config/home/hyprland.nix
         ../../config/home/neovim.nix
         ../../config/home/firefox.nix
+        #../../config/home/urxvt.nix
         ../../config/home/zsh.nix
     ];
 
