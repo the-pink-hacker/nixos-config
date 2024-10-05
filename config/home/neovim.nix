@@ -9,6 +9,7 @@
          extraLuaConfig = builtins.readFile ./neovim/extra.lua;
          withPython3 = true;
          withNodeJs = true;
+         coc.enable = true;
          plugins = with pkgs.vimPlugins; [
      	    rustaceanvim
             nvim-treesitter
@@ -26,6 +27,13 @@
      	    nvim-cmp
      	    cmp-nvim-lsp
      	    vim-vsnip
+            nvim-treesitter-parsers.vue
+            coc-vetur
+            vim-vue-plugin
          ];
     };
+
+    home.packages = with pkgs; [
+        lldb_19
+    ];
 }

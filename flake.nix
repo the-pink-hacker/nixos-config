@@ -59,6 +59,14 @@
                 inherit shellHook;
                 LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
             };
+            node22 = pkgs.mkShell {
+                buildInputs = with pkgs; [
+                    nodejs_22
+                    yarn
+                    firebase-tools
+                ];
+                inherit shellHook;
+            };
         };
 
         nixosConfigurations = {
