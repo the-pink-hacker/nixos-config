@@ -153,3 +153,10 @@ cmp.setup({
         end,
     },
 })
+
+-- Coc
+vim.cmd([[
+    autocmd VimEnter *.rs silent! exe "CocDisable" 
+    autocmd BufEnter *.rs silent! exe "CocDisable" 
+    autocmd BufLeave *.rs silent! exe "CocEnable"
+]])
