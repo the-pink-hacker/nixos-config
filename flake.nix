@@ -1,3 +1,11 @@
+# Fixes:
+
+# Unsafe Permissions on .gnupg
+# Source: https://superuser.com/a/954536
+# chown -R $(whoami) ~/.gnupg/
+# find ~/.gnupg -type f -exec chmod 600 {} \;
+# find ~/.gnupg -type d -exec chmod 700 {} \;
+
 {
     description = "A simple NixOS flake.";
 

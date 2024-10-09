@@ -43,9 +43,13 @@
 
     services = {
         gnome.gnome-keyring.enable = true;
-        displayManager.sddm = {
-            enable = true;
-            wayland.enable = true;
+        displayManager = {
+            defaultSession = "hyprland";
+            sddm = {
+                enable = true;
+                wayland.enable = true;
+                autoNumlock = true;
+            };
         };
         desktopManager.plasma6.enable = true;
         gvfs.enable = true;
