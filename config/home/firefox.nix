@@ -171,6 +171,19 @@ in {
                         description = "Search for mods on Modrinth, the open source modding platform.";
                         definedAliases = [ "@modrinthmods" "@minecraftmods" ];
                     };
+                    "ProtonDB" = {
+                        urls = [
+                            {
+                                template = "https://www.protondb.com/search";
+                                type = "text/html";
+                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                            }
+                        ];
+                        iconUpdateURL = "https://www.protondb.com/sites/protondb/images/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search for Proton compatability for games on Linux.";
+                        definedAliases = [ "@protondb" ];
+                    };
                 };
             };
             bookmarks = [
@@ -260,6 +273,19 @@ in {
                             ];
                             keyword = "kofi";
                             url = "https://ko-fi.com/Manage";
+                        }
+                        {
+                            name = "GitHub";
+                            tags = [
+                                "github"
+                                "programming"
+                                "code"
+                                "coding"
+                                "open-source"
+                                "software"
+                            ];
+                            keyword = "github";
+                            url = "https://github.com";
                         }
                     ];
                 }

@@ -110,6 +110,7 @@
             heroic
             gamemode
             mangohud
+            vobcopy
         ];
     };
 
