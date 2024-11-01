@@ -176,7 +176,7 @@
             powerline-fonts
             noto-fonts
             noto-fonts-color-emoji
-            noto-fonts-cjk
+            noto-fonts-cjk-sans
             font-awesome
         ];
 
