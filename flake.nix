@@ -35,8 +35,39 @@
         devShells."${system}" = let 
             shellHook = "exec zsh";
         in {
+            minecraft-mod = with pkgs; mkShell rec {
+                buildInputs = [
+                    xorg.libX11
+                    xorg.libXcursor
+                    xorg.libXrandr
+                    xorg.libXxf86vm
+                    xorg.libXext
+                    flite
+                    libusb1
+                    libxkbcommon
+                    wayland
+                    egl-wayland
+                    libGL
+                    libpulseaudio
+                    openal
+                    vulkan-loader
+                    gradle
+                ];
+                inherit shellHook;
+                LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
+            };
+            rust = with pkgs; mkShell rec {
+                buildInputs = [
+                    cargo
+                    rustc
+                ];
+                inherit shellHook;
+                LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
+            };
             rust-bevy = pkgs.mkShell rec {
                 nativeBuildInputs = with pkgs; [
+                    cargo
+                    rustc
                     pkg-config
                     mold
                 ];

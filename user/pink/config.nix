@@ -111,6 +111,7 @@
             gamemode
             mangohud
             vobcopy
+            jetbrains.idea-community-bin
         ];
     };
 
