@@ -2,14 +2,15 @@
 
 {
     services.espanso = {
+        package = pkgs.espanso.override {
+            x11Support = false;
+            waylandSupport = true;
+        };
         enable = true;
         configs = {
             default = {
-                keyboard_layout = {
-                    layout = "us";
-                    rules = "evdev";
-                    model = "pc105";
-                };
+                show_icon = false;
+                show_notifications = false;
             };
         };
         matches = {
