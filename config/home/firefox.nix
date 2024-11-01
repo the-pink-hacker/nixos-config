@@ -184,6 +184,74 @@ in {
                         description = "Search for Proton compatability for games on Linux.";
                         definedAliases = [ "@protondb" ];
                     };
+                    "Subnautica Wiki" = {
+                        urls = [
+                            {
+                                template = "https://subnautica.fandom.com/wiki/Special:Search";
+                                type = "text/html";
+                                params = [{
+                                    name = "search";
+                                    value = "{searchTerms}";
+                                }];
+                            }
+                            {
+                                template = "https://subnautica.fandom.com/api.php";
+                                type = "application/x-suggestions+json";
+                                params = [
+                                    {
+                                        name = "action";
+                                        value = "opensearch";
+                                    }
+                                    {
+                                        name = "search";
+                                        value = "{searchTerms}";
+                                    }
+                                    {
+                                        name = "namespace";
+                                        value = "0|2900";
+                                    }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://subnautica.fandom.com/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search on the Subnautica wiki.";
+                        definedAliases = [ "@subnautica" ];
+                    };
+                    "Factorio Wiki" = {
+                        urls = [
+                            {
+                                template = "https://wiki.factorio.com/Special:Search";
+                                type = "text/html";
+                                params = [{
+                                    name = "search";
+                                    value = "{searchTerms}";
+                                }];
+                            }
+                            {
+                                template = "https://wiki.factorio.com/api.php";
+                                type = "application/x-suggestions+json";
+                                params = [
+                                    {
+                                        name = "action";
+                                        value = "opensearch";
+                                    }
+                                    {
+                                        name = "search";
+                                        value = "{searchTerms}";
+                                    }
+                                    {
+                                        name = "namespace";
+                                        value = "0|3000|102|108";
+                                    }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://wiki.factorio.com/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search on the Factorio wiki.";
+                        definedAliases = [ "@factorio" ];
+                    };
                 };
             };
             bookmarks = [
