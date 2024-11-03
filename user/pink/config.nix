@@ -4,6 +4,7 @@
     imports = [
         ../../config/hyprland.nix
         ../../config/battery.nix
+        ../../config/mpd.nix
         ../../config/vr.nix
         ../../config/vmware.nix
         #../../config/urxvt.nix
