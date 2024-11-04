@@ -17,6 +17,7 @@
         reload_style_on_change = true;
         modules-left = [
             "clock"
+            "mpd"
         ];
         modules-center = builtins.concatLists [
             [
@@ -35,6 +36,32 @@
         modules-right = [
             "tray"
         ];
+        mpd = {
+            format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} | {album} | {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})";
+            format-disconnected = "Disconnected ";
+            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+            album-len = 20;
+            interval = 10;
+            consume-icons = {
+                on = " ";
+            };
+            random-icons = {
+                off = "<span color=\"#f53c3c\"></span> ";
+                on = " ";
+            };
+            repeat-icons = {
+                on = " ";
+            };
+            single-icons = {
+                on = "1 ";
+            };
+            state-icons = {
+                paused = "";
+                playing = "";
+            };
+            tooltip-format = "MPD (connected)";
+            tooltip-format-disconnected = "MPD (disconnected)";
+        };
         "keyboard-state" = {
             "numlock" = true;
             "capslock" = true;

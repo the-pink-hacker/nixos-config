@@ -115,8 +115,11 @@ in
             bindl = [
                 ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
                 ", XF86AudioPlay, exec, playerctl play-pause"
+                ", XF86AudioPlay, exec, mpc toggle"
                 ", XF86AudioPrev, exec, playerctl previous"
+                ", XF86AudioPrev, exec, mpc prev"
                 ", XF86AudioNext, exec, playerctl next"
+                ", XF86AudioNext, exec, mpc next"
             ];
             monitor = [
                 (lib.mkIf isLaptop "eDP-1, preferred, auto, 1.175")
