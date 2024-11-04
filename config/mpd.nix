@@ -5,5 +5,6 @@
         mpc_cli
     ];
 
-    services.pipewire.systemWide = true;
+    #services.pipewire.systemWide = true;
+    hardware.pulseaudio.systemWide = true;
 }

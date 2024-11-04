@@ -5,10 +5,16 @@
         enable = true;
         extraConfig = ''
             audio_output {
-                type "pipewire"
-                name "MPD PipeWire"
+                type "pulse"
+                name "Pulse Audio"
             }
         '';
+        #extraConfig = ''
+        #    audio_output {
+        #        type "pipewire"
+        #        name "PipeWire"
+        #    }
+        #'';
     };
 
     programs.ncmpcpp = {
