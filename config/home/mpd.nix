@@ -5,14 +5,10 @@
         enable = true;
         extraConfig = ''
             audio_output {
-                type "pulse"
-                name "Pulseaudio"
+                type "pipewire"
+                name "MPD PipeWire"
             }
         '';
-    };
-
-    programs.zsh.shellAliases = {
-        mpc = "ncmpcpp";
     };
 
     programs.ncmpcpp = {

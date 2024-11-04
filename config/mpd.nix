@@ -5,6 +5,5 @@
         mpc_cli
     ];
 
-    # PulseAudio workaround
-    hardware.pulseaudio.systemWide = true;
+    services.pipewire.systemWide = true;
 }
