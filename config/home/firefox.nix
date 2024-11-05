@@ -314,13 +314,25 @@ in {
                             name = "LTT";
                             tags = [
                                 "ltt"
-                                "media"
                                 "floatplane"
                                 "media"
                                 "entertainment"
                             ];
                             keyword = "floatplane";
                             url = "https://www.floatplane.com/channel/linustechtips/home";
+                        }
+                        {
+                            name = "Dropout";
+                            tags = [
+                                "dropout"
+                                "college humor"
+                                "media"
+                                "entertainment"
+                                "improve"
+                                "comedy"
+                            ];
+                            keyword = "dropout";
+                            url = "https://www.dropout.tv";
                         }
                         {
                             name = "Modrinth";
