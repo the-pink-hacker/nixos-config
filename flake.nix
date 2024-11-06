@@ -66,8 +66,6 @@
             };
             rust-bevy = pkgs.mkShell rec {
                 nativeBuildInputs = with pkgs; [
-                    cargo
-                    rustc
                     pkg-config
                     mold
                 ];
