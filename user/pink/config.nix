@@ -9,6 +9,7 @@
         ../../config/vmware.nix
         #../../config/urxvt.nix
         ../../config/zsh.nix
+        ../../config/cloudflare.nix
     ];
 
     boot = {
