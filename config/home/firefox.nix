@@ -9,6 +9,7 @@ let
             '';
         }))
     ];
+    mediaWikiSearch = import ../../lib/firefox/search/mediaWiki.nix;
 in {
     programs.firefox = {
         enable = true;
@@ -54,44 +55,34 @@ in {
                         description = "Search the MDN Web Docs";
                         definedAliases = [ "@mdn" ];
                     };
-                    "NixOS Wiki" = {
-                        urls = [
-                            {
-                                template = "https://wiki.nixos.org/w/index.php";
-                                type = "text/html";
-                                params = [
-                                    { name = "search"; value = "{searchTerms}"; }
-                                ];
-                            }
-                        ];
-                        iconUpdateURL = "https://wiki.nixos.org/favicon.ico";
+                    "NixOS Wiki" = mediaWikiSearch {
+                        url = "https://wiki.nixos.org";
+                        fandomFormat = true;
+                        searchURL = "https://wiki.nixos.org/w/index.php";
+                        description = "Search on the NixOS Wiki.";
                         inherit updateInterval;
                         definedAliases = [ "@nixoswiki" ];
                     };
-                    "Minecraft Wiki (EN)" = {
-                        urls = [
+                    "Minecraft Wiki (EN)" = mediaWikiSearch {
+                        url = "https://minecraft.wiki";
+                        fandomFormat = true;
+                        searchURL = "https://minecraft.wiki/w/Special:Search";
+                        additionalSuggestionParams = [
                             {
-                                template = "https://minecraft.wiki/w/Special:Search";
-                                type = "text/html";
-                                params = [
-                                    { name = "search"; value = "{searchTerms}"; }
-                                ];
+                                name = "maxage";
+                                value = "600";
                             }
                             {
-                                template = "https://minecraft.wiki/api.php";
-                                type = "application/x-suggestions+json";
-                                params = [
-                                    { name = "action"; value = "opensearch"; }
-                                    { name = "search"; value = "{searchTerms}"; }
-                                    { name = "namespace"; value = "0|10000|10002|10004|10006"; }
-                                    { name = "maxage"; value = "600"; }
-                                    { name = "uselang"; value = "content"; }
-                                ];
+                                name = "uselang";
+                                value = "content";
                             }
                         ];
-                        iconUpdateURL = "https://minecraft.wiki/favicon.ico";
                         inherit updateInterval;
-                        definedAliases = [ "@minecraft" "@mc" ];
+                        description = "Search on the Minecraft Wiki.";
+                        definedAliases = [
+                            "@minecraft"
+                            "@mc"
+                        ];
                     };
                     "YouTube" = {
                         urls = [
@@ -184,73 +175,38 @@ in {
                         description = "Search for Proton compatability for games on Linux.";
                         definedAliases = [ "@protondb" ];
                     };
-                    "Subnautica Wiki" = {
-                        urls = [
-                            {
-                                template = "https://subnautica.fandom.com/wiki/Special:Search";
-                                type = "text/html";
-                                params = [{
-                                    name = "search";
-                                    value = "{searchTerms}";
-                                }];
-                            }
-                            {
-                                template = "https://subnautica.fandom.com/api.php";
-                                type = "application/x-suggestions+json";
-                                params = [
-                                    {
-                                        name = "action";
-                                        value = "opensearch";
-                                    }
-                                    {
-                                        name = "search";
-                                        value = "{searchTerms}";
-                                    }
-                                    {
-                                        name = "namespace";
-                                        value = "0|2900";
-                                    }
-                                ];
-                            }
+                    "Subnautica Wiki" = mediaWikiSearch {
+                        url = "https://subnautica.fandom.com";
+                        fandomFormat = true;
+                        suggestionNamespaces = [
+                            0
+                            2900
                         ];
-                        iconUpdateURL = "https://subnautica.fandom.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search on the Subnautica wiki.";
                         definedAliases = [ "@subnautica" ];
                     };
-                    "Factorio Wiki" = {
-                        urls = [
-                            {
-                                template = "https://wiki.factorio.com/Special:Search";
-                                type = "text/html";
-                                params = [{
-                                    name = "search";
-                                    value = "{searchTerms}";
-                                }];
-                            }
-                            {
-                                template = "https://wiki.factorio.com/api.php";
-                                type = "application/x-suggestions+json";
-                                params = [
-                                    {
-                                        name = "action";
-                                        value = "opensearch";
-                                    }
-                                    {
-                                        name = "search";
-                                        value = "{searchTerms}";
-                                    }
-                                    {
-                                        name = "namespace";
-                                        value = "0|3000|102|108";
-                                    }
-                                ];
-                            }
+                    "Factorio Wiki" = mediaWikiSearch {
+                        url = "https://wiki.factorio.com";
+                        suggestionNamespaces = [
+                            0
+                            3000
+                            102
+                            108
                         ];
-                        iconUpdateURL = "https://wiki.factorio.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search on the Factorio wiki.";
                         definedAliases = [ "@factorio" ];
+                    };
+                    "Arch Linux Wiki" = mediaWikiSearch {
+                        url = "https://wiki.archlinux.org";
+                        suggestionNamespaces = [
+                            0
+                            3000
+                        ];
+                        inherit updateInterval;
+                        description = "Search on the Arch Linux Wiki.";
+                        definedAliases = [ "@archwiki" ];
                     };
                 };
             };
