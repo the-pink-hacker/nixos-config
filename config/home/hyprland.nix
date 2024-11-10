@@ -74,6 +74,8 @@ in
         color-scheme = "prefer-dark";
     };
 
+    services.batsignal.enable = true;
+
     wayland.windowManager.hyprland = {
         enable = true;
         extraConfig = builtins.readFile ./hyprland/default.conf;
