@@ -77,8 +77,9 @@
         };
         clock = {
             tooltip-format = "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            format = "{:L%H:%M:%S}";
-            format-alt = "{:L%Y-%m-%d}";
+            format = "{:%H:%M:%S}";
+            format-alt = "{:%Y-%m-%d}";
+            timezone = "America/Indiana/Indianapolis";
             interval = 1;
         };
         "cpu" = {
