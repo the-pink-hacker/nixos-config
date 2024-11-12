@@ -36,11 +36,15 @@ in lib.nixosSystem rec {
         configPath = ../config;
     };
     modules = [
-        { nixpkgs.config.allowUnfree = true; }
-
-        { nixpkgs.overlays = [ inputs.nur.overlay ]; }
-
-        { networking.hostName = name; }
+        {
+            networking.hostName = name;
+            nixpkgs = {
+                config.allowUnfree = true;
+                overlays = with inputs; [
+                    nur.overlay
+                ];
+            };
+        }
 
         (if amdGraphics then ../hardware/amd.nix else {})
         (if nvidiaGraphics then ../hardware/nvidia.nix else {})
