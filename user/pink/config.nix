@@ -10,6 +10,7 @@
         #../../config/urxvt.nix
         ../../config/zsh.nix
         ../../config/cloudflare.nix
+        ../../config/minecraft.nix
     ];
 
     boot = {
@@ -87,9 +88,6 @@
 	    vlc
 	    spotify
 	    neofetch
-	    atlauncher
-	    glfw
-	    openal
 	    obsidian
 	    gimp
 	    thunderbird
