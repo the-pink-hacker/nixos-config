@@ -60,7 +60,7 @@
 
     programs.java = {
         enable = true;
-        package = pkgs.jdk22;
+        package = pkgs.jdk23;
     };
 
     home.stateVersion = "24.05";
