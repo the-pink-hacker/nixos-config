@@ -17,8 +17,24 @@ name:
 
 let
     systemName = name;
-in nixpkgs.lib.nixosSystem rec {
+    machinePath = ../machine/${name};
+    userPath = ../user/${user};
+    extraArgs = {
+        inherit inputs;
+        inherit monitorBacklight;
+        inherit battery;
+        inherit system;
+        inherit systemName;
+        inherit user;
+        inherit vr;
+        inherit vmware;
+    };
+    lib = nixpkgs.lib;
+in lib.nixosSystem rec {
     inherit system;
+    specialArgs = extraArgs // {
+        configPath = ../config;
+    };
     modules = [
         { nixpkgs.config.allowUnfree = true; }
 
@@ -31,25 +47,19 @@ in nixpkgs.lib.nixosSystem rec {
         (if bluetooth then ../hardware/bluetooth.nix else {})
         (if fingerprint then ../hardware/fingerprint.nix else {})
 
-        ../machine/${name}/hardware.nix
-        ../machine/${name}/hardware-generated.nix
+        (machinePath + /hardware.nix)
+        (machinePath + /hardware-generated.nix)
 
-        ../user/${user}/config.nix
+        (userPath + /config.nix)
 
         inputs.home-manager.nixosModules.home-manager {
             home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = {
-                    inherit inputs system battery monitorBacklight systemName user vr vmware;
+                extraSpecialArgs = extraArgs // {
+                    homeConfigPath = ../config/home;
                 };
-                users.${user} = import ../user/${user}/home.nix;
-            };
-        }
-
-        {
-            config._module.args = {
-                inherit inputs monitorBacklight battery system systemName user vr vmware;
+                users.${user} = import (userPath + /home.nix);
             };
         }
     ];

@@ -1,16 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, configPath, ... }:
 
 {
-    imports = [
-        ../../config/hyprland.nix
-        ../../config/battery.nix
-        ../../config/mpd.nix
-        ../../config/vr.nix
-        ../../config/vmware.nix
-        #../../config/urxvt.nix
-        ../../config/zsh.nix
-        ../../config/cloudflare.nix
-        ../../config/minecraft.nix
+    imports = builtins.map (path: configPath + path) [
+        /hyprland.nix
+        /battery.nix
+        /mpd.nix
+        /vr.nix
+        /vmware.nix
+        /urxvt.nix
+        /zsh.nix
+        /cloudflare.nix
+        /minecraft.nix
     ];
 
     boot = {

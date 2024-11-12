@@ -104,9 +104,9 @@ in
                 "$shiftMod, Print, exec, hyprshot -m region"
             ];
             # Repeat
-            binde = [
-                (lib.mkIf monitorBacklight ", XF86MonBrightnessUp, exec, brillo -A 5")
-                (lib.mkIf monitorBacklight ", XF86MonBrightnessDown, exec, brillo -U 5")
+            binde = lib.optionals monitorBacklight [
+                ", XF86MonBrightnessUp, exec, brillo -A 5"
+                ", XF86MonBrightnessDown, exec, brillo -U 5"
             ];
             # Repeat Locked
             bindel = [
@@ -124,13 +124,15 @@ in
                 ", XF86AudioNext, exec, mpc next"
             ];
             monitor = [
-                (lib.mkIf isLaptop "eDP-1, preferred, auto, 1.175")
-                (lib.mkIf isDesktop "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10")
-                (lib.mkIf isDesktop "DP-2, preferred, auto-left, 1")
-                (lib.mkIf isDesktop "HDMI-A-1, disabled")
-                (lib.mkIf isDesktop "HDMI-A-2, preferred, auto-right, 1, vrr, 1")
                 ", preferred, auto, 1"
-            ];
+            ]
+            ++ lib.optionals isDesktop [
+                "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10"
+                "DP-2, preferred, auto-left, 1"
+                "HDMI-A-1, disabled"
+                "HDMI-A-2, preferred, auto-right, 1, vrr, 1"
+            ]
+            ++ lib.optional isLaptop "eDP-1, preferred, auto, 1.175";
         };
     };
 }

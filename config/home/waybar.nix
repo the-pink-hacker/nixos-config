@@ -19,19 +19,17 @@
             "clock"
             "mpd"
         ];
-        modules-center = builtins.concatLists [
-            [
-                "pulseaudio"
-                "network"
-                "cpu"
-                "memory"
-                "temperature"
-                "keyboard-state"
-            ]
-            (if battery then [
-                "battery"
-                "power-profiles-daemon"
-            ] else [])
+        modules-center = [
+            "pulseaudio"
+            "network"
+            "cpu"
+            "memory"
+            "temperature"
+            "keyboard-state"
+        ]
+        ++ lib.optionals battery [
+            "battery"
+            "power-profiles-daemon"
         ];
         modules-right = [
             "tray"

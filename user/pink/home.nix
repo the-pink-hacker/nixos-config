@@ -1,16 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, homeConfigPath, ... }:
 
 {
-    imports = [
-        ../../config/home/blockbench.nix
-        ../../config/home/discord.nix
-        ../../config/home/espanso.nix
-        ../../config/home/hyprland.nix
-        ../../config/home/neovim.nix
-        ../../config/home/mpd.nix
-        ../../config/home/firefox.nix
-        #../../config/home/urxvt.nix
-        ../../config/home/zsh.nix
+    imports = builtins.map (path: homeConfigPath + path) [
+        /blockbench.nix
+        /discord.nix
+        /espanso.nix
+        /hyprland.nix
+        /neovim.nix
+        /mpd.nix
+        /firefox.nix
+        #/urxvt.nix
+        /zsh.nix
     ];
 
     home = {
