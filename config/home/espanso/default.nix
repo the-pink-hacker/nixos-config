@@ -14,7 +14,8 @@
         { trigger = ":multiply"; replace = "×"; }
         { trigger = ":divide"; replace = "÷"; }
         { trigger = ":degree"; replace = "°"; }
-        
+        { trigger = ":tm"; replace = "™"; }
+        { trigger = ":copyright"; replace = "©"; }
         
         # Superscripts
         { trigger = ":^0"; replace = "⁰"; }
