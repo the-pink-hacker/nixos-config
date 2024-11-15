@@ -237,16 +237,6 @@ in {
                             url = "https://www.tumblr.com";
                         }
                         {
-                            name = "Cohost";
-                            tags = [
-                                "cohost"
-                                "social media"
-                                "entertainment"
-                            ];
-                            keyword = "cohost";
-                            url = "https://cohost.org";
-                        }
-                        {
                             name = "Subscriptions";
                             tags = [
                                 "youtube"
@@ -288,7 +278,7 @@ in {
                                 "comedy"
                             ];
                             keyword = "dropout";
-                            url = "https://www.dropout.tv";
+                            url = "https://www.dropout.tv/browse";
                         }
                         {
                             name = "Modrinth";
@@ -324,6 +314,16 @@ in {
                             url = "https://github.com";
                         }
                     ];
+                }
+                {
+                    name = "Cohost";
+                    tags = [
+                        "cohost"
+                        "social media"
+                        "entertainment"
+                    ];
+                    keyword = "cohost";
+                    url = "https://cohost.org";
                 }
             ];
             settings = {
