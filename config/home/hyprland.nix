@@ -1,4 +1,4 @@
-{ pkgs, lib, monitorBacklight, systemName, ... }:
+{ pkgs, lib, monitorBacklight, systemName, config, ... }:
 
 let
     theme = "Sweet-Dark";
@@ -58,9 +58,16 @@ in
             name = cursorTheme;
         };
         gtk3 = {
-            bookmarks = [
-              "file:///tmp"
-            ];
+            bookmarks = builtins.map (path: "file://" + path) (with config.xdg.userDirs; [
+                desktop
+                documents
+                download
+                music
+                pictures
+                publicShare
+                templates
+                videos
+            ]);
             extraConfig.gtk-application-prefer-dark-theme = true;
         };
     };
