@@ -138,7 +138,6 @@
             jsonschema
 	]))
 	rustup
-	sccache
 	clang
 	cmake
 	tree
