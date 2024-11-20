@@ -208,6 +208,26 @@ in {
                         description = "Search on the Arch Linux Wiki.";
                         definedAliases = [ "@archwiki" ];
                     };
+                    "Bandcamp" = {
+                        urls = [
+                            {
+                                template = "https://bandcamp.com/search";
+                                type = "text/html";
+                                params = [
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://s4.bcbits.com/img/favicon/favicon-32x32.png";
+                        inherit updateInterval;
+                        description = "Search for music, albums, and artists on Bandcamp.";
+                        definedAliases = [
+                            "@bandcamp"
+                        ];
+                    };
                 };
             };
             bookmarks = [
@@ -312,6 +332,16 @@ in {
                             ];
                             keyword = "github";
                             url = "https://github.com";
+                        }
+                        {
+                            name = "Bandcamp";
+                            tags = [
+                                "music"
+                                "media"
+                                "entertainment"
+                            ];
+                            keyword = "bandcamp";
+                            url = "https://bandcamp.com/thepinkhacker";
                         }
                     ];
                 }
