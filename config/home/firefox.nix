@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, libPath, ... }:
 
 let
     hosts = with pkgs; [
@@ -9,7 +9,8 @@ let
             '';
         }))
     ];
-    mediaWikiSearch = import ../../lib/firefox/search/mediaWiki.nix;
+    mediaWikiSearch = import (libPath + /firefox/search/mediaWiki.nix);
+    mkAddon = import (libPath + /firefox/mkAddon.nix);
 in {
     programs.firefox = {
         enable = true;
@@ -435,39 +436,36 @@ in {
             # about:support
             ExtensionSettings = {
                 # X-Kit Rewritten
-                "{6e710c58-36cc-49d6-b772-bfc3030fa56e}" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/xkit-rewritten/latest.xpi";
-                    installation_mode = "force_installed";
+                "{6e710c58-36cc-49d6-b772-bfc3030fa56e}" = mkAddon {
+                    slug = "xkit-rewritten";
                 };
                 # Nebulizer
-                "nebulizer@val.packett.cool" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/nebulizer/latest.xpi";
-                    installation_mode = "force_installed";
+                "nebulizer@val.packett.cool" = mkAddon {
+                    slug = "nebulizer";
                 };
                 # Enhancer for Nebula
-                "nebula-enhancer@piber.at" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-nebula/latest.xpi";
-                    installation_mode = "force_installed";
+                "nebula-enhancer@piber.at" = mkAddon {
+                    slug = "enhancer-for-nebula";
                 };
                 # Webrtc Leak Shield
-                "@webrtc-leak-shield" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/webrtc-leak-shield/latest.xpi";
-                    installation_mode = "force_installed";
+                "@webrtc-leak-shield" = mkAddon {
+                    slug = "webrtc-leak-shield";
                 };
                 # Fandom Enhanced
-                "{62818d18-03a3-4ae9-bbe6-d7e7d8b03a0d}" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/fandom-enhance/latest.xpi";
-                    installation_mode = "force_installed";
+                "{62818d18-03a3-4ae9-bbe6-d7e7d8b03a0d}" = mkAddon {
+                    slug = "fandom-enhance";
                 };
                 # Chatreplay
-                "{25cddbee-458b-4e9f-984d-dbf35511f124}" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/chatreplay/latest.xpi";
-                    installation_mode = "force_installed";
+                "{25cddbee-458b-4e9f-984d-dbf35511f124}" = mkAddon {
+                    slug = "chatreplay";
                 };
                 # Whenplane Widget
-                "{d7efb617-4782-4ca1-841e-f1fde210896b}" = {
-                    install_url = "https://addons.mozilla.org/firefox/downloads/latest/whenplane-widget/latest.xpi";
-                    installation_mode = "force_installed";
+                "{d7efb617-4782-4ca1-841e-f1fde210896b}" = mkAddon {
+                    slug = "whenplane-widget";
+                };
+                # YouTube Live Chat Overlay
+                "{c67d2cdf-97be-48a5-b6d1-3f26a7c94294}" = mkAddon {
+                    slug = "youtube-live-chat-overlay";
                 };
             };
         };

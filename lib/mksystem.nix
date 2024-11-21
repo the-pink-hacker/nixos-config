@@ -28,6 +28,7 @@ let
         inherit user;
         inherit vr;
         inherit vmware;
+        libPath = ../lib;
     };
     lib = nixpkgs.lib;
 in lib.nixosSystem rec {
