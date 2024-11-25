@@ -2,10 +2,10 @@
 
 {
     services.cloudflare-warp = {
-        enable = true;
+        enable = false;
     };
 
     services.cloudflared = {
-        enable = true;
+        enable = false;
     };
 }
