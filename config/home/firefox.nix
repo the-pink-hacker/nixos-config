@@ -229,6 +229,30 @@ in {
                             "@bandcamp"
                         ];
                     };
+                    "GitHub" = {
+                        urls = [
+                            {
+                                template = "https://github.com/search";
+                                type = "text/html";
+                                params = [
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
+                                    {
+                                        name = "ref";
+                                        value = "opensearch";
+                                    }
+                                ];
+                            }
+                        ];
+                        iconUpdateURL = "https://github.com/favicon.ico";
+                        inherit updateInterval;
+                        description = "Search GitHub";
+                        definedAliases = [
+                            "@github"
+                        ];
+                    };
                 };
             };
             bookmarks = [
