@@ -113,6 +113,7 @@
             vobcopy
             jetbrains.idea-community-bin
             kdePackages.kcharselect
+            krita
         ];
     };
 
