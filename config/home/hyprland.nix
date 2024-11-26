@@ -4,6 +4,7 @@ let
     theme = "Sweet-Dark";
     iconTheme = "Sweet";
     cursorTheme = "catppuccin-macchiato-dark-cursors";
+    cursorPackage = pkgs.catppuccin-cursors.macchiatoDark;
     cursorSize = 24;
     isLaptop = systemName == "pink-nixos-laptop";
     isDesktop = systemName == "pink-nixos-desktop";
@@ -43,7 +44,7 @@ in
     # Cursor setup
     home.pointerCursor = {
         name = cursorTheme;
-        package = pkgs.catppuccin-cursors.macchiatoDark;
+        package = cursorPackage;
         gtk.enable = true;
         size = cursorSize;
     };
@@ -53,10 +54,6 @@ in
         enable = true;
         theme.name = theme;
         iconTheme.name = iconTheme;
-        cursorTheme = {
-            size = cursorSize;
-            name = cursorTheme;
-        };
         gtk3 = {
             bookmarks = builtins.map (path: "file://" + path) (with config.xdg.userDirs; [
                 desktop

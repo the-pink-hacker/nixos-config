@@ -32,8 +32,15 @@
         kdePackages.kirigami
         kdePackages.kirigami-addons
         kdePackages.kirigami-gallery
+        kdePackages.kquickcharts
+        adwaita-icon-theme
+        adwaita-qt
+        adwaita-qt6
+        gnome-themes-extra
         sweet
         hyprcursor
+        kdePackages.breeze
+        kdePackages.breeze-gtk
         playerctl
         pavucontrol
         jmtpfs
