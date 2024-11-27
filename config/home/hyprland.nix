@@ -86,6 +86,7 @@ in
         settings = {
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
+            "$fileManager" = "thunar";
             exec-once = [
                 "swww-daemon & swww restore"
                 "exec nm-applet --indicator"
