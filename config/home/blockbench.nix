@@ -3,7 +3,10 @@
 {
     home.packages = [ pkgs.blockbench ];
 
-    xdg.configFile."Blockbench/launch_settings.json".source = ./blockbench/launch_settings.json;
+    xdg.configFile."Blockbench/launch_settings.json".text = builtins.toJSON {
+        update_to_prereleases = false;
+        hardware_acceleration = true;
+    };
 
     xdg.desktopEntries = {
         blockbench = {
