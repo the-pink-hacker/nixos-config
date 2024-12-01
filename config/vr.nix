@@ -6,7 +6,7 @@
 lib.mkIf vr {
     environment.systemPackages = with pkgs; [
         sidequest
-        beatsabermodmanager
+        #beatsabermodmanager
     ];
 
     programs.alvr = {
