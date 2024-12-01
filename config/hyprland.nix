@@ -16,6 +16,7 @@
 
     environment.systemPackages = with pkgs; [
         rofi-wayland
+        wofi-emoji
         inputs.swww.packages.${pkgs.system}.swww
         gdk-pixbuf
         jq

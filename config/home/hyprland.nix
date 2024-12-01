@@ -98,6 +98,8 @@ in
                 "swww img ${../../assets/wallpaper.png}"
             ];
             misc.disable_hyprland_logo = true;
+            # https://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
+            # https://wiki.linuxquestions.org/wiki/List_of_Keysyms_Recognised_by_Xmodmap
             bind = [
                 "$mainMod, F, exec, firefox"
                 "$mainMod, S, exec, rofi -show drun -show-icons"
@@ -107,6 +109,8 @@ in
                 ", PRINT, exec, hyprshot -m output"
                 # Screenshot a region
                 "$shiftMod, Print, exec, hyprshot -m region"
+                # Emoji selector
+                "$mainMod, period, exec, wofi-emoji"
             ];
             # Repeat
             binde = lib.optionals monitorBacklight [
