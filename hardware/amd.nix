@@ -28,12 +28,13 @@
             # OpenCL
             rocmPackages.clr.icd
             # AMDVLK
-            amdvlk
+            #amdvlk
             mesa
+            libva-utils
         ];
         extraPackages32 = with pkgs; [
             # AMDVLK
-            driversi686Linux.amdvlk
+            #driversi686Linux.amdvlk
         ];
     };
 

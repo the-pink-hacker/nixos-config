@@ -11,6 +11,7 @@
         /zsh.nix
         /cloudflare.nix
         /minecraft.nix
+        /gamemode.nix
     ];
 
     boot = {
@@ -75,6 +76,7 @@
             "input"
             "video"
             "disk"
+            "gamemode"
         ];
         packages = with pkgs; [
             libreoffice-qt
@@ -102,7 +104,6 @@
             elisa
             protonvpn-gui
             heroic
-            gamemode
             mangohud
             vobcopy
             jetbrains.idea-community-bin
