@@ -12,6 +12,7 @@
         /cloudflare.nix
         /minecraft.nix
         /gamemode.nix
+        /ti84.nix
     ];
 
     boot = {
