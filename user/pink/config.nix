@@ -12,7 +12,6 @@
         /cloudflare.nix
         /minecraft.nix
         /gamemode.nix
-        /ti84.nix
     ];
 
     boot = {
@@ -196,7 +195,7 @@
     # GPG
     services.pcscd.enable = true;
 
-    security.sudo-rs.enable = true;
+    security.sudo.enable = true;
 
     # Fix windows time issue
     time.hardwareClockInLocalTime = true;
