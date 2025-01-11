@@ -253,6 +253,68 @@ in {
                             "@github"
                         ];
                     };
+                    "Balatro Wiki (en)" = mediaWikiSearch {
+                        url = "https://balatrogame.fandom.com";
+                        fandomFormat = true;
+                        suggestionNamespaces = [
+                            0
+                            2900
+                        ];
+                        inherit updateInterval;
+                        description = "Search on the Balatro wiki.";
+                        definedAliases = [ "@balatro" ];
+                    };
+                    "Terraria Wiki (en)" = mediaWikiSearch {
+                        url = "https://terraria.wiki.gg";
+                        fandomFormat = true;
+                        suggestionNamespaces = [
+                            0
+                        ];
+                        additionalSuggestionParams = [
+                            {
+                                name = "maxage";
+                                value = "10800";
+                            }
+                            {
+                                name = "smaxage";
+                                value = "10800";
+                            }
+                            {
+                                name = "uselang";
+                                value = "content";
+                            }
+                        ];
+                        inherit updateInterval;
+                        description = "Search on the Terraria wiki.";
+                        definedAliases = [ "@terraria" ];
+                    };
+                    "Risk of Rain 2 Wiki (en)" = mediaWikiSearch {
+                        url = "https://riskofrain2.wiki.gg";
+                        fandomFormat = true;
+                        suggestionNamespaces = [
+                            0
+                        ];
+                        additionalSuggestionParams = [
+                            {
+                                name = "maxage";
+                                value = "10800";
+                            }
+                            {
+                                name = "smaxage";
+                                value = "10800";
+                            }
+                            {
+                                name = "uselang";
+                                value = "content";
+                            }
+                        ];
+                        inherit updateInterval;
+                        description = "Search on the Risk of Rain 2 wiki.";
+                        definedAliases = [
+                            "@riskofrain2"
+                            "@riskofrain"
+                        ];
+                    };
                 };
             };
             bookmarks = [
