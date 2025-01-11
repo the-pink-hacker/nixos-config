@@ -344,6 +344,17 @@ in {
                             url = "https://www.tumblr.com";
                         }
                         {
+                            name = "Bluesky";
+                            tags = [
+                                "bluesky"
+                                "social media"
+                                "entertainment"
+                                "blog"
+                            ];
+                            keyword = "bluesky";
+                            url = "https://bsky.app";
+                        }
+                        {
                             name = "Subscriptions";
                             tags = [
                                 "youtube"
