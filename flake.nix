@@ -114,6 +114,7 @@
                 amdGraphics = true;
                 vmware = true;
                 vr = true;
+                drive = true;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";

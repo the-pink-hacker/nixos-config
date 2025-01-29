@@ -12,7 +12,8 @@ name:
     monitorBacklight ? false,
     fingerprint ? false,
     vmware ? false,
-    vr ? false
+    vr ? false,
+    drive ? false
 }:
 
 let
@@ -28,6 +29,7 @@ let
         inherit user;
         inherit vr;
         inherit vmware;
+        inherit drive;
         libPath = ../lib;
     };
     lib = nixpkgs.lib;
@@ -51,6 +53,7 @@ in lib.nixosSystem rec {
         (if nvidiaGraphics then ../hardware/nvidia.nix else {})
         (if bluetooth then ../hardware/bluetooth.nix else {})
         (if fingerprint then ../hardware/fingerprint.nix else {})
+        (if drive then ../hardware/drive.nix else {})
 
         (machinePath + /hardware.nix)
         (machinePath + /hardware-generated.nix)
