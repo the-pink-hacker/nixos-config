@@ -5,7 +5,7 @@ let
         (passff-host.overrideAttrs (old: {
             dontStrip = true;
             patchPhase = ''
-                sed -i 's#COMMAND = "pass"#COMMAND = "${pass.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
+                sed -i 's#COMMAND = "pass"#COMMAND = "${pass-wayland.withExtensions (ext: with ext; [pass-otp])}/bin/pass"#' src/passff.py
             '';
         }))
     ];

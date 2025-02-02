@@ -115,7 +115,7 @@
     programs.kdeconnect.enable = true;
 
     environment.systemPackages = with pkgs; [
-    	(pass.withExtensions (exts: with exts; [ pass-otp ]))
+    	(pass-wayland.withExtensions (exts: with exts; [ pass-otp ]))
 	os-prober
 	ripgrep
 	fd
