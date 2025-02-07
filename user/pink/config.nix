@@ -82,7 +82,6 @@
             libreoffice-qt
 	    vscode
 	    vlc
-	    spotify
 	    neofetch
 	    obsidian
 	    gimp
