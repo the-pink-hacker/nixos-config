@@ -138,8 +138,6 @@ in
             ++ lib.optionals isDesktop [
                 "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10"
                 "DP-2, preferred, auto-right, 1, vrr, 1"
-                "HDMI-A-1, disabled"
-                "HDMI-A-2, disabled"
             ]
             ++ lib.optional isLaptop "eDP-1, preferred, auto, 1.175";
         };
