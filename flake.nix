@@ -20,6 +20,10 @@
             url = "github:LGFae/swww";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        rust-overlay = {
+            url = "github:oxalica/rust-overlay";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -30,6 +34,9 @@
         };
         pkgs = import nixpkgs {
             inherit system;
+            overlays = [
+                (import inputs.rust-overlay)
+            ];
         };
     in {
         devShells."${system}" = let 
@@ -65,11 +72,10 @@
                 LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
             };
             rust-bevy = pkgs.mkShell rec {
-                nativeBuildInputs = with pkgs; [
+                buildInputs = with pkgs; [
+                    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
                     pkg-config
                     mold
-                ];
-                buildInputs = with pkgs; [
                     udev
                     alsa-lib
                     vulkan-loader
