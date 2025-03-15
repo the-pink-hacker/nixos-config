@@ -11,6 +11,7 @@
         /firefox.nix
         #/urxvt.nix
         /zsh.nix
+        /helix.nix
     ];
 
     home = {
