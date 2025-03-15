@@ -65,15 +65,24 @@
             };
             rust = with pkgs; mkShell rec {
                 buildInputs = [
-                    cargo
-                    rustc
+                    (rust-bin.stable.latest.default.orverride {
+                        extensions = [
+                            "rust-analyzer"
+                            "rust-src"
+                        ];
+                    })
                 ];
                 inherit shellHook;
                 LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
             };
             rust-bevy = pkgs.mkShell rec {
                 buildInputs = with pkgs; [
-                    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
+                    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+                        extensions = [
+                            "rust-analyzer"
+                            "rust-src"
+                        ];
+                    }))
                     pkg-config
                     mold
                     udev
