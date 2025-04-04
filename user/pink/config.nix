@@ -108,6 +108,7 @@
             jetbrains.idea-community-bin
             kdePackages.kcharselect
             krita
+            tenacity
         ];
     };
 
