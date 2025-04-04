@@ -65,12 +65,14 @@
             };
             rust = with pkgs; mkShell rec {
                 buildInputs = [
-                    (rust-bin.stable.latest.default.orverride {
+                    (rust-bin.stable.latest.default.override {
                         extensions = [
                             "rust-analyzer"
                             "rust-src"
                         ];
                     })
+                    pkg-config
+                    openssl
                 ];
                 inherit shellHook;
                 LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
@@ -95,6 +97,7 @@
                     libxkbcommon
                     wayland
                     libexif
+                    openssl
                 ];
                 inherit shellHook;
                 LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
