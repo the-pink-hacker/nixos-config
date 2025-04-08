@@ -315,6 +315,17 @@ in {
                             "@riskofrain"
                         ];
                     };
+                    "Wiki Camp 2" = mediaWikiSearch {
+                        url = "https://camp2.rectangle.zone";
+                        suggestionNamespaces = [
+                            0
+                        ];
+                        inherit updateInterval;
+                        description = "Search on the Wiki Camp 2.";
+                        definedAliases = [
+                            "@camp2"
+                        ];
+                    };
                 };
             };
             bookmarks = [
