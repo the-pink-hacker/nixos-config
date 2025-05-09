@@ -18,6 +18,7 @@
      	    nvim-treesitter-parsers.toml
      	    nvim-treesitter-parsers.python
      	    nvim-treesitter-parsers.nix
+     	    nvim-treesitter-parsers.wgsl
      	    nvim-lspconfig
      	    nvim-dap
      	    nvim-autopairs
