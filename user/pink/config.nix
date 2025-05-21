@@ -102,7 +102,8 @@
             dolphin
             elisa
             protonvpn-gui
-            heroic
+            # Electron insecure
+            #heroic
             mangohud
             vobcopy
             jetbrains.idea-community-bin
