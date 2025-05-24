@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+    services.gpg-agent.enableZshIntegration = true;
+    programs.kitty.shellIntegration.enableZshIntegration = true;
+
     programs.zsh = {
         enable = true;
         enableCompletion = true;

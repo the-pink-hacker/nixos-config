@@ -40,7 +40,7 @@
         };
     in {
         devShells."${system}" = let 
-            shellHook = "exec zsh";
+            shellHook = "exec fish";
         in {
             minecraft-mod = with pkgs; mkShell rec {
                 buildInputs = [

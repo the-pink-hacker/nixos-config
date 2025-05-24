@@ -1,4 +1,4 @@
-{ pkgs, configPath, ... }:
+{ pkgs, configPath, config, ... }:
 
 {
     imports = builtins.map (path: configPath + path) [
@@ -8,7 +8,7 @@
         /vr.nix
         /vmware.nix
         /urxvt.nix
-        /zsh.nix
+        #/zsh.nix
         /cloudflare.nix
         /minecraft.nix
         /gamemode.nix
@@ -79,6 +79,13 @@
             "gamemode"
         ];
         packages = with pkgs; [
+            dust
+            cargo-info
+            rusty-man
+            tokei
+            wiki-tui
+            mprocs
+            presenterm
             libreoffice-qt
 	    vscode
 	    vlc

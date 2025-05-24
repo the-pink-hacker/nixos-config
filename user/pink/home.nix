@@ -10,7 +10,8 @@
         /mpd.nix
         /firefox.nix
         #/urxvt.nix
-        /zsh.nix
+        #/zsh.nix
+        /fish.nix
         /helix.nix
     ];
 
@@ -27,6 +28,10 @@
             XDG_STATE_HOME = "$HOME/.local/state";
             XDG_BIN_HOME = "$HOME/.local/bin";
         };
+        shellAliases = {
+            ls = "eza";
+            cat = "bat";
+        };
     };
 
     programs.git = {
@@ -40,6 +45,7 @@
         extraConfig = {
             init.defaultBranch = "main";
         };
+        delta.enable = true;
     };
 
     programs.gh = {
@@ -47,9 +53,18 @@
         gitCredentialHelper.enable = true;
     };
 
+    programs.ripgrep.enable = true;
+
+    programs.bat.enable = true;
+
+    programs.eza.enable = true;
+
+    programs.zoxide.enable = true;
+
+    programs.bacon.enable = true;
+
     services.gpg-agent = {
         enable = true;
-        enableZshIntegration = true;
         grabKeyboardAndMouse = true;
         pinentryPackage = pkgs.pinentry-qt;
     };
