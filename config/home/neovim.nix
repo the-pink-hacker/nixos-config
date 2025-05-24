@@ -31,6 +31,7 @@
             nvim-treesitter-parsers.vue
             coc-vetur
             vim-vue-plugin
+            nvim-solarized-lua
          ];
     };
 

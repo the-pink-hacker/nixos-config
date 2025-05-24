@@ -13,6 +13,7 @@
         #/zsh.nix
         /fish.nix
         /helix.nix
+        /yazi.nix
     ];
 
     home = {
