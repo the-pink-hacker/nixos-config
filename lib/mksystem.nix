@@ -13,7 +13,8 @@ name:
     fingerprint ? false,
     vmware ? false,
     vr ? false,
-    drive ? false
+    drive ? false,
+    theme
 }:
 
 let
@@ -30,6 +31,7 @@ let
         inherit vr;
         inherit vmware;
         inherit drive;
+        inherit theme;
         libPath = ../lib;
     };
     lib = nixpkgs.lib;

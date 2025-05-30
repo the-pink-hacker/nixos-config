@@ -19,7 +19,7 @@
         };
         configFile = {
             baloofilerc.General.dbVersion = 2;
-            baloofilerc.General."exclude filters" = builtins.concatStringsSep "," [
+            baloofilerc.General."exclude filters" = concatStringsSep "," [
                 "*~"
                 "*.part"
                 "*.o"

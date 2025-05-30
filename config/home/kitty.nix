@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, theme, ... }:
 
 {
     home.packages = with pkgs; [
@@ -7,15 +7,17 @@
 
     wayland.windowManager.hyprland.settings."$terminal" = "kitty";
 
+    programs.rofi.terminal = "${pkgs.kitty}/bin/kitty";
+
     programs.kitty = {
         enable = true;
         font = {
-            name = "Meslo LG L DZ for Powerline";
-            size = 10;
+            name = theme.fonts.monospace.name;
+            size = theme.fonts.monospace.defaultSize;
         };
         settings = {
             shell = "fish";
         };
-        themeFile = "Solarized_Dark_Higher_Contrast";
+        themeFile = theme.programs.kitty.themeFile;
     };
 }

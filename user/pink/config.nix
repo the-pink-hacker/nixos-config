@@ -1,7 +1,7 @@
-{ pkgs, configPath, config, ... }:
+{ pkgs, configPath, config, theme, ... }:
 
 {
-    imports = builtins.map (path: configPath + path) [
+    imports = map (path: configPath + path) [
         /hyprland.nix
         /battery.nix
         /mpd.nix
@@ -182,13 +182,15 @@
             noto-fonts-color-emoji
             noto-fonts-cjk-sans
             font-awesome
+        ] ++ [
+            theme.fonts.monospace.package
         ];
 
 	fontconfig = {
 	    defaultFonts = {
                 serif = [ "Noto Serif" ];
                 sansSerif = [ "Noto Sans" ];
-                monospace = [ "Meslo LG L DZ for Powerline" ];
+                monospace = [ theme.fonts.monospace.name ];
                 emoji = [ "Noto Color Emoji" ];
             };
 	};

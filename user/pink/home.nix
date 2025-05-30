@@ -1,7 +1,7 @@
 { pkgs, homeConfigPath, ... }:
 
 {
-    imports = builtins.map (path: homeConfigPath + path) [
+    imports = map (path: homeConfigPath + path) [
         /blockbench.nix
         /discord.nix
         /espanso.nix

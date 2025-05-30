@@ -6,7 +6,7 @@
 
 window#waybar {
     background-color: alpha(@theme_base_color, 0.75);
-    color: @theme_text_color;
+    color: rgba(THEME_TEXT_COLOR);
 }
 
 button {
@@ -27,7 +27,7 @@ button:hover {
     padding-right: 16px;
     margin-left: 8px;
     margin-right: 8px;
-    border-radius: 8px;
+    border-radius: THEME_BORDER_RADIUSpx;
 }
 
 .module {

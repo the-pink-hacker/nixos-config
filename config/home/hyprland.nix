@@ -1,11 +1,6 @@
-{ pkgs, lib, monitorBacklight, systemName, config, ... }:
+{ pkgs, lib, monitorBacklight, systemName, config, theme, ... }:
 
 let
-    theme = "Sweet-Dark";
-    iconTheme = "Sweet";
-    cursorTheme = "catppuccin-macchiato-dark-cursors";
-    cursorPackage = pkgs.catppuccin-cursors.macchiatoDark;
-    cursorSize = 24;
     isLaptop = systemName == "pink-nixos-laptop";
     isDesktop = systemName == "pink-nixos-desktop";
 in
@@ -14,6 +9,7 @@ in
         ./kitty.nix
         ./waybar.nix
         ./mako.nix
+        ./rofi.nix
     ];
 
     xdg = {
@@ -27,35 +23,32 @@ in
     home = {
         sessionVariables = {
             NIXOS_OZONE_WL = "1";
-            HYPRCURSOR_THEME = cursorTheme;
-            HYPRCURSOR_SIZE = cursorSize;
+            HYPRCURSOR_THEME = theme.cursor.name;
+            HYPRCURSOR_SIZE = theme.cursor.size;
         };
     };
 
     qt = {
         enable = true;
-        platformTheme.name = "kde";
-        style = {
-            package = pkgs.utterly-round-plasma-style;
-            name = "breeze";
-        };
+        platformTheme.name = theme.qt.platformTheme.name;
+        style = theme.qt.style;
     };
 
     # Cursor setup
     home.pointerCursor = {
-        name = cursorTheme;
-        package = cursorPackage;
+        name = theme.cursor.name;
+        package = theme.cursor.package;
         gtk.enable = true;
-        size = cursorSize;
+        size = theme.cursor.size;
     };
     
     # GTK Setup
     gtk = {
         enable = true;
-        theme.name = theme;
-        iconTheme.name = iconTheme;
+        theme.name = theme.gtk.name;
+        iconTheme.name = theme.icons.name;
         gtk3 = {
-            bookmarks = builtins.map (path: "file://" + path) (with config.xdg.userDirs; [
+            bookmarks = map (path: "file://" + path) (with config.xdg.userDirs; [
                 desktop
                 documents
                 download
@@ -65,7 +58,7 @@ in
                 templates
                 videos
             ]);
-            extraConfig.gtk-application-prefer-dark-theme = true;
+            extraConfig.gtk-application-prefer-dark-theme = theme.darkMode;
         };
     };
     dconf.settings."org/gtk/settings/file-chooser" = {
@@ -74,8 +67,8 @@ in
     
     # GTK4 Setup
     dconf.settings."org/gnome/desktop/interface" = {
-        gtk-theme = lib.mkForce theme;
-        color-scheme = "prefer-dark";
+        gtk-theme = lib.mkForce theme.gtk.name;
+        color-scheme = if theme.darkMode then "prefer-dark" else "prefer-light";
     };
 
     services.batsignal.enable = true;
@@ -95,7 +88,7 @@ in
                 "exec kdeconnectd"
             ];
             exec = [
-                "swww img ${../../assets/wallpaper.png}"
+                "swww img ${theme.wallpaper} -t none"
             ];
             misc.disable_hyprland_logo = true;
             # https://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols
@@ -140,6 +133,34 @@ in
                 "DP-2, preferred, auto-right, 1, vrr, 1"
             ]
             ++ lib.optional isLaptop "eDP-1, preferred, auto, 1.175";
+            # https://wiki.hyprland.org/Configuring/Variables/#general
+            general = {
+                resize_on_border = false;
+                allow_tearing = false;
+                layout = "dwindle";
+                gaps_in = theme.desktop.gaps_in;
+                gaps_out = theme.desktop.gaps_out;
+                border_size = theme.desktop.border_size;
+                "col.active_border" = "rgba(${theme.desktop.active_border.color.rgba_hex})";
+                "col.inactive_border" = "rgba(${theme.desktop.inactive_border.color.rgba_hex})";
+            };
+            # https://wiki.hyprland.org/Configuring/Variables/#decoration
+            decoration = {
+                rounding = theme.desktop.border_radius;
+                active_opacity = 1.0;
+                inactive_opacity = 1.0;
+                #drop_shadow = true
+                #shadow_range = 4
+                #shadow_render_power = 3
+                #col.shadow = rgba(1a1a1aee)
+                # https://wiki.hyprland.org/Configuring/Variables/#blur
+                blur = {
+                    enabled = true;
+                    size = 3;
+                    passes = 1;
+                    vibrancy = 0.1696;
+                };
+            };
         };
     };
 }

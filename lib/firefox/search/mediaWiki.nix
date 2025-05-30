@@ -37,7 +37,7 @@
                 (if ((builtins.length suggestionNamespaces) > 0) then [{
                     # namespace=1|2|3
                     name = "namespace";
-                    value = builtins.concatStringsSep "|" (builtins.map builtins.toString suggestionNamespaces);
+                    value = builtins.concatStringsSep "|" (map toString suggestionNamespaces);
                 }] else []) ++ [
                 {
                     name = "action";

@@ -38,6 +38,7 @@
                 (import inputs.rust-overlay)
             ];
         };
+        theme = import ./config/theme.nix { inherit pkgs; };
     in {
         devShells."${system}" = let 
             shellHook = "exec fish";
@@ -133,6 +134,7 @@
                 vmware = true;
                 vr = true;
                 drive = true;
+                inherit theme;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
@@ -141,6 +143,7 @@
                 battery = true;
                 monitorBacklight = true;
                 fingerprint = true;
+                inherit theme;
             };
         };
     };

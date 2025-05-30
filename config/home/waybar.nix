@@ -1,10 +1,21 @@
-{ battery, lib, ... }:
+{ battery, lib, theme, ... }:
 
-{
+let
+    style_file = ./waybar/style.css;
+    style_from = [
+        "THEME_TEXT_COLOR"
+        "THEME_BORDER_RADIUS"
+    ];
+    style_to = [
+        theme.desktop.text.color.rgba
+        (toString theme.desktop.border_radius)
+    ];
+    style = lib.replaceStrings style_from style_to (builtins.readFile style_file);
+in {
     programs.waybar = {
         enable = true;
         systemd.enable = true;
-        style = ./waybar/style.css;
+        inherit style;
         # Broken
         # Throws json value error
         #settings = {};
