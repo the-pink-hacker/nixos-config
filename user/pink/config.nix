@@ -100,6 +100,7 @@
             # Electron insecure
             #heroic
             vobcopy
+            kdePackages.kdeconnect-kde
         ] ++ lib.optionals gui [
 	    vscode
             libreoffice-qt

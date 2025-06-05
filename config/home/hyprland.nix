@@ -12,13 +12,7 @@ in
         ./rofi.nix
     ];
 
-    xdg = {
-        userDirs = {
-            enable = true;
-            createDirectories = true;
-        };
-        configFile."kdeglobals".source = ./kde/kdeglobals;
-    };
+    xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
 
     home = {
         sessionVariables = {

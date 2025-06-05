@@ -3,12 +3,12 @@
 {
     imports = map (path: homeConfigPath + path) ([
         /neovim.nix
-        /mpd.nix
         #/urxvt.nix
         #/zsh.nix
         /fish.nix
         #/helix.nix
     ] ++ lib.optionals gui [
+        /mpd.nix
         /blockbench.nix
         /discord.nix
         /espanso.nix
@@ -16,6 +16,11 @@
         /yazi.nix
         /firefox.nix
     ]);
+
+    xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+    };
 
     home = {
     	username = "pink";
@@ -72,7 +77,7 @@
     };
 
     programs.obs-studio = {
-        enable = true;
+        enable = gui;
     };
 
     programs.java = {
