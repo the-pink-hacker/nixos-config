@@ -145,6 +145,13 @@
                 fingerprint = true;
                 inherit theme;
             };
+            pink-nixos-optiplex = mksystem "pink-nixos-optiplex" {
+                user = "pink";
+                inherit system;
+                inherit theme;
+                gui = false;
+                drive = true;
+            };
         };
     };
 }

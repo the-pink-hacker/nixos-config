@@ -14,6 +14,7 @@ name:
     vmware ? false,
     vr ? false,
     drive ? false,
+    gui ? true,
     theme
 }:
 
@@ -32,6 +33,7 @@ let
         inherit vmware;
         inherit drive;
         inherit theme;
+        inherit gui;
         libPath = ../lib;
     };
     lib = nixpkgs.lib;

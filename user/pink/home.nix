@@ -1,20 +1,21 @@
-{ pkgs, homeConfigPath, ... }:
+{ pkgs, homeConfigPath, gui, lib, ... }:
 
 {
-    imports = map (path: homeConfigPath + path) [
+    imports = map (path: homeConfigPath + path) ([
+        /neovim.nix
+        /mpd.nix
+        #/urxvt.nix
+        #/zsh.nix
+        /fish.nix
+        #/helix.nix
+    ] ++ lib.optionals gui [
         /blockbench.nix
         /discord.nix
         /espanso.nix
         /hyprland.nix
-        /neovim.nix
-        /mpd.nix
-        /firefox.nix
-        #/urxvt.nix
-        #/zsh.nix
-        /fish.nix
-        /helix.nix
         /yazi.nix
-    ];
+        /firefox.nix
+    ]);
 
     home = {
     	username = "pink";

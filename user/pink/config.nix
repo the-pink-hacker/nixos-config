@@ -1,18 +1,19 @@
-{ pkgs, configPath, config, theme, ... }:
+{ pkgs, configPath, config, theme, gui, lib, ... }:
 
 {
-    imports = map (path: configPath + path) [
-        /hyprland.nix
+    imports = map (path: configPath + path) ([
         /battery.nix
         /mpd.nix
-        /vr.nix
-        /vmware.nix
         /urxvt.nix
         #/zsh.nix
         /cloudflare.nix
         /minecraft.nix
         /gamemode.nix
-    ];
+    ] ++ lib.optionals gui [
+        /hyprland.nix
+        /vr.nix
+        /vmware.nix
+    ]);
 
     boot = {
         loader = {
@@ -86,18 +87,9 @@
             wiki-tui
             mprocs
             presenterm
-            libreoffice-qt
-	    vscode
-	    vlc
 	    neofetch
-	    obsidian
-	    gimp
-	    thunderbird
-	    ghex
 	    winetricks
             wineWowPackages.waylandFull
-	    blender
-            xorg.xeyes
             clinfo
             virtualgl
             vulkan-tools
@@ -105,14 +97,24 @@
             pciutils
             aha
             fwupd
+            # Electron insecure
+            #heroic
+            vobcopy
+        ] ++ lib.optionals gui [
+	    vscode
+            libreoffice-qt
+	    vlc
+	    obsidian
+	    gimp
+	    thunderbird
+	    ghex
+	    blender
+            xorg.xeyes
 	    tokodon
             dolphin
             elisa
             protonvpn-gui
-            # Electron insecure
-            #heroic
             mangohud
-            vobcopy
             jetbrains.idea-community-bin
             kdePackages.kcharselect
             krita
@@ -131,7 +133,6 @@
         gh
         neovim
 	gnupg1
-	pinentry-qt
 	wl-clipboard-rs
 	(python3.withPackages (python-pkgs: with python-pkgs; [
 	    upnpy
@@ -141,20 +142,21 @@
             tkinter
             jsonschema
 	]))
-	rustup
 	clang
 	cmake
 	tree
 	firewalld
 	mono
 	gnumake
+        ffmpeg
+    ] ++ lib.optionals gui [
+	pinentry-qt
         hunspell
         hunspellDicts.en_US
-        ffmpeg
     ];
 
     xdg.portal = {
-        enable = true;
+        enable = gui;
         extraPortals = with pkgs; [
             kdePackages.xdg-desktop-portal-kde
             xdg-desktop-portal-gtk
@@ -162,7 +164,7 @@
     };
 
     programs.steam = {
-        enable = true;
+        enable = gui;
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
