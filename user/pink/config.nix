@@ -78,6 +78,7 @@
             "video"
             "disk"
             "gamemode"
+            "cdrom"
         ];
         packages = with pkgs; [
             dust
