@@ -99,6 +99,7 @@
                     wayland
                     libexif
                     openssl
+                    cargo-edit
                 ];
                 inherit shellHook;
                 LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
