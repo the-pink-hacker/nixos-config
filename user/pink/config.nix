@@ -30,7 +30,21 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     # Enable networking
-    networking.networkmanager.enable = true;
+    networking = {
+        networkmanager = {
+            enable = true;
+            wifi.backend = "iwd";
+        };
+        wireguard.enable = true;
+        wireless.iwd = {
+            enable = true;
+            settings = {
+                IPv6.Enabled = true;
+                Settings.AutoConnect = true;
+                General.AddressRandomization = true;
+            };
+        };
+    };
     
     # Set your time zone.
     time.timeZone = "America/Indiana/Indianapolis";
@@ -222,6 +236,8 @@
 
     # Use normal linux binaries
     programs.nix-ld.enable = true;
+
+    hardware.enableAllFirmware = true;
     
     system.stateVersion = "24.05";
 }
