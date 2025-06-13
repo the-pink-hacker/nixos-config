@@ -89,15 +89,12 @@ in
             # https://wiki.linuxquestions.org/wiki/List_of_Keysyms_Recognised_by_Xmodmap
             bind = [
                 "$mainMod, F, exec, firefox"
-                "$mainMod, S, exec, rofi -show drun -show-icons"
                 # Screenshot a window
                 "$mainMod, Print, exec, hyprshot -m window"
                 # Screenshot a monitor
                 ", PRINT, exec, hyprshot -m output"
                 # Screenshot a region
                 "$shiftMod, Print, exec, hyprshot -m region"
-                # Emoji selector
-                "$mainMod, period, exec, wofi-emoji"
             ];
             # Repeat
             binde = lib.optionals monitorBacklight [

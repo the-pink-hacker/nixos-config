@@ -15,7 +15,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-        wofi-emoji
         inputs.swww.packages.${pkgs.system}.swww
         gdk-pixbuf
         jq
