@@ -1,17 +1,19 @@
 {
+    name,
     url,
     fandomFormat ? false,
     searchURL ? (if fandomFormat then "${url}/wiki/Special:Search" else "${url}/index.php"),
     suggestionNamespaces ? [],
     additionalSuggestionParams ? [],
-    iconUpdateURL ? "${url}/favicon.ico",
+    icon ? "${url}/favicon.ico",
     updateInterval,
     description,
     definedAliases,
 }:
 
 {
-    inherit iconUpdateURL;
+    inherit name;
+    inherit icon;
     inherit updateInterval;
     inherit description;
     inherit definedAliases;

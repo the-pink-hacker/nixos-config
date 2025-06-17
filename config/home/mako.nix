@@ -3,10 +3,12 @@
 {
     services.mako = {
         enable = true;
-        borderRadius = 10;
-        borderSize = 2;
-        defaultTimeout = 10000;
-        backgroundColor = "#000000";
-        borderColor = "#33CCFF";
+        settings = {
+            border-radius = 10;
+            border-size = 2;
+            default-timeout = 10000;
+            background-color = "#000000";
+            border-color = "#33CCFF";
+        };
     };
 }

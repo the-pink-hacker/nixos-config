@@ -18,7 +18,7 @@ in {
             nativeMessagingHosts = hosts;
         };
         profiles.nixos = {
-            extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
                 passff
                 tampermonkey
                 enhancer-for-youtube
@@ -35,13 +35,14 @@ in {
             ];
             search = {
                 force = true;
-                default = "DuckDuckGo";
-                privateDefault = "DuckDuckGo";
+                default = "ddg";
+                privateDefault = "ddg";
                 engines = let
                     updateInterval = 24 * 60 * 60 * 1000; # Every day
                 in {
-                    Bing.metaData.hidden = true;
-                    "MDN Web Docs" = {
+                    bing.metaData.hidden = true;
+                    mdn = {
+                        name = "MDN Web Docs";
                         urls = [
                             {
                                 template = "https://developer.mozilla.org/search";
@@ -51,12 +52,13 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://developer.mozilla.org/favicon.ico";
+                        icon = "https://developer.mozilla.org/favicon.ico";
                         inherit updateInterval;
                         description = "Search the MDN Web Docs";
                         definedAliases = [ "@mdn" ];
                     };
-                    "NixOS Wiki" = mediaWikiSearch {
+                    nixosWiki = mediaWikiSearch {
+                        name = "NixOS Wiki";
                         url = "https://wiki.nixos.org";
                         fandomFormat = true;
                         searchURL = "https://wiki.nixos.org/w/index.php";
@@ -64,7 +66,8 @@ in {
                         inherit updateInterval;
                         definedAliases = [ "@nixoswiki" ];
                     };
-                    "Minecraft Wiki (EN)" = mediaWikiSearch {
+                    minecraftWiki = mediaWikiSearch {
+                        name = "Minecraft Wiki (EN)";
                         url = "https://minecraft.wiki";
                         fandomFormat = true;
                         searchURL = "https://minecraft.wiki/w/Special:Search";
@@ -85,7 +88,8 @@ in {
                             "@mc"
                         ];
                     };
-                    "YouTube" = {
+                    youtube = {
+                        name = "YouTube";
                         urls = [
                             {
                                 template = "https://www.youtube.com/results";
@@ -96,12 +100,13 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://www.youtube.com/favicon.ico";
+                        icon = "https://www.youtube.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search for videos on YouTube";
                         definedAliases = [ "@youtube" "@yt" ];
                     };
-                    "NixOS Packages" = {
+                    nixosPackages = {
+                        name = "NixOS Packages";
                         urls = [
                             {
                                 template = "https://search.nixos.org/packages";
@@ -112,12 +117,13 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://search.nixos.org/favicon.png";
+                        icon = "https://search.nixos.org/favicon.png";
                         inherit updateInterval;
                         description = "Search NixOS packages by name or description.";
                         definedAliases = [ "@nixospackages" ];
                     };
-                    "NixOS Options" = {
+                    nixosOptions = {
+                        name = "NixOS Options";
                         urls = [
                             {
                                 template = "https://search.nixos.org/options";
@@ -128,12 +134,13 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://search.nixos.org/favicon.png";
+                        icon = "https://search.nixos.org/favicon.png";
                         inherit updateInterval;
                         description = "Search NixOS options by name or description.";
                         definedAliases = [ "@nixosoptions" ];
                     };
-                    "Modrinth Resouce Packs" = {
+                    modrinthResourcepacks = {
+                        name = "Modrinth Resouce Packs";
                         urls = [
                             {
                                 template = "https://modrinth.com/resourcepacks";
@@ -141,7 +148,7 @@ in {
                                 params = [ { name = "q"; value = "{searchTerms}"; } ];
                             }
                         ];
-                        iconUpdateURL = "https://modrinth.com/favicon.ico";
+                        icon = "https://modrinth.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search for resource packs on Modrinth, the open source modding platform.";
                         definedAliases = [
@@ -150,7 +157,8 @@ in {
                             "@minecraftresourcepacks"
                         ];
                     };
-                    "Modrinth Mods" = {
+                    modrinthMods = {
+                        name = "Modrinth Mods";
                         urls = [
                             {
                                 template = "https://modrinth.com/mods";
@@ -158,12 +166,13 @@ in {
                                 params = [ { name = "q"; value = "{searchTerms}"; } ];
                             }
                         ];
-                        iconUpdateURL = "https://modrinth.com/favicon.ico";
+                        icon = "https://modrinth.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search for mods on Modrinth, the open source modding platform.";
                         definedAliases = [ "@modrinthmods" "@minecraftmods" ];
                     };
-                    "ProtonDB" = {
+                    protonDB = {
+                        name = "ProtonDB";
                         urls = [
                             {
                                 template = "https://www.protondb.com/search";
@@ -171,12 +180,13 @@ in {
                                 params = [ { name = "q"; value = "{searchTerms}"; } ];
                             }
                         ];
-                        iconUpdateURL = "https://www.protondb.com/sites/protondb/images/favicon.ico";
+                        icon = "https://www.protondb.com/sites/protondb/images/favicon.ico";
                         inherit updateInterval;
                         description = "Search for Proton compatability for games on Linux.";
                         definedAliases = [ "@protondb" ];
                     };
-                    "Subnautica Wiki" = mediaWikiSearch {
+                    subnauticaWiki = mediaWikiSearch {
+                        name = "Subnautica Wiki";
                         url = "https://subnautica.fandom.com";
                         fandomFormat = true;
                         suggestionNamespaces = [
@@ -187,7 +197,8 @@ in {
                         description = "Search on the Subnautica wiki.";
                         definedAliases = [ "@subnautica" ];
                     };
-                    "Factorio Wiki" = mediaWikiSearch {
+                    factorioWiki = mediaWikiSearch {
+                        name = "Factorio Wiki";
                         url = "https://wiki.factorio.com";
                         suggestionNamespaces = [
                             0
@@ -199,7 +210,8 @@ in {
                         description = "Search on the Factorio wiki.";
                         definedAliases = [ "@factorio" ];
                     };
-                    "Arch Linux Wiki" = mediaWikiSearch {
+                    archWiki = mediaWikiSearch {
+                        name = "Arch Linux Wiki";
                         url = "https://wiki.archlinux.org";
                         suggestionNamespaces = [
                             0
@@ -209,7 +221,8 @@ in {
                         description = "Search on the Arch Linux Wiki.";
                         definedAliases = [ "@archwiki" ];
                     };
-                    "Bandcamp" = {
+                    bandcamp = {
+                        name = "bandcamp";
                         urls = [
                             {
                                 template = "https://bandcamp.com/search";
@@ -222,14 +235,15 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://s4.bcbits.com/img/favicon/favicon-32x32.png";
+                        icon = "https://s4.bcbits.com/img/favicon/favicon-32x32.png";
                         inherit updateInterval;
                         description = "Search for music, albums, and artists on Bandcamp.";
                         definedAliases = [
                             "@bandcamp"
                         ];
                     };
-                    "GitHub" = {
+                    github = {
+                        name = "GitHub";
                         urls = [
                             {
                                 template = "https://github.com/search";
@@ -246,14 +260,15 @@ in {
                                 ];
                             }
                         ];
-                        iconUpdateURL = "https://github.com/favicon.ico";
+                        icon = "https://github.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search GitHub";
                         definedAliases = [
                             "@github"
                         ];
                     };
-                    "Balatro Wiki (en)" = mediaWikiSearch {
+                    balatroWiki = mediaWikiSearch {
+                        name = "Balatro Wiki (en)";
                         url = "https://balatrogame.fandom.com";
                         fandomFormat = true;
                         suggestionNamespaces = [
@@ -264,7 +279,8 @@ in {
                         description = "Search on the Balatro wiki.";
                         definedAliases = [ "@balatro" ];
                     };
-                    "Terraria Wiki (en)" = mediaWikiSearch {
+                    terrariaWiki = mediaWikiSearch {
+                        name = "Terraria Wiki (en)";
                         url = "https://terraria.wiki.gg";
                         fandomFormat = true;
                         suggestionNamespaces = [
@@ -288,7 +304,8 @@ in {
                         description = "Search on the Terraria wiki.";
                         definedAliases = [ "@terraria" ];
                     };
-                    "Risk of Rain 2 Wiki (en)" = mediaWikiSearch {
+                    riskOfRain2Wiki = mediaWikiSearch {
+                        name = "Risk of Rain 2 Wiki (en)";
                         url = "https://riskofrain2.wiki.gg";
                         fandomFormat = true;
                         suggestionNamespaces = [
@@ -315,7 +332,8 @@ in {
                             "@riskofrain"
                         ];
                     };
-                    "Wiki Camp 2" = mediaWikiSearch {
+                    wikiCamp2 = mediaWikiSearch {
+                        name = "Wiki Camp 2";
                         url = "https://camp2.rectangle.zone";
                         suggestionNamespaces = [
                             0
@@ -328,143 +346,146 @@ in {
                     };
                 };
             };
-            bookmarks = [
-                {
-                    name = "Nix sites";
-                    toolbar = true;
-                    bookmarks = [
-                        {
-                            name = "Home Manager";
-                            tags = [
-                                "linux"
-                                "home manager"
-                                "nixos"
-                            ];
-                            keyword = "homemanager";
-                            url = "https://nix-community.github.io/home-manager/options.xhtml";
-                        }
-                        {
-                            name = "Main";
-                            tags = [
-                                "tumblr"
-                                "social media"
-                                "blog"
-                                "entertainment"
-                            ];
-                            keyword = "tumblr";
-                            url = "https://www.tumblr.com";
-                        }
-                        {
-                            name = "Bluesky";
-                            tags = [
-                                "bluesky"
-                                "social media"
-                                "entertainment"
-                                "blog"
-                            ];
-                            keyword = "bluesky";
-                            url = "https://bsky.app";
-                        }
-                        {
-                            name = "Subscriptions";
-                            tags = [
-                                "youtube"
-                                "media"
-                                "entertainment"
-                            ];
-                            keyword = "youtube";
-                            url = "https://www.youtube.com/feed/subscriptions";
-                        }
-                        {
-                            name = "Nebula";
-                            tags = [
-                                "nebula"
-                                "media"
-                                "entertainment"
-                            ];
-                            keyword = "nebula";
-                            url = "https://nebula.tv/library";
-                        }
-                        {
-                            name = "LTT";
-                            tags = [
-                                "ltt"
-                                "floatplane"
-                                "media"
-                                "entertainment"
-                            ];
-                            keyword = "floatplane";
-                            url = "https://www.floatplane.com/channel/linustechtips/home";
-                        }
-                        {
-                            name = "Dropout";
-                            tags = [
-                                "dropout"
-                                "college humor"
-                                "media"
-                                "entertainment"
-                                "improve"
-                                "comedy"
-                            ];
-                            keyword = "dropout";
-                            url = "https://www.dropout.tv/browse";
-                        }
-                        {
-                            name = "Modrinth";
-                            tags = [
-                                "modrinth"
-                                "minecraft"
-                                "mods"
-                                "modding"
-                            ];
-                            keyword = "modrinth";
-                            url = "https://modrinth.com/dashboard";
-                        }
-                        {
-                            name = "Ko-fi";
-                            tags = [
-                                "ko-fi"
-                                "finance"
-                            ];
-                            keyword = "kofi";
-                            url = "https://ko-fi.com/Manage";
-                        }
-                        {
-                            name = "GitHub";
-                            tags = [
-                                "github"
-                                "programming"
-                                "code"
-                                "coding"
-                                "open-source"
-                                "software"
-                            ];
-                            keyword = "github";
-                            url = "https://github.com";
-                        }
-                        {
-                            name = "Bandcamp";
-                            tags = [
-                                "music"
-                                "media"
-                                "entertainment"
-                            ];
-                            keyword = "bandcamp";
-                            url = "https://bandcamp.com/thepinkhacker";
-                        }
-                    ];
-                }
-                {
-                    name = "Cohost";
-                    tags = [
-                        "cohost"
-                        "social media"
-                        "entertainment"
-                    ];
-                    keyword = "cohost";
-                    url = "https://cohost.org";
-                }
-            ];
+            bookmarks = {
+                force = true;
+                settings = [
+                    {
+                        name = "Nix sites";
+                        toolbar = true;
+                        bookmarks = [
+                            {
+                                name = "Home Manager";
+                                tags = [
+                                    "linux"
+                                    "home manager"
+                                    "nixos"
+                                ];
+                                keyword = "homemanager";
+                                url = "https://nix-community.github.io/home-manager/options.xhtml";
+                            }
+                            {
+                                name = "Main";
+                                tags = [
+                                    "tumblr"
+                                    "social media"
+                                    "blog"
+                                    "entertainment"
+                                ];
+                                keyword = "tumblr";
+                                url = "https://www.tumblr.com";
+                            }
+                            {
+                                name = "Bluesky";
+                                tags = [
+                                    "bluesky"
+                                    "social media"
+                                    "entertainment"
+                                    "blog"
+                                ];
+                                keyword = "bluesky";
+                                url = "https://bsky.app";
+                            }
+                            {
+                                name = "Subscriptions";
+                                tags = [
+                                    "youtube"
+                                    "media"
+                                    "entertainment"
+                                ];
+                                keyword = "youtube";
+                                url = "https://www.youtube.com/feed/subscriptions";
+                            }
+                            {
+                                name = "Nebula";
+                                tags = [
+                                    "nebula"
+                                    "media"
+                                    "entertainment"
+                                ];
+                                keyword = "nebula";
+                                url = "https://nebula.tv/library";
+                            }
+                            {
+                                name = "LTT";
+                                tags = [
+                                    "ltt"
+                                    "floatplane"
+                                    "media"
+                                    "entertainment"
+                                ];
+                                keyword = "floatplane";
+                                url = "https://www.floatplane.com/channel/linustechtips/home";
+                            }
+                            {
+                                name = "Dropout";
+                                tags = [
+                                    "dropout"
+                                    "college humor"
+                                    "media"
+                                    "entertainment"
+                                    "improve"
+                                    "comedy"
+                                ];
+                                keyword = "dropout";
+                                url = "https://www.dropout.tv/browse";
+                            }
+                            {
+                                name = "Modrinth";
+                                tags = [
+                                    "modrinth"
+                                    "minecraft"
+                                    "mods"
+                                    "modding"
+                                ];
+                                keyword = "modrinth";
+                                url = "https://modrinth.com/dashboard";
+                            }
+                            {
+                                name = "Ko-fi";
+                                tags = [
+                                    "ko-fi"
+                                    "finance"
+                                ];
+                                keyword = "kofi";
+                                url = "https://ko-fi.com/Manage";
+                            }
+                            {
+                                name = "GitHub";
+                                tags = [
+                                    "github"
+                                    "programming"
+                                    "code"
+                                    "coding"
+                                    "open-source"
+                                    "software"
+                                ];
+                                keyword = "github";
+                                url = "https://github.com";
+                            }
+                            {
+                                name = "Bandcamp";
+                                tags = [
+                                    "music"
+                                    "media"
+                                    "entertainment"
+                                ];
+                                keyword = "bandcamp";
+                                url = "https://bandcamp.com/thepinkhacker";
+                            }
+                        ];
+                    }
+                    {
+                        name = "Cohost";
+                        tags = [
+                            "cohost"
+                            "social media"
+                            "entertainment"
+                        ];
+                        keyword = "cohost";
+                        url = "https://cohost.org";
+                    }
+                ];
+            };
             settings = {
                 "browser.download.panel.shown" = true;
                 "browser.aboutConfig.showWarning" = false;

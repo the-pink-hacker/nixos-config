@@ -72,7 +72,7 @@
     services.printing.enable = true;
     
     # Enable sound with pipewire.
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {
         enable = true;
@@ -112,11 +112,10 @@
             pciutils
             aha
             fwupd
-            # Electron insecure
-            #heroic
-            vobcopy
+            #vobcopy
             kdePackages.kdeconnect-kde
         ] ++ lib.optionals gui [
+            heroic
 	    vscode
             libreoffice-qt
 	    vlc
@@ -127,8 +126,8 @@
 	    blender
             xorg.xeyes
 	    tokodon
-            dolphin
-            elisa
+            kdePackages.dolphin
+            #elisa
             protonvpn-gui
             mangohud
             jetbrains.idea-community-bin

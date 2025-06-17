@@ -73,7 +73,7 @@
     services.gpg-agent = {
         enable = true;
         grabKeyboardAndMouse = true;
-        pinentryPackage = pkgs.pinentry-qt;
+        pinentry.package = pkgs.pinentry-qt;
     };
 
     programs.obs-studio = {

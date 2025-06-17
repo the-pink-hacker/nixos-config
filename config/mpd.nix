@@ -6,5 +6,5 @@
     ];
 
     #services.pipewire.systemWide = true;
-    hardware.pulseaudio.systemWide = true;
+    services.pulseaudio.systemWide = true;
 }
