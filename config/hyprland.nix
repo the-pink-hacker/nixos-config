@@ -1,4 +1,4 @@
-{ pkgs, monitorBacklight, inputs, ... }:
+{ pkgs, monitorBacklight, inputs, theme, ... }:
 
 {
     programs = {
@@ -46,6 +46,12 @@
     ];
 
     hardware.brillo.enable = monitorBacklight;
+
+    qt = {
+        enable = true;
+        platformTheme = theme.qt.platformTheme.name;
+        style = theme.qt.style.name;
+    };
 
     services = {
         gnome.gnome-keyring.enable = true;

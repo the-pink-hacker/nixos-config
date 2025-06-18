@@ -73,9 +73,9 @@ in
         settings = {
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
-            "$fileManager" = "thunar";
+            "$fileManager" = "dolphin";
             exec-once = [
-                "swww-daemon & swww restore"
+                "swww-daemon && swww img ${theme.wallpaper} -t none"
                 "exec nm-applet --indicator"
                 "exec mako"
                 "exec systemctl --user start plasma-polkit-agent"

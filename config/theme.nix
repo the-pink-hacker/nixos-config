@@ -3,7 +3,7 @@
 let
     mkcolor = import ../lib/mkcolor.nix;
     lib = pkgs.lib;
-in{
+in {
     darkMode = true;
     cursor = {
         name = "catppuccin-macchiato-dark-cursors";
@@ -13,7 +13,7 @@ in{
     gtk.name = "Sweet-Dark";
     icons.name = "Sweet";
     qt = {
-        platformTheme.name = "kde";
+        platformTheme.name = "kde6";
         style = {
             package = pkgs.utterly-round-plasma-style;
             name = "breeze";

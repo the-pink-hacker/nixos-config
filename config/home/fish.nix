@@ -1,11 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-    services.gpg-agent.enableFishIntegration = true;
-    programs.kitty.shellIntegration.enableFishIntegration = true;
-    programs.yazi.enableFishIntegration = true;
-    programs.eza.enableFishIntegration = true;
-    programs.zoxide.enableFishIntegration = true;
+    #services.gpg-agent.enableFishIntegration = true;
+    #programs.kitty.shellIntegration.enableFishIntegration = true;
+    #programs.yazi.enableFishIntegration = true;
+    #programs.eza.enableFishIntegration = true;
+    #programs.zoxide.enableFishIntegration = true;
+    home = {
+        sessionVariables = {
+            SHELL = lib.getExe pkgs.fish;
+        };
+        shell.enableFishIntegration = true;
+    };
 
     programs.fish = {
         enable = true;
