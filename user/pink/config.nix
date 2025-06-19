@@ -1,7 +1,7 @@
-{ pkgs, configPath, config, theme, gui, lib, ... }:
+{ pkgs, configPath, config, theme, gui, lib, inputs, ... }:
 
 {
-    imports = map (path: configPath + path) ([
+    imports = (map (path: configPath + path) ([
         /battery.nix
         /mpd.nix
         /urxvt.nix
@@ -13,7 +13,9 @@
         /hyprland.nix
         /vr.nix
         /vmware.nix
-    ]);
+    ])) ++ [
+        inputs.nix-minecraft.nixosModules.minecraft-servers
+    ];
 
     boot = {
         loader = {

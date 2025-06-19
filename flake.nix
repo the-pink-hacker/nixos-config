@@ -24,6 +24,10 @@
             url = "github:oxalica/rust-overlay";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nix-minecraft = {
+            url = "github:Infinidoge/nix-minecraft";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
     
     outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -36,6 +40,7 @@
             inherit system;
             overlays = [
                 (import inputs.rust-overlay)
+                inputs.nix-minecraft.overlay
             ];
         };
         theme = import ./config/theme.nix { inherit pkgs; };
