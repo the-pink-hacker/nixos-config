@@ -93,6 +93,12 @@ in {
                 view-distance = 12;
                 white-list = true;
             };
+            symlinks = {
+                "mods/ScalableLux-0.1.4+fabric.b88b7b4-all.jar" = fetchurl {
+                    url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/vNOezq1q/ScalableLux-0.1.4%2Bfabric.b88b7b4-all.jar";
+                    sha512 = "08519ef0071d269bd716fe6fe4f3d2e9e9ed11246db1f361928388cc8e4a4d4125cd0d9500e8b4328f9058cde64e54e66cea77a619f2dff03f654176a6b4c798";
+                };
+            };
         };
     };
 }
