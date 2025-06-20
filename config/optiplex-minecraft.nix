@@ -7,6 +7,7 @@ let
         config.allowUnfree = true;
     };
     inherit (inputs.nix-minecraft.lib) collectFilesAt;
+    inherit (builtins) fetchurl;
 in {
     services.minecraft-servers = {
         enable = true;
@@ -93,12 +94,35 @@ in {
                 view-distance = 12;
                 white-list = true;
             };
-            symlinks = {
-                "mods/ScalableLux-0.1.4+fabric.b88b7b4-all.jar" = fetchurl {
-                    url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/vNOezq1q/ScalableLux-0.1.4%2Bfabric.b88b7b4-all.jar";
-                    sha512 = "08519ef0071d269bd716fe6fe4f3d2e9e9ed11246db1f361928388cc8e4a4d4125cd0d9500e8b4328f9058cde64e54e66cea77a619f2dff03f654176a6b4c798";
+            symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
+                builtins.attrValues {
+                    # For netherportalfix
+                    balm = fetchurl {
+                        url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/4arCr13S/balm-fabric-1.21.6-21.6.1.jar";
+                        sha512 = "2ecf65ba78e353f46183223298031a896a5447d1495b74e95e4811907fb636faad018e77af03668522a315d3ee8a52527319fbabaae311e4812f95d4bfb5a273";
+                    };
+                    crashexploitfixer = fetchurl {
+                        url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
+                        sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
+                    };
+                    fabric-api = fetchurl {
+                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/N3z6cNQv/fabric-api-0.127.1%2B1.21.6.jar";
+                        sha512 = "c7b4ea754a486193476b33ac4d1eaeb30b644e05b76a6abe8cf51ca4eb6832063d32293f1c9052c32c806712d26f85b531085a3ff52575021ee831a804167c4d";
+                    };
+                    netherportalfix = fetchurl {
+                        url = "https://cdn.modrinth.com/data/nPZr02ET/versions/P3NCOkYd/netherportalfix-fabric-1.21.6-21.6.1.jar";
+                        sha512 = "ce9cc3dec9c01725a2c28ea275ef9e96b3ce7822a63de4b6e9c9eb36fda4ebee4c8be233de9dbb214b7e1302801702b6c59efbf834be006debc5c205831b35e3";
+                    };
+                    scalablelux = fetchurl {
+                        url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/vNOezq1q/ScalableLux-0.1.4%2Bfabric.b88b7b4-all.jar";
+                        sha512 = "08519ef0071d269bd716fe6fe4f3d2e9e9ed11246db1f361928388cc8e4a4d4125cd0d9500e8b4328f9058cde64e54e66cea77a619f2dff03f654176a6b4c798";
+                    };
+                    slime = fetchurl {
+                        url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
+                        sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
+                    };
                 };
-            };
+            );
         };
     };
 }
