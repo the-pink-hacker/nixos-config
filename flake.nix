@@ -40,7 +40,6 @@
             inherit system;
             overlays = [
                 (import inputs.rust-overlay)
-                inputs.nix-minecraft.overlay
             ];
         };
         theme = import ./config/theme.nix { inherit pkgs; };
