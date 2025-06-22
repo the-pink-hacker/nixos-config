@@ -335,6 +335,7 @@ in {
                     wikiCamp2 = mediaWikiSearch {
                         name = "Wiki Camp 2";
                         url = "https://camp2.rectangle.zone";
+                        fandomFormat = true;
                         suggestionNamespaces = [
                             0
                         ];
