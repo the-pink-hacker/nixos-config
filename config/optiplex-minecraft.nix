@@ -57,7 +57,7 @@ in {
                 hide-online-players = true;
                 #initial-disabled-packs = ;
                 initial-enabled-packs = "vanilla";
-                level-name = "main";
+                level-name = "minecraft-optiplex";
                 level-seed = "-13543954";
                 level-type = "minecraft:normal";
                 log-ips = true;
