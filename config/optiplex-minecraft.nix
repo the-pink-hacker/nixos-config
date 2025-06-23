@@ -88,7 +88,7 @@ in {
                 server-port = 25565;
                 simulation-distance = 10;
                 spawn-monsters = true;
-                spawn-protection = 16;
+                spawn-protection = 0;
                 sync-chunk-writes = true;
                 #text-filtering-config = ;
                 text-filtering-version = 0;
