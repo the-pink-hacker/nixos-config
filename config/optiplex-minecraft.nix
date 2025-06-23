@@ -58,6 +58,7 @@ in {
                 #initial-disabled-packs = ;
                 initial-enabled-packs = "vanilla";
                 level-name = "minecraft-optiplex";
+                # wikicamp2electricboogaloo
                 level-seed = "-13543954";
                 level-type = "minecraft:normal";
                 log-ips = true;
