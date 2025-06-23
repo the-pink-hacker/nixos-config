@@ -93,7 +93,7 @@ in {
                 #text-filtering-config = ;
                 text-filtering-version = 0;
                 use-native-transport = true;
-                view-distance = 12;
+                view-distance = 16;
                 white-list = true;
             };
             symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
@@ -106,6 +106,10 @@ in {
                     balm = fetchurl {
                         url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/4arCr13S/balm-fabric-1.21.6-21.6.1.jar";
                         sha512 = "2ecf65ba78e353f46183223298031a896a5447d1495b74e95e4811907fb636faad018e77af03668522a315d3ee8a52527319fbabaae311e4812f95d4bfb5a273";
+                    };
+                    chunky = fetchurl {
+                        url = "https://cdn.modrinth.com/data/fALzjamp/versions/inWDi2cf/Chunky-Fabric-1.4.40.jar";
+                        sha512 = "9e0386d032641a124fd953a688a48066df7f4ec1186f7f0f8b0a56d49dced220e2d6938ed56e9d8ead78bb80ddb941bc7873f583add8e565bdacdf62e13adc28";
                     };
                     crashexploitfixer = fetchurl {
                         url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
@@ -138,6 +142,10 @@ in {
                     slime = fetchurl {
                         url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
                         sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
+                    };
+                    voicechat = fetchurl {
+                        url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/pG8PLA08/voicechat-fabric-1.21.6-2.5.30.jar";
+                        sha512 = "917ea307782b0fb141aa35efa2462e0c148bd3ff3aeec978ba49d0b593374cb20dd2ad5d021c6c11a9e8262056d7553df025593d79b27a33e5e7bec816ab6756";
                     };
                 }
             );
