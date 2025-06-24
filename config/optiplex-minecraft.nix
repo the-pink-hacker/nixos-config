@@ -57,8 +57,8 @@ in {
                 hide-online-players = true;
                 #initial-disabled-packs = "";
                 initial-enabled-packs = builtins.concatStringsSep "," [
-                    "minecraft:minecart_improvements"
-                    "minecraft:vanilla"
+                    "minecart_improvements"
+                    "vanilla"
                 ];
                 level-name = "minecraft-optiplex";
                 # wikicamp2electricboogaloo
