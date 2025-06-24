@@ -116,6 +116,7 @@
             fwupd
             #vobcopy
             kdePackages.kdeconnect-kde
+            tmux
         ] ++ lib.optionals gui [
             heroic
 	    vscode

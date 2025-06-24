@@ -22,7 +22,6 @@ in {
             restart = "always";
             #enableReload = true;
             whitelist = {
-                ThePinkHacker = "a0893fac-b70f-45ca-8901-eea269c6b444";
                 HazardousSole54 = "5f96d607-d822-4eae-8b23-7cfef3799039";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
             };
@@ -57,8 +56,8 @@ in {
                 hide-online-players = true;
                 #initial-disabled-packs = "";
                 initial-enabled-packs = builtins.concatStringsSep "," [
-                    "minecart_improvements"
                     "vanilla"
+                    "minecraft:minecart_improvements"
                 ];
                 level-name = "minecraft-optiplex";
                 # wikicamp2electricboogaloo
