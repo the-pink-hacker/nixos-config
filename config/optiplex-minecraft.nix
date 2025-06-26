@@ -9,6 +9,11 @@ let
     inherit (inputs.nix-minecraft.lib) collectFilesAt;
     inherit (pkgs) fetchurl;
 in {
+    networking.firewall.allowedUDPPorts = [
+        # Simple Voice Chat
+        24454
+    ];
+
     services.minecraft-servers = {
         enable = true;
         eula = true;
