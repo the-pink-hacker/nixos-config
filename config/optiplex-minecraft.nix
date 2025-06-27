@@ -29,6 +29,7 @@ in {
             whitelist = {
                 HazardousSole54 = "5f96d607-d822-4eae-8b23-7cfef3799039";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
+                mushpiee = "15b8b595-219d-4ba0-ad83-d1fae588b1e0";
             };
             operators = {
                 ThePinkHacker = {
