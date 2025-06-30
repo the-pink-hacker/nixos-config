@@ -74,6 +74,7 @@
         enable = true;
         grabKeyboardAndMouse = true;
         pinentry.package = pkgs.pinentry-qt;
+        enableSshSupport = true;
     };
 
     programs.obs-studio = {
