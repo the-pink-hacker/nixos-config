@@ -73,7 +73,7 @@ in
         settings = {
             "$mainMod" = "SUPER";
             "$shiftMod" = "SUPER_SHIFT";
-            "$fileManager" = "dolphin";
+            "$fileManager" = "thunar";
             exec-once = [
                 "swww-daemon && swww img ${theme.wallpaper} -t none"
                 "exec nm-applet --indicator"
