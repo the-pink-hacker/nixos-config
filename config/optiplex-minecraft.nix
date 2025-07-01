@@ -78,7 +78,7 @@ in {
                 max-players = 20;
                 max-tick-time = 60000;
                 max-world-size = 29999984;
-                motd = "Pink's Server";
+                motd = "A Server With No Name";
                 network-compression-threshold = 256;
                 online-mode = true;
                 op-permission-level = 4;
@@ -108,6 +108,7 @@ in {
                 view-distance = 16;
                 white-list = true;
             };
+            # nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- VERSIONID
             symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
                 builtins.attrValues {
                     appleskin = fetchurl {
@@ -127,9 +128,13 @@ in {
                         url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
                         sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
                     };
+                    disconnect-packet-fix = fetchurl {
+                        url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
+                        sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
+                    };
                     fabric-api = fetchurl {
-                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/N3z6cNQv/fabric-api-0.127.1%2B1.21.6.jar";
-                        sha512 = "c7b4ea754a486193476b33ac4d1eaeb30b644e05b76a6abe8cf51ca4eb6832063d32293f1c9052c32c806712d26f85b531085a3ff52575021ee831a804167c4d";
+                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/r7pYmeRI/fabric-api-0.128.1%2B1.21.6.jar";
+                        sha512 = "9a2ba04dd5bc6db3eb19024144fa7967d9a6a1683203d472da333db986bfe7bfc95871d8a8b6ba1cbc684b1a1fa22fa23f32452f4e45865947b8119db0b87968";
                     };
                     ferrite-core = fetchurl {
                         url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
@@ -148,8 +153,8 @@ in {
                         sha512 = "ce9cc3dec9c01725a2c28ea275ef9e96b3ce7822a63de4b6e9c9eb36fda4ebee4c8be233de9dbb214b7e1302801702b6c59efbf834be006debc5c205831b35e3";
                     };
                     scalablelux = fetchurl {
-                        url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/vNOezq1q/ScalableLux-0.1.4%2Bfabric.b88b7b4-all.jar";
-                        sha512 = "08519ef0071d269bd716fe6fe4f3d2e9e9ed11246db1f361928388cc8e4a4d4125cd0d9500e8b4328f9058cde64e54e66cea77a619f2dff03f654176a6b4c798";
+                        url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PQLHDg2Q/ScalableLux-0.1.5%2Bfabric.e4acdcb-all.jar";
+                        sha512 = "ec8fabc3bf991fbcbe064c1e97ded3e70f145a87e436056241cbb1e14c57ea9f59ef312f24c205160ccbda43f693e05d652b7f19aa71f730caec3bb5f7f7820a";
                     };
                     slime = fetchurl {
                         url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
