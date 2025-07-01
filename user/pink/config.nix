@@ -173,6 +173,8 @@
         hunspellDicts.en_US
     ];
 
+    programs.ssh.startAgent = true;
+
     xdg.portal = {
         enable = gui;
         extraPortals = with pkgs; [

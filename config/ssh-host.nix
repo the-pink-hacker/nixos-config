@@ -17,7 +17,6 @@ in {
                 "pink"
             ];
         };
-        startAgent = true;
     };
 
     programs.gnupg.agent.enableSSHSupport = true;
