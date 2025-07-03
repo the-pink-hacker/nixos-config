@@ -27,11 +27,15 @@ in {
             restart = "always";
             #enableReload = true;
             whitelist = {
-                HazardousSole54 = "5f96d607-d822-4eae-8b23-7cfef3799039";
+                FormentingStorm = "f7781cd0-2882-43fb-aaec-632e02e8b82f";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
                 mushpiee = "15b8b595-219d-4ba0-ad83-d1fae588b1e0";
             };
             operators = {
+                HazardousSole54 = {
+                    uuid = "5f96d607-d822-4eae-8b23-7cfef3799039";
+                    bypassesPlayerLimit = true;
+                };
                 ThePinkHacker = {
                     uuid = "a0893fac-b70f-45ca-8901-eea269c6b444";
                     bypassesPlayerLimit = true;
@@ -112,8 +116,12 @@ in {
             symlinks.mods = pkgs.linkFarmFromDrvs "mods" (
                 builtins.attrValues {
                     appleskin = fetchurl {
-                        url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/P8sTsYtJ/appleskin-neoforge-mc1.21.5-3.0.7.jar";
-                        sha512 = "96981518f34022af38df02e7b34c5a918af89723b965c578c73cb34a886f8c27606bafcf4e88db602575ca9cd1d4f9a93aa2870fbefccd73fd64d829323b955a";
+                        url = "https://cdn.modrinth.com/data/EsAfCjCV/versions/YAjCkZ29/appleskin-fabric-mc1.21.6-3.0.6.jar";
+                        sha512 = "e36c78b036676b3fac1ec3edefdcf014ccde8ce65fd3e9c1c2f9a7bbc7c94185168a2cd6c8c27564e9204cd892bfbaae9989830d1acea83e6f37187b7a43ad7d";
+                    };
+                    audioplayer = fetchurl {
+                        url = "https://cdn.modrinth.com/data/SRlzjEBS/versions/SjXhQiPH/audioplayer-fabric-1.21.6-1.13.2.jar";
+                        sha512 = "be6f6571a76b7520f0894766b96b371a1a6c621a2fc23ae8d8132c67892c9e527a8da4cd8c675acf7dceb25b7d1ba2971e586119bfb8729a782f26cb7bce7498";
                     };
                     # For netherportalfix
                     balm = fetchurl {
@@ -133,8 +141,8 @@ in {
                         sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
                     };
                     fabric-api = fetchurl {
-                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/r7pYmeRI/fabric-api-0.128.1%2B1.21.6.jar";
-                        sha512 = "9a2ba04dd5bc6db3eb19024144fa7967d9a6a1683203d472da333db986bfe7bfc95871d8a8b6ba1cbc684b1a1fa22fa23f32452f4e45865947b8119db0b87968";
+                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/F5TVHWcE/fabric-api-0.128.2%2B1.21.6.jar";
+                        sha512 = "b6d0ec0aec40069cb1fa2159c126d027d7f95e3f6260a3e88ebe9c47f3cb716d1170af8e2e4ff3d4108ce5eeaea70002a889547578374d4d6dfa45755e99431e";
                     };
                     ferrite-core = fetchurl {
                         url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
@@ -161,9 +169,9 @@ in {
                         sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
                     };
                     voicechat = fetchurl {
-                        url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/pG8PLA08/voicechat-fabric-1.21.6-2.5.30.jar";
-                        sha512 = "917ea307782b0fb141aa35efa2462e0c148bd3ff3aeec978ba49d0b593374cb20dd2ad5d021c6c11a9e8262056d7553df025593d79b27a33e5e7bec816ab6756";
-                    };
+                        url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/CG0sCxee/voicechat-fabric-1.21.6-2.5.32.jar";
+                        sha512 = "54563fe006b73eff334f5566fe27bcfe80bc221105957147542fc39167f95e876df7b5c191b6190243b9b45d3acdd743587354a65d01bbae8ff3d54e1f36e1e4";
+                    }
                 }
             );
         };
