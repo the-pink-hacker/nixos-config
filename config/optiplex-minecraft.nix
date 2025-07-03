@@ -171,7 +171,7 @@ in {
                     voicechat = fetchurl {
                         url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/CG0sCxee/voicechat-fabric-1.21.6-2.5.32.jar";
                         sha512 = "54563fe006b73eff334f5566fe27bcfe80bc221105957147542fc39167f95e876df7b5c191b6190243b9b45d3acdd743587354a65d01bbae8ff3d54e1f36e1e4";
-                    }
+                    };
                 }
             );
         };
