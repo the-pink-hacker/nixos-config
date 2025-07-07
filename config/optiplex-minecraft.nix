@@ -21,7 +21,7 @@ in {
         servers.optiplex = {
             enable = true;
             autoStart = true;
-            package = pkgs.fabricServers.fabric-1_21_6.override {
+            package = pkgs.fabricServers.fabric-1_21_7.override {
                 loaderVersion = "0.16.14";
             };
             restart = "always";
@@ -120,14 +120,14 @@ in {
                         sha512 = "e36c78b036676b3fac1ec3edefdcf014ccde8ce65fd3e9c1c2f9a7bbc7c94185168a2cd6c8c27564e9204cd892bfbaae9989830d1acea83e6f37187b7a43ad7d";
                     };
                     audioplayer = fetchurl {
-                        url = "https://cdn.modrinth.com/data/SRlzjEBS/versions/SjXhQiPH/audioplayer-fabric-1.21.6-1.13.2.jar";
-                        sha512 = "be6f6571a76b7520f0894766b96b371a1a6c621a2fc23ae8d8132c67892c9e527a8da4cd8c675acf7dceb25b7d1ba2971e586119bfb8729a782f26cb7bce7498";
+                        url = "https://cdn.modrinth.com/data/SRlzjEBS/versions/1cNRNynB/audioplayer-fabric-1.21.7-1.13.2.jar";
+                        sha512 = "555ad4b922883fad02b3c34d7151512169dd0c8bf2a3e119b452bb5b403447df2b11dd8de90956afdbc0ca611c900c5f81b54bff03a1a02c1a71b403609d270b";
                     };
                     # For netherportalfix
-                    balm = fetchurl {
-                        url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/4arCr13S/balm-fabric-1.21.6-21.6.1.jar";
-                        sha512 = "2ecf65ba78e353f46183223298031a896a5447d1495b74e95e4811907fb636faad018e77af03668522a315d3ee8a52527319fbabaae311e4812f95d4bfb5a273";
-                    };
+                    #balm = fetchurl {
+                    #    url = "https://cdn.modrinth.com/data/MBAkmtvl/versions/4arCr13S/balm-fabric-1.21.6-21.6.1.jar";
+                    #    sha512 = "2ecf65ba78e353f46183223298031a896a5447d1495b74e95e4811907fb636faad018e77af03668522a315d3ee8a52527319fbabaae311e4812f95d4bfb5a273";
+                    #};
                     chunky = fetchurl {
                         url = "https://cdn.modrinth.com/data/fALzjamp/versions/inWDi2cf/Chunky-Fabric-1.4.40.jar";
                         sha512 = "9e0386d032641a124fd953a688a48066df7f4ec1186f7f0f8b0a56d49dced220e2d6938ed56e9d8ead78bb80ddb941bc7873f583add8e565bdacdf62e13adc28";
@@ -136,41 +136,47 @@ in {
                         url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
                         sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
                     };
-                    disconnect-packet-fix = fetchurl {
-                        url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
-                        sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
+                    # 1.21.6
+                    #disconnect-packet-fix = fetchurl {
+                    #    url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
+                    #    sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
+                    #};
+                    enhanced-groups = fetchurl {
+                        url = "https://cdn.modrinth.com/data/1LE7mid6/versions/SuYYBTU7/instantgroup-fabric-1.21.7-1.7.0.jar";
+                        sha512 = "f30896a000ce0725667c8e47f0788703b8c08d89fed8fe9e590f231f9e57dd590c799e51095586e5fc5ce3f45e9bbbab5f9bdc8af4d63a8826cfbda0569ae923";
                     };
                     fabric-api = fetchurl {
-                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/F5TVHWcE/fabric-api-0.128.2%2B1.21.6.jar";
-                        sha512 = "b6d0ec0aec40069cb1fa2159c126d027d7f95e3f6260a3e88ebe9c47f3cb716d1170af8e2e4ff3d4108ce5eeaea70002a889547578374d4d6dfa45755e99431e";
+                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/JIZogEYa/fabric-api-0.128.2%2B1.21.7.jar";
+                        sha512 = "afb9b3d1040689f53dd51341626b04d197e7d057d578a72c7a374a66465e0e07f5b3d52721d71e36be26d197668d3a96ea50dbb85e2bc5835d9d858e31b15966";
                     };
                     ferrite-core = fetchurl {
                         url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
                         sha512 = "131b82d1d366f0966435bfcb38c362d604d68ecf30c106d31a6261bfc868ca3a82425bb3faebaa2e5ea17d8eed5c92843810eb2df4790f2f8b1e6c1bdc9b7745";
                     };
-                    krypton = fetchurl {
-                        url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/neW85eWt/krypton-0.2.9.jar";
-                        sha512 = "2e2304b1b17ecf95783aee92e26e54c9bfad325c7dfcd14deebf9891266eb2933db00ff77885caa083faa96f09c551eb56f93cf73b357789cb31edad4939ffeb";
-                    };
+                    # 1.21.6
+                    #krypton = fetchurl {
+                    #    url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/neW85eWt/krypton-0.2.9.jar";
+                    #    sha512 = "2e2304b1b17ecf95783aee92e26e54c9bfad325c7dfcd14deebf9891266eb2933db00ff77885caa083faa96f09c551eb56f93cf73b357789cb31edad4939ffeb";
+                    #};
                     lithium = fetchurl {
-                        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/XWGBHYcB/lithium-fabric-0.17.0%2Bmc1.21.6.jar";
-                        sha512 = "a8d6a8b69ae2b10dd0cf8f8149260d5bdbd2583147462bad03380014edd857852972b967d97df69728333d8836b1e9db8997712ea26365ddb8a05b8c845c6534";
+                        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/77EtzYFA/lithium-fabric-0.18.0%2Bmc1.21.7.jar";
+                        sha512 = "afaf6ddaf0cbae2050d725efd438c4c98141d738a637f0f058dcbaff077ef85af801e2dca138ce9f7f8ba3a169dc6af1c9f56736b255c6ea13363f8a1be8ecdb";
                     };
-                    netherportalfix = fetchurl {
-                        url = "https://cdn.modrinth.com/data/nPZr02ET/versions/P3NCOkYd/netherportalfix-fabric-1.21.6-21.6.1.jar";
-                        sha512 = "ce9cc3dec9c01725a2c28ea275ef9e96b3ce7822a63de4b6e9c9eb36fda4ebee4c8be233de9dbb214b7e1302801702b6c59efbf834be006debc5c205831b35e3";
-                    };
+                    #netherportalfix = fetchurl {
+                    #    url = "https://cdn.modrinth.com/data/nPZr02ET/versions/P3NCOkYd/netherportalfix-fabric-1.21.6-21.6.1.jar";
+                    #    sha512 = "ce9cc3dec9c01725a2c28ea275ef9e96b3ce7822a63de4b6e9c9eb36fda4ebee4c8be233de9dbb214b7e1302801702b6c59efbf834be006debc5c205831b35e3";
+                    #};
                     scalablelux = fetchurl {
                         url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PQLHDg2Q/ScalableLux-0.1.5%2Bfabric.e4acdcb-all.jar";
                         sha512 = "ec8fabc3bf991fbcbe064c1e97ded3e70f145a87e436056241cbb1e14c57ea9f59ef312f24c205160ccbda43f693e05d652b7f19aa71f730caec3bb5f7f7820a";
                     };
-                    slime = fetchurl {
-                        url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
-                        sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
-                    };
+                    #slime = fetchurl {
+                    #    url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
+                    #    sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
+                    #};
                     voicechat = fetchurl {
-                        url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/CG0sCxee/voicechat-fabric-1.21.6-2.5.32.jar";
-                        sha512 = "54563fe006b73eff334f5566fe27bcfe80bc221105957147542fc39167f95e876df7b5c191b6190243b9b45d3acdd743587354a65d01bbae8ff3d54e1f36e1e4";
+                        url = "https://cdn.modrinth.com/data/9eGKb6K1/versions/bilPCGtM/voicechat-fabric-1.21.7-2.5.33.jar";
+                        sha512 = "03f76e24b00dfad1fb4cb4a58f4c200da5ae1d62437e162e88fe9bef9024a3e8cff94787f15f20a4dbf85c8f53a45feac8a7bbeb7a5686017d027cfa6c4a593e";
                     };
                 }
             );
