@@ -230,7 +230,7 @@
     security.sudo.enable = true;
 
     # Fix windows time issue
-    time.hardwareClockInLocalTime = true;
+    #time.hardwareClockInLocalTime = true;
 
     networking.firewall = {
     	enable = true;
