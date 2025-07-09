@@ -137,7 +137,7 @@
                 bluetooth = true;
                 amdGraphics = true;
                 #vmware = true;
-                vr = true;
+                vr = false;
                 drive = true;
                 inherit theme;
             };
