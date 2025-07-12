@@ -136,7 +136,10 @@ in {
                         url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
                         sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
                     };
-                    decree = ../assets/decree-server-test.jar;
+                    decree = fetchurl {
+                        url = "https://github.com/the-pink-hacker/nixos-config/raw/60026b151c5e89b0d82b9f3ce7afc178b737186c/assets/decree-server-test.jar";
+                        sha256 = "sha256-gAN4PEBuC0m+QyOf9ATPMxHqiOoDtmOfL1BYG6SGJwI=";
+                    };
                     disconnect-packet-fix = fetchurl {
                         url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
                         sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
