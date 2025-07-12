@@ -136,11 +136,11 @@ in {
                         url = "https://cdn.modrinth.com/data/Z5GdSH3X/versions/ibSODuZ1/crashexploitfixer-fabric-1.2.0%2B1.21.5.jar";
                         sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
                     };
-                    # 1.21.6
-                    #disconnect-packet-fix = fetchurl {
-                    #    url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
-                    #    sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
-                    #};
+                    decree = ../assets/decree-server-test.jar;
+                    disconnect-packet-fix = fetchurl {
+                        url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
+                        sha512 = "1fd6f09a41ce36284e1a8e9def53f3f6834d7201e69e54e24933be56445ba569fbc26278f28300d36926ba92db6f4f9c0ae245d23576aaa790530345587316db";
+                    };
                     enhanced-groups = fetchurl {
                         url = "https://cdn.modrinth.com/data/1LE7mid6/versions/SuYYBTU7/instantgroup-fabric-1.21.7-1.7.0.jar";
                         sha512 = "f30896a000ce0725667c8e47f0788703b8c08d89fed8fe9e590f231f9e57dd590c799e51095586e5fc5ce3f45e9bbbab5f9bdc8af4d63a8826cfbda0569ae923";
@@ -153,11 +153,10 @@ in {
                         url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
                         sha512 = "131b82d1d366f0966435bfcb38c362d604d68ecf30c106d31a6261bfc868ca3a82425bb3faebaa2e5ea17d8eed5c92843810eb2df4790f2f8b1e6c1bdc9b7745";
                     };
-                    # 1.21.6
-                    #krypton = fetchurl {
-                    #    url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/neW85eWt/krypton-0.2.9.jar";
-                    #    sha512 = "2e2304b1b17ecf95783aee92e26e54c9bfad325c7dfcd14deebf9891266eb2933db00ff77885caa083faa96f09c551eb56f93cf73b357789cb31edad4939ffeb";
-                    #};
+                    krypton = fetchurl {
+                        url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/neW85eWt/krypton-0.2.9.jar";
+                        sha512 = "2e2304b1b17ecf95783aee92e26e54c9bfad325c7dfcd14deebf9891266eb2933db00ff77885caa083faa96f09c551eb56f93cf73b357789cb31edad4939ffeb";
+                    };
                     lithium = fetchurl {
                         url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/77EtzYFA/lithium-fabric-0.18.0%2Bmc1.21.7.jar";
                         sha512 = "afaf6ddaf0cbae2050d725efd438c4c98141d738a637f0f058dcbaff077ef85af801e2dca138ce9f7f8ba3a169dc6af1c9f56736b255c6ea13363f8a1be8ecdb";
@@ -170,6 +169,7 @@ in {
                         url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PQLHDg2Q/ScalableLux-0.1.5%2Bfabric.e4acdcb-all.jar";
                         sha512 = "ec8fabc3bf991fbcbe064c1e97ded3e70f145a87e436056241cbb1e14c57ea9f59ef312f24c205160ccbda43f693e05d652b7f19aa71f730caec3bb5f7f7820a";
                     };
+                    # 1.21.6
                     #slime = fetchurl {
                     #    url = "https://cdn.modrinth.com/data/qpnMRvwM/versions/bDOWNLz2/Slime-1.21.6.jar";
                     #    sha512 = "0d929d34052023ed52587ab504c3718602f822940e5c04bafee0e2979ba54ccfb6c924f9d5b21b6f80de295ef3ba1ea6c09da2da6fb482dce2a81c7886fe27a3";
