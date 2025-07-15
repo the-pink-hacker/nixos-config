@@ -154,6 +154,8 @@
 	wl-clipboard-rs
 	(python3.withPackages (python-pkgs: with python-pkgs; [
 	    upnpy
+            numpy
+            miniupnpc
 	    hjson
 	    pillow
             requests
