@@ -9,6 +9,7 @@
         /cloudflare.nix
         /minecraft.nix
         /gamemode.nix
+        /fish.nix
     ] ++ lib.optionals gui [
         /hyprland.nix
         /vr.nix
