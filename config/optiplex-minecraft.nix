@@ -149,8 +149,8 @@ in {
                         sha512 = "f30896a000ce0725667c8e47f0788703b8c08d89fed8fe9e590f231f9e57dd590c799e51095586e5fc5ce3f45e9bbbab5f9bdc8af4d63a8826cfbda0569ae923";
                     };
                     fabric-api = fetchurl {
-                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/JIZogEYa/fabric-api-0.128.2%2B1.21.7.jar";
-                        sha512 = "afb9b3d1040689f53dd51341626b04d197e7d057d578a72c7a374a66465e0e07f5b3d52721d71e36be26d197668d3a96ea50dbb85e2bc5835d9d858e31b15966";
+                        url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/X2hTodix/fabric-api-0.129.0%2B1.21.8.jar";
+                        sha512 = "471babff84b36bd0f5051051bc192a97136ba733df6a49f222cb67a231d857eb4b1c5ec8dea605e146f49f75f800709f8836540a472fe8032f9fbd3f6690ec3d";
                     };
                     ferrite-core = fetchurl {
                         url = "https://cdn.modrinth.com/data/uXXizFIs/versions/CtMpt7Jr/ferritecore-8.0.0-fabric.jar";
@@ -161,8 +161,8 @@ in {
                         sha512 = "2e2304b1b17ecf95783aee92e26e54c9bfad325c7dfcd14deebf9891266eb2933db00ff77885caa083faa96f09c551eb56f93cf73b357789cb31edad4939ffeb";
                     };
                     lithium = fetchurl {
-                        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/77EtzYFA/lithium-fabric-0.18.0%2Bmc1.21.7.jar";
-                        sha512 = "afaf6ddaf0cbae2050d725efd438c4c98141d738a637f0f058dcbaff077ef85af801e2dca138ce9f7f8ba3a169dc6af1c9f56736b255c6ea13363f8a1be8ecdb";
+                        url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/pDfTqezk/lithium-fabric-0.18.0%2Bmc1.21.8.jar";
+                        sha512 = "6c69950760f48ef88f0c5871e61029b59af03ab5ed9b002b6a470d7adfdf26f0b875dcd360b664e897291002530981c20e0b2890fb889f29ecdaa007f885100f";
                     };
                     #netherportalfix = fetchurl {
                     #    url = "https://cdn.modrinth.com/data/nPZr02ET/versions/P3NCOkYd/netherportalfix-fabric-1.21.6-21.6.1.jar";
@@ -171,6 +171,14 @@ in {
                     scalablelux = fetchurl {
                         url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PQLHDg2Q/ScalableLux-0.1.5%2Bfabric.e4acdcb-all.jar";
                         sha512 = "ec8fabc3bf991fbcbe064c1e97ded3e70f145a87e436056241cbb1e14c57ea9f59ef312f24c205160ccbda43f693e05d652b7f19aa71f730caec3bb5f7f7820a";
+                    };
+                    shulkerboxtooltip = fetchurl {
+                        url = "https://cdn.modrinth.com/data/2M01OLQq/versions/os3K6gc6/shulkerboxtooltip-fabric-5.2.8%2B1.21.7.jar";
+                        sha512 = "ab99874d017e71bce2019cf5e8f5e0b8584ee0a00f4beb8212b368686bab6b4cf5cc242e2a8c4905c75c3a421b8035234b7e9abcc325dc702af518229b819646";
+                    };
+                    shulker-box-label = fetchurl {
+                        url = "https://cdn.modrinth.com/data/a4byiEVJ/versions/BMET9tpv/shulker-box-labels-3.2.0%2B1.21.7.jar";
+                        sha512 = "0747355d57b9627adcf6065c8a76a4578c8c67cbbb9a630d9e91212b86f1a8b90318def3f587a4aafcf47311c15a26edae844ac428f9d77b0918adc5f49b101c";
                     };
                     # 1.21.6
                     #slime = fetchurl {
