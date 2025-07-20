@@ -21,7 +21,7 @@ in {
 
     programs.gnupg.agent.enableSSHSupport = true;
 
-    services.fail2ban.enable = true;
+    #services.fail2ban.enable = true;
 
     services.endlessh = {
         enable = true;
