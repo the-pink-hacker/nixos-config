@@ -30,6 +30,7 @@ in {
                 FormentingStorm = "f7781cd0-2882-43fb-aaec-632e02e8b82f";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
                 mushpiee = "15b8b595-219d-4ba0-ad83-d1fae588b1e0";
+                VikingKas = "3e71de4e-6b11-4672-bd47-9f1688bdb52f";
             };
             operators = {
                 HazardousSole54 = {
