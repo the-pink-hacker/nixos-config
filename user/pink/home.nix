@@ -15,6 +15,7 @@
         /hyprland.nix
         /yazi.nix
         /firefox.nix
+        /idea.nix
     ]);
 
     xdg.userDirs = {
