@@ -30,6 +30,7 @@ in {
                 FormentingStorm = "f7781cd0-2882-43fb-aaec-632e02e8b82f";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
                 mushpiee = "15b8b595-219d-4ba0-ad83-d1fae588b1e0";
+                VikingKas = "3e71de4e-6b11-4672-bd47-9f1688bdb52f";
             };
             operators = {
                 HazardousSole54 = {
@@ -137,8 +138,8 @@ in {
                         sha512 = "0a1257b157070d9e4df4104b70e2e04aecfd90666dcab0a6efba9cfa38bc3342172ea1e06f186e7ebfdfa05b867662da1fb780c0dd98f443d3b3b8230d118a17";
                     };
                     decree = fetchurl {
-                        url = "https://github.com/the-pink-hacker/nixos-config/raw/60026b151c5e89b0d82b9f3ce7afc178b737186c/assets/decree-server-test.jar";
-                        sha256 = "sha256-gAN4PEBuC0m+QyOf9ATPMxHqiOoDtmOfL1BYG6SGJwI=";
+                        url = "https://github.com/the-pink-hacker/nixos-config/raw/38b4d3e982816b9116a2133f4d5bdc29798f2380/assets/decree-server-test.jar";
+                        sha256 = "sha256-GjkdZGsJXm7dmlV21/QlR+vEjCjZg7w+EOtfv6SR21k=";
                     };
                     disconnect-packet-fix = fetchurl {
                         url = "https://cdn.modrinth.com/data/rd9rKuJT/versions/Gv74xveQ/disconnect-packet-fix-fabric-2.0.0.jar";
@@ -171,6 +172,14 @@ in {
                     scalablelux = fetchurl {
                         url = "https://cdn.modrinth.com/data/Ps1zyz6x/versions/PQLHDg2Q/ScalableLux-0.1.5%2Bfabric.e4acdcb-all.jar";
                         sha512 = "ec8fabc3bf991fbcbe064c1e97ded3e70f145a87e436056241cbb1e14c57ea9f59ef312f24c205160ccbda43f693e05d652b7f19aa71f730caec3bb5f7f7820a";
+                    };
+                    shulkerboxtooltip = fetchurl {
+                        url = "https://cdn.modrinth.com/data/2M01OLQq/versions/os3K6gc6/shulkerboxtooltip-fabric-5.2.8%2B1.21.7.jar";
+                        sha512 = "ab99874d017e71bce2019cf5e8f5e0b8584ee0a00f4beb8212b368686bab6b4cf5cc242e2a8c4905c75c3a421b8035234b7e9abcc325dc702af518229b819646";
+                    };
+                    shulker-box-label = fetchurl {
+                        url = "https://cdn.modrinth.com/data/a4byiEVJ/versions/BMET9tpv/shulker-box-labels-3.2.0%2B1.21.7.jar";
+                        sha512 = "0747355d57b9627adcf6065c8a76a4578c8c67cbbb9a630d9e91212b86f1a8b90318def3f587a4aafcf47311c15a26edae844ac428f9d77b0918adc5f49b101c";
                     };
                     # 1.21.6
                     #slime = fetchurl {

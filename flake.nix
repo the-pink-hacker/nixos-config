@@ -47,27 +47,6 @@
         devShells."${system}" = let 
             shellHook = "exec fish";
         in {
-            minecraft-mod = with pkgs; mkShell rec {
-                buildInputs = [
-                    xorg.libX11
-                    xorg.libXcursor
-                    xorg.libXrandr
-                    xorg.libXxf86vm
-                    xorg.libXext
-                    flite
-                    libusb1
-                    libxkbcommon
-                    wayland
-                    egl-wayland
-                    libGL
-                    libpulseaudio
-                    openal
-                    vulkan-loader
-                    gradle
-                ];
-                inherit shellHook;
-                LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
-            };
             rust = with pkgs; mkShell rec {
                 buildInputs = [
                     (rust-bin.stable.latest.default.override {
