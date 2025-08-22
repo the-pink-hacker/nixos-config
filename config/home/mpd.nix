@@ -28,7 +28,6 @@
     };
 
     services.mpd-discord-rpc = {
-        enable = true;
         settings = {
             id = 677226551607033903;
             hosts = [

@@ -5,6 +5,8 @@
 
     xdg.configFile."discord/settings.json".source = ./discord/settings.json;
 
+    services.mpd-discord-rpc.enable = false;
+
     xdg.desktopEntries = {
         discord = {
             name = "Discord";
