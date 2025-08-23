@@ -47,46 +47,6 @@
         devShells."${system}" = let 
             shellHook = "exec fish";
         in {
-            rust = with pkgs; mkShell rec {
-                buildInputs = [
-                    (rust-bin.stable.latest.default.override {
-                        extensions = [
-                            "rust-analyzer"
-                            "rust-src"
-                        ];
-                    })
-                    pkg-config
-                    openssl
-                ];
-                inherit shellHook;
-                LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
-            };
-            rust-bevy = pkgs.mkShell rec {
-                buildInputs = with pkgs; [
-                    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
-                        extensions = [
-                            "rust-analyzer"
-                            "rust-src"
-                        ];
-                    }))
-                    pkg-config
-                    mold
-                    udev
-                    alsa-lib
-                    vulkan-loader
-                    xorg.libX11
-                    xorg.libXcursor
-                    xorg.libXi
-                    xorg.libXrandr
-                    libxkbcommon
-                    wayland
-                    libexif
-                    openssl
-                    cargo-edit
-                ];
-                inherit shellHook;
-                LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
-            };
             rust-pi = let
                 arm = import nixpkgs {
                     crossSystem = pkgs.lib.systems.examples.raspberryPi;
