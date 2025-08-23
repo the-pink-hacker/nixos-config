@@ -1,7 +1,5 @@
-{ pkgs, ... }:
-
-{
-    boot.initrd.kernelModules = [ "amdgpu" ];
+{pkgs, ...}: {
+    boot.initrd.kernelModules = ["amdgpu"];
 
     hardware.graphics = {
         enable = true;
@@ -9,8 +7,7 @@
     };
 
     # HIP
-    systemd.tmpfiles.rules = 
-    let
+    systemd.tmpfiles.rules = let
         rocmEnv = pkgs.symlinkJoin {
             name = "rocm-combined";
             paths = with pkgs.rocmPackages; [
@@ -22,7 +19,7 @@
     in [
         "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
     ];
-    
+
     hardware.graphics = {
         extraPackages = with pkgs; [
             # OpenCL
@@ -39,9 +36,9 @@
     };
 
     # GUI Controller
-    environment.systemPackages = with pkgs; [ lact ];
-    systemd.packages = with pkgs; [ lact ];
-    systemd.services.lactd.wantedBy = [ "multi-user.target" ];
+    environment.systemPackages = with pkgs; [lact];
+    systemd.packages = with pkgs; [lact];
+    systemd.services.lactd.wantedBy = ["multi-user.target"];
 
     environment.variables = {
         AMD_VULKAN_ICD = "RADV";

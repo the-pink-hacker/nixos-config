@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
     services.espanso = {
         package = pkgs.espanso.override {
             x11Support = false;

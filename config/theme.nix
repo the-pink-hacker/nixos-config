@@ -1,6 +1,4 @@
-{ pkgs }:
-
-let
+{pkgs}: let
     mkcolor = import ../lib/mkcolor.nix;
     lib = pkgs.lib;
 in {

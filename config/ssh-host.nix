@@ -1,6 +1,4 @@
-{ ... }:
-
-let 
+{...}: let
     port = 64102;
 in {
     services.openssh = {

@@ -1,6 +1,10 @@
-{ pkgs, monitorBacklight, inputs, theme, ... }:
-
 {
+    pkgs,
+    monitorBacklight,
+    inputs,
+    theme,
+    ...
+}: {
     programs = {
         hyprland.enable = true;
         kde-pim.enable = true;
@@ -65,7 +69,7 @@
         };
         desktopManager.plasma6.enable = true;
         gvfs.enable = true;
-        udev.packages = [ pkgs.libmtp.out ];
+        udev.packages = [pkgs.libmtp.out];
     };
 
     xdg = {

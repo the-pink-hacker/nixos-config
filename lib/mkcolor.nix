@@ -3,10 +3,8 @@
     green,
     blue,
     alpha ? 1.0,
-    lib
-}:
-
-let
+    lib,
+}: let
     redHex = lib.toHexString red;
     greenHex = lib.toHexString green;
     blueHex = lib.toHexString blue;

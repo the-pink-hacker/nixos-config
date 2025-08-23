@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+    pkgs,
+    lib,
+    ...
+}: {
     environment.sessionVariables = {
         SHELL = lib.getExe pkgs.fish;
     };

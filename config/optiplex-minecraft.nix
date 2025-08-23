@@ -1,9 +1,11 @@
-{ inputs, config, ... }:
-
-let 
+{
+    inputs,
+    config,
+    ...
+}: let
     pkgs = import inputs.nixpkgs {
         inherit (config.nixpkgs) system;
-        overlays = [ inputs.nix-minecraft.overlay ];
+        overlays = [inputs.nix-minecraft.overlay];
         config.allowUnfree = true;
     };
     inherit (inputs.nix-minecraft.lib) collectFilesAt;

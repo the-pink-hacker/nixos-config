@@ -1,13 +1,18 @@
-{ pkgs, homeConfigPath, gui, lib, ... }:
-
 {
+    pkgs,
+    homeConfigPath,
+    gui,
+    lib,
+    ...
+}: {
     imports = map (path: homeConfigPath + path) ([
         /neovim.nix
         #/urxvt.nix
         #/zsh.nix
         /fish.nix
         #/helix.nix
-    ] ++ lib.optionals gui [
+    ]
+    ++ lib.optionals gui [
         /mpd.nix
         /blockbench.nix
         /discord.nix
@@ -24,7 +29,7 @@
     };
 
     home = {
-    	username = "pink";
+        username = "pink";
         homeDirectory = "/home/pink";
         sessionPath = [
             "$HOME/.local/bin"
@@ -48,7 +53,7 @@
         userEmail = "pink@thepinkhacker.com";
         signing = {
             signByDefault = true;
-    	    key = "15BD92A4C6319F2A1847E84B4BB613B0CF20EE3D";
+            key = "15BD92A4C6319F2A1847E84B4BB613B0CF20EE3D";
         };
         extraConfig = {
             init.defaultBranch = "main";

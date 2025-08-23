@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+    pkgs,
+    config,
+    ...
+}: {
     programs.gamemode = {
         enable = true;
         settings.general.inhibit_screensaver = 0;
@@ -13,21 +15,22 @@
 
     programs.steam = {
         package = pkgs.steam.override {
-            extraPkgs = pkgs: with pkgs; [
-                xorg.libXcursor
-                xorg.libXi
-                xorg.libXinerama
-                xorg.libXScrnSaver
-                libpng
-                libpulseaudio
-                libvorbis
-                stdenv.cc.cc.lib
-                libkrb5
-                keyutils
-                gamescope
-                mangohud
-                gamemode
-            ];
+            extraPkgs = pkgs:
+                with pkgs; [
+                    xorg.libXcursor
+                    xorg.libXi
+                    xorg.libXinerama
+                    xorg.libXScrnSaver
+                    libpng
+                    libpulseaudio
+                    libvorbis
+                    stdenv.cc.cc.lib
+                    libkrb5
+                    keyutils
+                    gamescope
+                    mangohud
+                    gamemode
+                ];
         };
         gamescopeSession = {
             enable = config.programs.gamescope.enable;

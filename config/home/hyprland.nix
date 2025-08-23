@@ -1,10 +1,15 @@
-{ pkgs, lib, monitorBacklight, systemName, config, theme, ... }:
-
-let
+{
+    pkgs,
+    lib,
+    monitorBacklight,
+    systemName,
+    config,
+    theme,
+    ...
+}: let
     isLaptop = systemName == "pink-nixos-laptop";
     isDesktop = systemName == "pink-nixos-desktop";
-in
-{
+in {
     imports = [
         ./kitty.nix
         ./waybar.nix
@@ -35,7 +40,7 @@ in
         gtk.enable = true;
         size = theme.cursor.size;
     };
-    
+
     # GTK Setup
     gtk = {
         enable = true;
@@ -58,11 +63,14 @@ in
     dconf.settings."org/gtk/settings/file-chooser" = {
         sort-directories-first = true;
     };
-    
+
     # GTK4 Setup
     dconf.settings."org/gnome/desktop/interface" = {
         gtk-theme = lib.mkForce theme.gtk.name;
-        color-scheme = if theme.darkMode then "prefer-dark" else "prefer-light";
+        color-scheme =
+            if theme.darkMode
+            then "prefer-dark"
+            else "prefer-light";
     };
 
     services.batsignal.enable = true;
@@ -116,14 +124,15 @@ in
                 ", XF86AudioNext, exec, playerctl next"
                 ", XF86AudioNext, exec, mpc next"
             ];
-            monitor = [
-                ", preferred, auto, 1"
-            ]
-            ++ lib.optionals isDesktop [
-                "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10"
-                "DP-2, preferred, auto-right, 1, vrr, 1"
-            ]
-            ++ lib.optional isLaptop "eDP-1, preferred, auto, 1.175";
+            monitor =
+                [
+                    ", preferred, auto, 1"
+                ]
+                ++ lib.optionals isDesktop [
+                    "DP-1, preferred, auto, 1, vrr, 1, bitdepth, 10"
+                    "DP-2, preferred, auto-right, 1, vrr, 1"
+                ]
+                ++ lib.optional isLaptop "eDP-1, preferred, auto, 1.175";
             # https://wiki.hyprland.org/Configuring/Variables/#general
             general = {
                 resize_on_border = false;

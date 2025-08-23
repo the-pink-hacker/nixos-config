@@ -1,6 +1,9 @@
-{ battery, lib, theme, ... }:
-
-let
+{
+    battery,
+    lib,
+    theme,
+    ...
+}: let
     style_file = ./waybar/style.css;
     style_from = [
         "THEME_TEXT_COLOR"
@@ -30,18 +33,19 @@ in {
             "clock"
             "mpd"
         ];
-        modules-center = [
-            "pulseaudio"
-            "network"
-            "cpu"
-            "memory"
-            "temperature"
-            "keyboard-state"
-        ]
-        ++ lib.optionals battery [
-            "battery"
-            "power-profiles-daemon"
-        ];
+        modules-center =
+            [
+                "pulseaudio"
+                "network"
+                "cpu"
+                "memory"
+                "temperature"
+                "keyboard-state"
+            ]
+            ++ lib.optionals battery [
+                "battery"
+                "power-profiles-daemon"
+            ];
         modules-right = [
             "tray"
         ];
