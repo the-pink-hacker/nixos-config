@@ -18,6 +18,7 @@
             /minecraft.nix
             /gamemode.nix
             /fish.nix
+            /syncthing.nix
         ]
         ++ lib.optionals gui [
             /hyprland.nix
