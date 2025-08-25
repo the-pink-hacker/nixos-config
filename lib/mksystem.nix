@@ -14,6 +14,7 @@
     vr ? false,
     drive ? false,
     gui ? true,
+    syncthingEnable ? false,
     theme,
 }: let
     systemName = name;
@@ -31,6 +32,7 @@
         inherit drive;
         inherit theme;
         inherit gui;
+        inherit syncthingEnable;
         libPath = ../lib;
     };
     lib = nixpkgs.lib;

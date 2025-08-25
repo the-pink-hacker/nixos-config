@@ -82,6 +82,7 @@
                 vr = false;
                 drive = true;
                 inherit theme;
+                syncthingEnable = true;
             };
             pink-nixos-laptop = mksystem "pink-nixos-laptop" {
                 user = "pink";
@@ -90,6 +91,7 @@
                 battery = true;
                 monitorBacklight = true;
                 fingerprint = true;
+                syncthingEnable = true;
                 inherit theme;
             };
             pink-nixos-optiplex = mksystem "pink-nixos-optiplex" {
