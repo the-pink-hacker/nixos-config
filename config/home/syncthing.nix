@@ -14,11 +14,19 @@
                 id = "FTUP4B4-Z222AS2-ZTNS5QN-A3NR2GC-BRTPILY-ZL5QVSP-7HFWADD-VPTBOQK";
                 name = "Framework Laptop";
             };
+            desktop = {
+                id = "BH6M4CZ-7ZRTHM2-LL3IV5M-KKRWUQI-AHUEPAN-CLD373Q-6YK2P6U-55TBMA2";
+                name = "Desktop";
+            };
         };
         settings.folders = let 
-            allDevices = [
-                "phone"
+            devicesComputers = [
+                "laptop"
+                "desktop"
             ];
+            devicesAll = [
+                "phone"
+            ] ++ devicesComputers;
             versioningDefault = {
                 type = "trashcan";
                 params.cleanoutDays = "14";
@@ -27,15 +35,16 @@
             "/home/pink/Pictures" = {
                 label = "Computer Pictures";
                 versioning = versioningDefault;
+                devices = devicesComputers;
             };
             "/home/pink/Music" = {
                 label = "Music";
-                devices = allDevices;
+                devices = devicesAll;
                 versioning = versioningDefault;
             };
             "/home/pink/Documents/obsidian-notes" = {
                 label = "Obsidian";
-                devices = allDevices;
+                devices = devicesAll;
                 versioning = versioningDefault;
             };
         };
