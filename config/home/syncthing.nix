@@ -1,6 +1,4 @@
-{ syncthingEnable, ... }:
-
-{
+{syncthingEnable, ...}: {
     services.syncthing = {
         enable = syncthingEnable;
         overrideFolders = true;
@@ -23,15 +21,17 @@
                 name = "Optiplex";
             };
         };
-        settings.folders = let 
+        settings.folders = let
             devicesComputers = [
                 "laptop"
                 "desktop"
                 "optiplex"
             ];
-            devicesAll = [
-                "phone"
-            ] ++ devicesComputers;
+            devicesAll =
+                [
+                    "phone"
+                ]
+                ++ devicesComputers;
             versioningDefault = {
                 type = "trashcan";
                 params.cleanoutDays = "14";

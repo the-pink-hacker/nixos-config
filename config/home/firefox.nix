@@ -23,7 +23,7 @@ in {
             extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
                 passff
                 tampermonkey
-                enhancer-for-youtube
+                #enhancer-for-youtube
                 ublock-origin
                 duckduckgo-privacy-essentials
                 shinigami-eyes
@@ -638,6 +638,11 @@ in {
                 # Enhancer for Nebula
                 "nebula-enhancer@piber.at" = mkAddon {
                     slug = "enhancer-for-nebula";
+                };
+                # Enhancer for Youtube
+                "enhancerforyoutube@maximerf.addons.mozilla.org" = {
+                    install_url = "https://www.mrfdev.com/downloads/enhancer_for_youtube-2.0.130.1.xpi";
+                    installation_mode = "force_installed";
                 };
                 # Webrtc Leak Shield
                 "@webrtc-leak-shield" = mkAddon {

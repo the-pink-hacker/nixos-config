@@ -23,6 +23,7 @@
             /hyprland.nix
             /vr.nix
             /vmware.nix
+            /chromium.nix
         ]))
         ++ [
             inputs.nix-minecraft.nixosModules.minecraft-servers
