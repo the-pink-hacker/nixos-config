@@ -21,7 +21,7 @@
                 name = "Desktop";
             };
             optiplex = {
-                id = "FQQPRSO-2NA5UC6-4BQTFX7-UE2TEUH-M2V2VB7-HLVM5RD-O5B457E-7HHJCA4";
+                id = "QJRN566-BEZAHOG-GPJCX32-3YEWN4E-GE4JYJ4-YYQGGVN-DFUQBLQ-KN7KZA2";
                 name = "Optiplex";
             };
         };
