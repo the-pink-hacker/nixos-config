@@ -100,6 +100,7 @@
                 inherit theme;
                 gui = false;
                 drive = true;
+                syncthingEnable = true;
             };
         };
     };

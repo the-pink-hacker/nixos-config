@@ -18,11 +18,16 @@
                 id = "BH6M4CZ-7ZRTHM2-LL3IV5M-KKRWUQI-AHUEPAN-CLD373Q-6YK2P6U-55TBMA2";
                 name = "Desktop";
             };
+            optiplex = {
+                id = "FQQPRSO-2NA5UC6-4BQTFX7-UE2TEUH-M2V2VB7-HLVM5RD-O5B457E-7HHJCA4";
+                name = "Optiplex";
+            };
         };
         settings.folders = let 
             devicesComputers = [
                 "laptop"
                 "desktop"
+                "optiplex"
             ];
             devicesAll = [
                 "phone"
