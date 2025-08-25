@@ -393,6 +393,28 @@ in {
                         toolbar = true;
                         bookmarks = [
                             {
+                                name = "Ivy Learn";
+                                tags = [
+                                    "ivy"
+                                    "ivytech"
+                                    "ivy tech"
+                                    "canvas"
+                                ];
+                                keyword = "ivylearn";
+                                url = "https://ivylearn.ivytech.edu";
+                            }
+                            {
+                                name = "MyIvy";
+                                tags = [
+                                    "ivy"
+                                    "ivytech"
+                                    "ivy tech"
+                                    "canvas"
+                                ];
+                                keyword = "myivy";
+                                url = "https://my.ivytech.edu/myivy";
+                            }
+                            {
                                 name = "Home Manager";
                                 tags = [
                                     "linux"
