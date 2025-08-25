@@ -1,11 +1,9 @@
-{ ... }:
-
-{
+{...}: {
     fileSystems = let
         options = [
-	    "user"
-	    "users"
-	    "nofail"
+            "user"
+            "users"
+            "nofail"
             "exec"
         ];
         fsType = "ext4";

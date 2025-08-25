@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+    pkgs,
+    config,
+    ...
+}: {
     programs.rofi = {
         enable = true;
         package = pkgs.rofi-wayland;
@@ -28,7 +30,7 @@
             ];
         };
     };
-    
+
     wayland.windowManager.hyprland.settings.bind = [
         "$mainMod, S, exec, rofi -show drun -show-icons"
         "$mainMod, period, exec, rofi -show emoji"

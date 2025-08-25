@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+    pkgs,
+    lib,
+    ...
+}: {
     #services.gpg-agent.enableFishIntegration = true;
     #programs.kitty.shellIntegration.enableFishIntegration = true;
     #programs.yazi.enableFishIntegration = true;

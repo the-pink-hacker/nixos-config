@@ -1,6 +1,8 @@
-{ pkgs, libPath, ... }:
-
-let
+{
+    pkgs,
+    libPath,
+    ...
+}: let
     hosts = with pkgs; [
         (passff-host.overrideAttrs (old: {
             dontStrip = true;
@@ -48,14 +50,17 @@ in {
                                 template = "https://developer.mozilla.org/search";
                                 type = "text/html";
                                 params = [
-                                    { name = "q"; value = "{searchTerms}"; }
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
                                 ];
                             }
                         ];
                         icon = "https://developer.mozilla.org/favicon.ico";
                         inherit updateInterval;
                         description = "Search the MDN Web Docs";
-                        definedAliases = [ "@mdn" ];
+                        definedAliases = ["@mdn"];
                     };
                     nixosWiki = mediaWikiSearch {
                         name = "NixOS Wiki";
@@ -64,7 +69,7 @@ in {
                         searchURL = "https://wiki.nixos.org/w/index.php";
                         description = "Search on the NixOS Wiki.";
                         inherit updateInterval;
-                        definedAliases = [ "@nixoswiki" ];
+                        definedAliases = ["@nixoswiki"];
                     };
                     minecraftWiki = mediaWikiSearch {
                         name = "Minecraft Wiki (EN)";
@@ -95,15 +100,21 @@ in {
                                 template = "https://www.youtube.com/results";
                                 type = "text/html";
                                 params = [
-                                    { name = "search_query"; value = "{searchTerms}"; }
-                                    { name = "page"; value = "{startPage}"; }
+                                    {
+                                        name = "search_query";
+                                        value = "{searchTerms}";
+                                    }
+                                    {
+                                        name = "page";
+                                        value = "{startPage}";
+                                    }
                                 ];
                             }
                         ];
                         icon = "https://www.youtube.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search for videos on YouTube";
-                        definedAliases = [ "@youtube" "@yt" ];
+                        definedAliases = ["@youtube" "@yt"];
                     };
                     nixosPackages = {
                         name = "NixOS Packages";
@@ -112,15 +123,21 @@ in {
                                 template = "https://search.nixos.org/packages";
                                 type = "text/html";
                                 params = [
-                                    { name = "channel"; value = "unstable"; }
-                                    { name = "query"; value = "{searchTerms}"; }
+                                    {
+                                        name = "channel";
+                                        value = "unstable";
+                                    }
+                                    {
+                                        name = "query";
+                                        value = "{searchTerms}";
+                                    }
                                 ];
                             }
                         ];
                         icon = "https://search.nixos.org/favicon.png";
                         inherit updateInterval;
                         description = "Search NixOS packages by name or description.";
-                        definedAliases = [ "@nixospackages" ];
+                        definedAliases = ["@nixospackages"];
                     };
                     nixosOptions = {
                         name = "NixOS Options";
@@ -129,15 +146,21 @@ in {
                                 template = "https://search.nixos.org/options";
                                 type = "text/html";
                                 params = [
-                                    { name = "channel"; value = "unstable"; }
-                                    { name = "query"; value = "{searchTerms}"; }
+                                    {
+                                        name = "channel";
+                                        value = "unstable";
+                                    }
+                                    {
+                                        name = "query";
+                                        value = "{searchTerms}";
+                                    }
                                 ];
                             }
                         ];
                         icon = "https://search.nixos.org/favicon.png";
                         inherit updateInterval;
                         description = "Search NixOS options by name or description.";
-                        definedAliases = [ "@nixosoptions" ];
+                        definedAliases = ["@nixosoptions"];
                     };
                     modrinthResourcepacks = {
                         name = "Modrinth Resouce Packs";
@@ -145,7 +168,12 @@ in {
                             {
                                 template = "https://modrinth.com/resourcepacks";
                                 type = "text/html";
-                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                                params = [
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
+                                ];
                             }
                         ];
                         icon = "https://modrinth.com/favicon.ico";
@@ -163,13 +191,18 @@ in {
                             {
                                 template = "https://modrinth.com/mods";
                                 type = "text/html";
-                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                                params = [
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
+                                ];
                             }
                         ];
                         icon = "https://modrinth.com/favicon.ico";
                         inherit updateInterval;
                         description = "Search for mods on Modrinth, the open source modding platform.";
-                        definedAliases = [ "@modrinthmods" "@minecraftmods" ];
+                        definedAliases = ["@modrinthmods" "@minecraftmods"];
                     };
                     protonDB = {
                         name = "ProtonDB";
@@ -177,13 +210,18 @@ in {
                             {
                                 template = "https://www.protondb.com/search";
                                 type = "text/html";
-                                params = [ { name = "q"; value = "{searchTerms}"; } ];
+                                params = [
+                                    {
+                                        name = "q";
+                                        value = "{searchTerms}";
+                                    }
+                                ];
                             }
                         ];
                         icon = "https://www.protondb.com/sites/protondb/images/favicon.ico";
                         inherit updateInterval;
                         description = "Search for Proton compatability for games on Linux.";
-                        definedAliases = [ "@protondb" ];
+                        definedAliases = ["@protondb"];
                     };
                     subnauticaWiki = mediaWikiSearch {
                         name = "Subnautica Wiki";
@@ -195,7 +233,7 @@ in {
                         ];
                         inherit updateInterval;
                         description = "Search on the Subnautica wiki.";
-                        definedAliases = [ "@subnautica" ];
+                        definedAliases = ["@subnautica"];
                     };
                     factorioWiki = mediaWikiSearch {
                         name = "Factorio Wiki";
@@ -208,7 +246,7 @@ in {
                         ];
                         inherit updateInterval;
                         description = "Search on the Factorio wiki.";
-                        definedAliases = [ "@factorio" ];
+                        definedAliases = ["@factorio"];
                     };
                     archWiki = mediaWikiSearch {
                         name = "Arch Linux Wiki";
@@ -219,7 +257,7 @@ in {
                         ];
                         inherit updateInterval;
                         description = "Search on the Arch Linux Wiki.";
-                        definedAliases = [ "@archwiki" ];
+                        definedAliases = ["@archwiki"];
                     };
                     bandcamp = {
                         name = "bandcamp";
@@ -277,7 +315,7 @@ in {
                         ];
                         inherit updateInterval;
                         description = "Search on the Balatro wiki.";
-                        definedAliases = [ "@balatro" ];
+                        definedAliases = ["@balatro"];
                     };
                     terrariaWiki = mediaWikiSearch {
                         name = "Terraria Wiki (en)";
@@ -302,7 +340,7 @@ in {
                         ];
                         inherit updateInterval;
                         description = "Search on the Terraria wiki.";
-                        definedAliases = [ "@terraria" ];
+                        definedAliases = ["@terraria"];
                     };
                     riskOfRain2Wiki = mediaWikiSearch {
                         name = "Risk of Rain 2 Wiki (en)";

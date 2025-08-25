@@ -1,6 +1,8 @@
-{ pkgs, theme, ... }:
-
 {
+    pkgs,
+    theme,
+    ...
+}: {
     home.packages = with pkgs; [
         kitty
     ];

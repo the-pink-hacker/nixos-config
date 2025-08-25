@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
     wayland.windowManager.hyprland.settings."$terminal" = "urxvt";
 
     programs.urxvt = {

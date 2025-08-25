@@ -1,8 +1,11 @@
-{ lib, pkgs, vr, ... }:
-
+{
+    lib,
+    pkgs,
+    vr,
+    ...
+}:
 # SteamVR command:
 # WAYLAND_DISPLAY='' QT_QPA_PLATFORM=xcb ~/.local/share/Steam/steamapps/common/SteamVR/bin/vrmonitor.sh %command%
-
 lib.mkIf vr {
     environment.systemPackages = with pkgs; [
         sidequest

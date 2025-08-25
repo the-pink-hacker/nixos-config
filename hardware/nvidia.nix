@@ -1,6 +1,9 @@
-{ pkgs, config, libs, ... }:
-
 {
+    pkgs,
+    config,
+    libs,
+    ...
+}: {
     # Enable OpenGL
     hardware.opengl = {
         enable = true;
@@ -8,7 +11,7 @@
 
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"];
-    
+
     hardware.nvidia = {
         modesetting.enable = true;
         powerManagement.enable = false;
