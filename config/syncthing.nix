@@ -17,7 +17,7 @@
                 name = "Framework Laptop";
             };
             desktop = {
-                id = "BH6M4CZ-7ZRTHM2-LL3IV5M-KKRWUQI-AHUEPAN-CLD373Q-6YK2P6U-55TBMA2";
+                id = "2ENPQMR-MXW5G4Z-2YXB74Z-MLJFNET-IIOSZ6Z-PRO55E7-MPOQJE2-IB65LA3";
                 name = "Desktop";
             };
             optiplex = {
