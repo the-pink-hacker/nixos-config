@@ -1,15 +1,19 @@
 {syncthingEnable, ...}: {
     services.syncthing = {
         enable = syncthingEnable;
+        user = "pink";
+        group = "users";
+        dataDir = "/home/pink/.local/state/syncthing";
         overrideFolders = true;
         overrideDevices = true;
+        openDefaultPorts = true;
         settings.devices = {
             phone = {
                 id = "3ZEVWIP-C5H2ZSA-LOWWCV5-LLEIRYA-3FBYCCE-IOI6XDB-YW57KG4-E6JCHAF";
                 name = "Phone";
             };
             laptop = {
-                id = "FTUP4B4-Z222AS2-ZTNS5QN-A3NR2GC-BRTPILY-ZL5QVSP-7HFWADD-VPTBOQK";
+                id = "J4CU52T-DSNGEZV-CCKUMN5-6GWPK5U-GESTBIE-P7SC6KZ-K4XBQCZ-MRAZHAH";
                 name = "Framework Laptop";
             };
             desktop = {
@@ -17,7 +21,7 @@
                 name = "Desktop";
             };
             optiplex = {
-                id = "FQQPRSO-2NA5UC6-4BQTFX7-UE2TEUH-M2V2VB7-HLVM5RD-O5B457E-7HHJCA4";
+                id = "QJRN566-BEZAHOG-GPJCX32-3YEWN4E-GE4JYJ4-YYQGGVN-DFUQBLQ-KN7KZA2";
                 name = "Optiplex";
             };
         };

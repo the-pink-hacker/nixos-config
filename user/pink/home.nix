@@ -11,7 +11,6 @@
         #/zsh.nix
         /fish.nix
         #/helix.nix
-        /syncthing.nix
     ]
     ++ lib.optionals gui [
         /mpd.nix
