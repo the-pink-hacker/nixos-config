@@ -219,6 +219,7 @@
         fontDir.enable = true;
         packages = with pkgs;
             [
+                arkpandora_ttf
                 powerline-fonts
                 noto-fonts
                 noto-fonts-color-emoji
@@ -231,8 +232,8 @@
 
         fontconfig = {
             defaultFonts = {
-                serif = ["Noto Serif"];
-                sansSerif = ["Noto Sans"];
+                serif = ["Tymes" "Noto Serif"];
+                sansSerif = ["Aerial" "Noto Sans"];
                 monospace = [theme.fonts.monospace.name];
                 emoji = ["Noto Color Emoji"];
             };
