@@ -234,7 +234,7 @@
         fontconfig = {
             defaultFonts = {
                 serif = ["Tymes" "Noto Serif"];
-                sansSerif = ["Aerial" "Noto Sans"];
+                sansSerif = ["Noto Sans" "Aerial"];
                 monospace = [theme.fonts.monospace.name];
                 emoji = ["Noto Color Emoji"];
             };
