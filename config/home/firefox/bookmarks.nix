@@ -22,10 +22,37 @@
                         "ivy"
                         "ivytech"
                         "ivy tech"
-                        "canvas"
                     ];
                     keyword = "myivy";
                     url = "https://my.ivytech.edu/myivy";
+                }
+                {
+                    name = "Mail";
+                    tags = [
+                        "email"
+                        "mail"
+                        "proton"
+                    ];
+                    keyword = "email";
+                    url = "https://mail.proton.me/u/0/inbox";
+                }
+                {
+                    name = "Calendar";
+                    tags = [
+                        "calendar"
+                        "proton"
+                    ];
+                    keyword = "calendar";
+                    url = "https://calendar.proton.me/u/0/";
+                }
+                {
+                    name = "Drive";
+                    tags = [
+                        "drive"
+                        "proton"
+                    ];
+                    keyword = "drive";
+                    url = "https://drive.proton.me/u/0/";
                 }
                 {
                     name = "Home Manager";
@@ -157,6 +184,15 @@
             ];
             keyword = "cohost";
             url = "https://cohost.org";
+        }
+        {
+            name = "Minecraft Enchantment Calculator";
+            tags = [
+                "minecraft"
+                "tool"
+            ];
+            keyword = "minecraft-enchantments";
+            url = "https://iamcal.github.io/enchant-order/";
         }
     ];
 }
