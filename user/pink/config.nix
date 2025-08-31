@@ -27,6 +27,7 @@
             #/virtualbox.nix
             /virt-manager.nix
             /chromium.nix
+            /matrix-client.nix
         ]))
         ++ [
             inputs.nix-minecraft.nixosModules.minecraft-servers
