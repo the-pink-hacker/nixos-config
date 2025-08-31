@@ -23,7 +23,9 @@
         ++ lib.optionals gui [
             /hyprland.nix
             /vr.nix
-            /vmware.nix
+            #/vmware.nix
+            #/virtualbox.nix
+            /virt-manager.nix
             /chromium.nix
         ]))
         ++ [

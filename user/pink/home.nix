@@ -21,6 +21,7 @@
         /yazi.nix
         /firefox.nix
         /idea.nix
+        /virt-manager.nix
     ]);
 
     xdg.userDirs = {

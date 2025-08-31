@@ -1,9 +1,3 @@
-{
-    lib,
-    vmware,
-    pkgs,
-    ...
-}:
-lib.mkIf vmware {
-    virtualisation.vmware.host.enable = true;
+{vmEnable, ...}: {
+    virtualisation.vmware.host.enable = vmEnable;
 }

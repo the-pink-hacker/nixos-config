@@ -10,7 +10,7 @@
     battery ? false,
     monitorBacklight ? false,
     fingerprint ? false,
-    vmware ? false,
+    vmEnable ? false,
     vr ? false,
     drive ? false,
     gui ? true,
@@ -28,7 +28,7 @@
         inherit systemName;
         inherit user;
         inherit vr;
-        inherit vmware;
+        inherit vmEnable;
         inherit drive;
         inherit theme;
         inherit gui;

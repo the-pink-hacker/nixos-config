@@ -78,7 +78,7 @@
                 inherit system;
                 bluetooth = true;
                 amdGraphics = true;
-                #vmware = true;
+                vmEnable = true;
                 vr = false;
                 drive = true;
                 inherit theme;
