@@ -146,7 +146,7 @@
                 ghex
                 blender
                 xorg.xeyes
-                tokodon
+                kdePackages.tokodon
                 kdePackages.dolphin
                 #elisa
                 protonvpn-gui
@@ -155,6 +155,7 @@
                 kdePackages.kcharselect
                 krita
                 tenacity
+                cemu-ti
             ];
     };
 
@@ -196,7 +197,7 @@
             hunspellDicts.en_US
         ];
 
-    programs.ssh.startAgent = true;
+    #programs.ssh.startAgent = true;
 
     xdg.portal = {
         enable = gui;

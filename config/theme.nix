@@ -11,7 +11,7 @@ in {
     gtk.name = "Sweet-Dark";
     icons.name = "Sweet";
     qt = {
-        platformTheme.name = "kde6";
+        platformTheme.name = "kde";
         style = {
             package = pkgs.utterly-round-plasma-style;
             name = "breeze";

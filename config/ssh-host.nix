@@ -21,9 +21,9 @@ in {
 
     #services.fail2ban.enable = true;
 
-    services.endlessh = {
-        enable = true;
-        openFirewall = true;
-        port = 22;
-    };
+    #services.endlessh = {
+    #    enable = true;
+    #    openFirewall = true;
+    #    port = 22;
+    #};
 }
