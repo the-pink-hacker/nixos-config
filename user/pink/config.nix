@@ -156,6 +156,7 @@
                 krita
                 tenacity
                 cemu-ti
+                openttd
             ];
     };
 
