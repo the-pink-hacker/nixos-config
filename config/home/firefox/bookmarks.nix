@@ -76,15 +76,17 @@
                     url = "https://www.tumblr.com";
                 }
                 {
-                    name = "Bluesky";
+                    name = "Wafrn";
                     tags = [
                         "bluesky"
+                        "mastodon"
+                        "wafrn"
                         "social media"
                         "entertainment"
                         "blog"
                     ];
-                    keyword = "bluesky";
-                    url = "https://bsky.app";
+                    keyword = "wafrn";
+                    url = "https://app.wafrn.net/dashboard";
                 }
                 {
                     name = "Subscriptions";
