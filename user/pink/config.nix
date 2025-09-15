@@ -157,6 +157,7 @@
                 tenacity
                 cemu-ti
                 openttd
+                signal-desktop
             ];
     };
 
