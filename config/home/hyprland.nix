@@ -153,6 +153,12 @@ in {
                     vibrancy = 0.1696;
                 };
             };
+            input = {
+                kb_layout = "us";
+                kb_options = "lv3:lalt_switch";
+                kb_variant = "altgr-intl";
+                touchpad.natural_scroll = true;
+            };
         };
     };
 }

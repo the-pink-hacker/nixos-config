@@ -101,8 +101,8 @@
             replace = "⁹";
         }
 
-        # === Emojies ===;
-        # Hearts;
+        # === Emojies ===
+        # Hearts
         {
             regex = ":<(\\||/|\\\\)3";
             replace = "💔";
@@ -154,6 +154,89 @@
         {
             trigger = ":white<3";
             replace = "🤍";
+        }
+
+
+        # === Accents ===
+        # Aigu
+        {
+            trigger = ":e'";
+            replace = "é";
+            propagate_case = true;
+        }
+        # Cédille
+        {
+            trigger = ":c~";
+            replace = "ç";
+            propagate_case = true;
+        }
+        # Grave
+        {
+            trigger = ":e`";
+            replace = "è";
+            propagate_case = true;
+        }
+        {
+            trigger = ":a`";
+            replace = "à";
+            propagate_case = true;
+        }
+        {
+            trigger = ":i`";
+            replace = "ì";
+            propagate_case = true;
+        }
+        {
+            trigger = ":o`";
+            replace = "ò";
+            propagate_case = true;
+        }
+        {
+            trigger = ":u`";
+            replace = "ù";
+            propagate_case = true;
+        }
+        # Circonflexe
+        {
+            trigger = ":a^";
+            replace = "â";
+            propagate_case = true;
+        }
+        {
+            trigger = ":e^";
+            replace = "ê";
+            propagate_case = true;
+        }
+        {
+            trigger = ":i^";
+            replace = "î";
+            propagate_case = true;
+        }
+        {
+            trigger = ":o^";
+            replace = "ô";
+            propagate_case = true;
+        }
+        {
+            trigger = ":u^";
+            replace = "û";
+            propagate_case = true;
+        }
+        # Trema
+        {
+            trigger = ":e:";
+            replace = "ë";
+            propagate_case = true;
+        }
+        {
+            trigger = ":i:";
+            replace = "ï";
+            propagate_case = true;
+        }
+        {
+            trigger = ":u:";
+            replace = "ü";
+            propagate_case = true;
         }
     ];
 }
