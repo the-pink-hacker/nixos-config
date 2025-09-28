@@ -19,14 +19,6 @@ in {
 
     xdg.configFile."kdeglobals".source = ./kde/kdeglobals;
 
-    home = {
-        sessionVariables = {
-            NIXOS_OZONE_WL = "1";
-            HYPRCURSOR_THEME = theme.cursor.name;
-            HYPRCURSOR_SIZE = theme.cursor.size;
-        };
-    };
-
     qt = {
         enable = true;
         platformTheme.name = theme.qt.platformTheme.name;

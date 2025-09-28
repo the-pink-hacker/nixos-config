@@ -18,6 +18,13 @@
         };
     };
 
+    environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        SDL_VIDEODRIVER = "wayland";
+        HYPRCURSOR_THEME = theme.cursor.name;
+        HYPRCURSOR_SIZE = theme.cursor.size;
+    };
+
     environment.systemPackages = with pkgs; [
         inputs.swww.packages.${pkgs.system}.swww
         gdk-pixbuf

@@ -5,17 +5,15 @@
 }: {
     programs.rofi = {
         enable = true;
-        package = pkgs.rofi-wayland;
+        package = pkgs.rofi;
         plugins = with pkgs; [
-            rofi-emoji-wayland
-            (rofi-calc.override {
-                rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
-            })
-            rofi-pass-wayland
+            rofi-emoji
+            rofi-calc
+            rofi-pass
         ];
         pass = {
             enable = true;
-            package = pkgs.rofi-pass-wayland;
+            package = pkgs.rofi-pass;
         };
         theme = "solarized";
         extraConfig = {
