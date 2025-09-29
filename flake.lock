@@ -91,6 +91,26 @@
         "type": "github"
       }
     },
+    "minegrub-world-sel-theme": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755441431,
+        "narHash": "sha256-X3AevoAmeyAAWkofXhK8vkfFO7lUSct0sAyKQ5MD6ak=",
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "rev": "00254ae5e1836ede1ad502b74dac162eab8eebe2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Lxtharia",
+        "repo": "minegrub-world-sel-theme",
+        "type": "github"
+      }
+    },
     "nix-minecraft": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -167,6 +187,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "minegrub-world-sel-theme": "minegrub-world-sel-theme",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs",
         "nur": "nur",

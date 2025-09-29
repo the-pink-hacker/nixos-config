@@ -35,8 +35,29 @@
 
     boot = {
         loader = {
-            systemd-boot.enable = true;
+            systemd-boot.enable = false;
             efi.canTouchEfiVariables = true;
+            grub = {
+                enable = true;
+                efiSupport = true;
+                device = "nodev";
+                minegrub-world-sel = {
+                    enable = true;
+                    customIcons = [
+                        {
+                            name = "nixos";
+                            lineTop = "NixOS (23/11/2023, 23:03)";
+                            lineBottom = "Survival Mode, No Cheats, Version: 23.11";
+                            # Icon: you can use an icon from the remote repo, or load from a local file
+                            imgName = "nixos";
+                            # customImg = builtins.path {
+                            #   path = ./nixos-logo.png;
+                            #   name = "nixos-img";
+                            # };
+                        }
+                    ];
+                };
+            };
         };
         supportedFilesystems = [
             "fat32"
