@@ -55,8 +55,6 @@ in
                 };
             }
 
-            inputs.minegrub-world-sel-theme.nixosModules.default
-
             (
                 if amdGraphics
                 then ../hardware/amd.nix

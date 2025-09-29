@@ -26,10 +26,6 @@
             url = "github:Infinidoge/nix-minecraft";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        minegrub-world-sel-theme = {
-            url = "github:Lxtharia/minegrub-world-sel-theme";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
 
     outputs = inputs @ {
