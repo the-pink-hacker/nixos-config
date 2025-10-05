@@ -3,7 +3,7 @@
 
     xdg.configFile."discord/settings.json".source = ./discord/settings.json;
 
-    services.mpd-discord-rpc.enable = false;
+    services.mpd-discord-rpc.enable = true;
 
     xdg.desktopEntries = {
         discord = {
