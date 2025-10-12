@@ -29,6 +29,7 @@ in {
             restart = "always";
             #enableReload = true;
             whitelist = {
+                BasilissaOfNuts = "9e39a447-6a0b-4fed-87ab-2b6c4dace9c8";
                 FormentingStorm = "f7781cd0-2882-43fb-aaec-632e02e8b82f";
                 II2E58IE2IE4 = "194339be-156f-4f99-ab78-e2c2804bd5b3";
                 LuLuSharkie = "3d01082d-0ddb-4fc8-8d8a-2da05a37ae86";
