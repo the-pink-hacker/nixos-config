@@ -27,7 +27,7 @@
             cmp-nvim-lsp
             vim-vsnip
             nvim-treesitter-parsers.vue
-            coc-vetur
+            #coc-vetur
             vim-vue-plugin
             nvim-solarized-lua
         ];

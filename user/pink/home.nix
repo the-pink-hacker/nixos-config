@@ -50,17 +50,20 @@
 
     programs.git = {
         enable = true;
-        userName = "Pink Garrett";
-        userEmail = "pink@thepinkhacker.com";
         signing = {
             signByDefault = true;
             key = "15BD92A4C6319F2A1847E84B4BB613B0CF20EE3D";
         };
-        extraConfig = {
+        settings = {
+            user = {
+                name = "Pink Garrett";
+                email = "pink@thepinkhacker.com";
+            };
             init.defaultBranch = "main";
         };
-        delta.enable = true;
     };
+
+    programs.delta.enableGitIntegration = true;
 
     programs.gh = {
         enable = true;

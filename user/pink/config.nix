@@ -15,7 +15,6 @@
             /urxvt.nix
             #/zsh.nix
             /cloudflare.nix
-            /minecraft.nix
             /gamemode.nix
             /fish.nix
             /syncthing.nix
@@ -28,6 +27,7 @@
             /virt-manager.nix
             /chromium.nix
             /matrix-client.nix
+            /minecraft.nix
         ]))
         ++ [
             inputs.nix-minecraft.nixosModules.minecraft-servers
