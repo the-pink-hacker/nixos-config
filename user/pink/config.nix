@@ -103,6 +103,7 @@
     users.users.pink = {
         isNormalUser = true;
         description = "Pink Garrett";
+        shell = pkgs.fish;
         extraGroups = [
             "networkmanager"
             "wheel"
