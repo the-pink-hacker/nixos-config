@@ -80,6 +80,12 @@ in {
                 "dom.webgpu.enabled" = true; # Doesn't work yet
                 "gfx.webrender.all" = true;
                 "image.jxl.enabled" = true;
+                # AI Bullshit
+                "browser.ml.chat.enabled" = false;
+                "browser.ml.chat.menu" = false;
+                "browser.ml.chat.page" = false;
+                "browser.ml.chat.sidebar" = false;
+                "sidebar.notification.badge.aichat" = false;
             };
         };
         policies = {
