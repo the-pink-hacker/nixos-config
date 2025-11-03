@@ -124,7 +124,7 @@
                 presenterm
                 neofetch
                 winetricks
-                wineWow64Packages.waylandFull
+                wineWowPackages.waylandFull
                 clinfo
                 virtualgl
                 vulkan-tools
