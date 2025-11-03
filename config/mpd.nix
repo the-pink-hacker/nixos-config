@@ -4,7 +4,7 @@
     ...
 }: {
     environment.systemPackages = with pkgs; [
-        mpc_cli
+        mpc
     ];
 
     #services.pipewire.systemWide = true;
