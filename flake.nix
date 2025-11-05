@@ -102,6 +102,14 @@
                 drive = true;
                 syncthingEnable = true;
             };
+            pink-nixos-frameser = mksystem "pink-nixos-frameser" {
+                user = "pink";
+                inherit system;
+                inherit theme;
+                gui = false;
+                drive = true;
+                syncthingEnable = true;
+            };
         };
     };
 }
