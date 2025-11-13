@@ -162,10 +162,6 @@ in {
                 "{d7efb617-4782-4ca1-841e-f1fde210896b}" = mkAddon {
                     slug = "whenplane-widget";
                 };
-                # YouTube Live Chat Overlay
-                "{c67d2cdf-97be-48a5-b6d1-3f26a7c94294}" = mkAddon {
-                    slug = "youtube-live-chat-overlay";
-                };
             };
         };
         nativeMessagingHosts = hosts;
