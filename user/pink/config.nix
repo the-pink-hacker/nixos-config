@@ -198,6 +198,7 @@
             pinentry-qt
             hunspell
             hunspellDicts.en_US
+            gzdoom
         ];
 
     #programs.ssh.startAgent = true;
