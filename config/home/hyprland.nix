@@ -78,8 +78,9 @@ in {
                 "swww-daemon && swww img ${theme.wallpaper} -t none"
                 "exec nm-applet --indicator"
                 "exec mako"
-                "exec systemctl --user start plasma-polkit-agent"
+                #"exec systemctl --user start plasma-polkit-agent"
                 "exec kdeconnectd"
+                "exec systemctl --user start hyprpolkitagent"
             ];
             exec = [
                 "swww img ${theme.wallpaper} -t none"
@@ -158,6 +159,9 @@ in {
                 kb_options = "lv3:lalt_switch";
                 kb_variant = "altgr-intl";
                 touchpad.natural_scroll = true;
+            };
+            xwayland = {
+                force_zero_scaling = true;
             };
         };
     };

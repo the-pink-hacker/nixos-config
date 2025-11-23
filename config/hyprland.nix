@@ -1,10 +1,14 @@
 {
     pkgs,
+    lib,
     monitorBacklight,
     inputs,
     theme,
+    systemName,
     ...
-}: {
+}: let
+    isLaptop = systemName == "pink-nixos-laptop";
+in {
     programs = {
         hyprland.enable = true;
         kde-pim.enable = true;
@@ -18,12 +22,17 @@
         };
     };
 
-    environment.sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        SDL_VIDEODRIVER = "wayland";
-        HYPRCURSOR_THEME = theme.cursor.name;
-        HYPRCURSOR_SIZE = theme.cursor.size;
-    };
+    environment.sessionVariables = lib.mkMerge [
+        {
+            NIXOS_OZONE_WL = "1";
+            SDL_VIDEODRIVER = "wayland";
+            HYPRCURSOR_THEME = theme.cursor.name;
+            HYPRCURSOR_SIZE = theme.cursor.size;
+        }
+        (lib.mkIf isLaptop {
+            GDK_SCALE = "1.175";
+        })
+    ];
 
     environment.systemPackages = with pkgs; [
         inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
@@ -38,7 +47,7 @@
         kdePackages.kdenlive
         kdePackages.filelight
         kdePackages.polkit-qt-1
-        kdePackages.polkit-kde-agent-1
+        #kdePackages.polkit-kde-agent-1
         kdePackages.kirigami
         kdePackages.kirigami-addons
         kdePackages.kirigami-gallery
@@ -54,6 +63,7 @@
         playerctl
         pavucontrol
         jmtpfs
+        hyprpolkitagent
     ];
 
     hardware.brillo.enable = monitorBacklight;
