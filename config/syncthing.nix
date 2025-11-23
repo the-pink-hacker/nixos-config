@@ -20,16 +20,16 @@
                 id = "2ENPQMR-MXW5G4Z-2YXB74Z-MLJFNET-IIOSZ6Z-PRO55E7-MPOQJE2-IB65LA3";
                 name = "Desktop";
             };
-            optiplex = {
-                id = "QJRN566-BEZAHOG-GPJCX32-3YEWN4E-GE4JYJ4-YYQGGVN-DFUQBLQ-KN7KZA2";
-                name = "Optiplex";
+            frameserv = {
+                id = "EVQ2LA3-3AMWHBS-G4LDHYU-NCJQW72-F4ICSZ7-SVXNLUS-EYSLHMG-JF3QAQQ";
+                name = "Framework Server";
             };
         };
         settings.folders = let
             devicesComputers = [
                 "laptop"
                 "desktop"
-                "optiplex"
+                "frameserv"
             ];
             devicesAll =
                 [

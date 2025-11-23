@@ -1,5 +1,6 @@
 {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
+        # chrome://flags/#enable-unsafe-webgpu
         (chromium.override {
             enableWideVine = false;
             commandLineArgs = [
