@@ -123,8 +123,8 @@
                 mprocs
                 presenterm
                 neofetch
-                winetricks
-                wineWowPackages.waylandFull
+                dig
+                htop
                 clinfo
                 virtualgl
                 vulkan-tools
@@ -137,6 +137,13 @@
                 tmux
             ]
             ++ lib.optionals gui [
+                # Wine
+                winetricks
+                wineWowPackages.waylandFull
+                wineWowPackages.fonts
+                wineWowPackages.yabridge
+                samba # Fixes ntlm_auth issue
+
                 heroic
                 vscode
                 libreoffice-qt
