@@ -36,6 +36,9 @@
                 command = ["select_item" "scroll_up"];
             }
         ];
+        settings = {
+            allow_for_physical_item_deletion = true;
+        };
     };
 
     services.mpd-discord-rpc = {
