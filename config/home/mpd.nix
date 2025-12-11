@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
     services.mpd = {
         enable = true;
         extraConfig = ''
@@ -7,6 +7,7 @@
                 name "Pulse Audio"
             }
         '';
+        playlistDirectory = "${config.xdg.userDirs.music}/.playlists";
         #extraConfig = ''
         #    audio_output {
         #        type "pipewire"
