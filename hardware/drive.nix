@@ -3,6 +3,7 @@
         brasero
         dvdplusrwtools
         xfce.xfburn
-        kdePackages.k3b
     ];
+
+    programs.k3b.enable = true;
 }
