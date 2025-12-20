@@ -159,6 +159,7 @@ in {
                 kb_options = "lv3:lalt_switch";
                 kb_variant = "altgr-intl";
                 touchpad.natural_scroll = true;
+                numlock_by_default = true;
             };
             xwayland = {
                 force_zero_scaling = true;
