@@ -30,7 +30,7 @@
     };
 
     wayland.windowManager.hyprland.settings.bind = [
-        "$mainMod, S, exec, rofi -show drun -show-icons -sort"
+        "$mainMod, S, exec, rofi -show drun -show-icons -sort -sorting-method fzf"
         "$mainMod, period, exec, rofi -show emoji"
     ];
 }
