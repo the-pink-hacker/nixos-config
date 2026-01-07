@@ -75,7 +75,7 @@ in {
             "$shiftMod" = "SUPER_SHIFT";
             "$fileManager" = "thunar";
             exec-once = [
-                "swww-daemon && swww img ${theme.wallpaper} -t none"
+                "awww-daemon && awww img ${theme.wallpaper} -t none"
                 "exec nm-applet --indicator"
                 "exec mako"
                 #"exec systemctl --user start plasma-polkit-agent"
@@ -83,7 +83,7 @@ in {
                 "exec systemctl --user start hyprpolkitagent"
             ];
             exec = [
-                "swww img ${theme.wallpaper} -t none"
+                "awww img ${theme.wallpaper} -t none"
             ];
             misc.disable_hyprland_logo = true;
             # https://wiki.linuxquestions.org/wiki/XF86_keyboard_symbols

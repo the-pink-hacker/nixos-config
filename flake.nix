@@ -8,14 +8,14 @@
     description = "A simple NixOS flake.";
 
     inputs = {
-        nixpkgs.url = "github:NixOs/nixpkgs/nixos-unstable";
+        nixpkgs.url = "github:NixOs/nixpkgs/nixos-25.11";
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/release-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nur.url = "github:nix-community/nur";
-        swww = {
-            url = "github:LGFae/swww";
+        awww = {
+            url = "git+https://codeberg.org/LGFae/awww";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         rust-overlay = {

@@ -35,7 +35,7 @@ in {
     ];
 
     environment.systemPackages = with pkgs; [
-        inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+        inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
         gdk-pixbuf
         jq
         pango
