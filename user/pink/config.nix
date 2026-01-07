@@ -159,7 +159,7 @@
                 #elisa
                 protonvpn-gui
                 mangohud
-                jetbrains.idea-community-bin
+                jetbrains.idea
                 kdePackages.kcharselect
                 krita
                 tenacity
