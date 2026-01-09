@@ -163,7 +163,9 @@
                 kdePackages.kcharselect
                 krita
                 tenacity
-                cemu-ti
+                (import ../../packages/cemu-ti {
+                    inherit (pkgs) stdenv lib fetchFromGitHub cmake pkg-config qt6 libarchive libpng;
+                })
                 openttd
                 signal-desktop
             ];
