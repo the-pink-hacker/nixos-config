@@ -143,7 +143,6 @@
                 wineWowPackages.fonts
                 wineWowPackages.yabridge
                 samba # Fixes ntlm_auth issue
-
                 heroic
                 vscode
                 libreoffice-qt
@@ -163,11 +162,9 @@
                 kdePackages.kcharselect
                 krita
                 tenacity
-                (import ../../packages/cemu-ti {
-                    inherit (pkgs) stdenv lib fetchFromGitHub cmake pkg-config qt6 libarchive libpng;
-                })
                 openttd
                 signal-desktop
+                inputs.ce-toolchain-nix.packages.${pkgs.stdenv.hostPlatform.system}.cemu-ti
             ];
     };
 

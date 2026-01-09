@@ -13,10 +13,17 @@
             url = "github:nix-community/home-manager/release-25.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        nur.url = "github:nix-community/nur";
+        flake-utils.url = "github:numtide/flake-utils";
+        nur = {
+            url = "github:nix-community/nur";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         awww = {
             url = "git+https://codeberg.org/LGFae/awww";
-            inputs.nixpkgs.follows = "nixpkgs";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                rust-overlay.follows = "rust-overlay";
+            };
         };
         rust-overlay = {
             url = "github:oxalica/rust-overlay";
@@ -24,7 +31,17 @@
         };
         nix-minecraft = {
             url = "github:Infinidoge/nix-minecraft";
-            inputs.nixpkgs.follows = "nixpkgs";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                flake-utils.follows = "flake-utils";
+            };
+        };
+        ce-toolchain-nix = {
+            url = "github:the-pink-hacker/ce-toolchain-nix";
+            inputs = {
+                nixpkgs.follows = "nixpkgs";
+                flake-utils.follows = "flake-utils";
+            };
         };
     };
 
